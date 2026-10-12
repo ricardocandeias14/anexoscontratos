@@ -1,0 +1,170 @@
+{
+  "nombre": "Modelo oficial SEPE de contrato de trabajo (el que imprimen A3 y Monitor)",
+  "bloque_trabajador": {
+    "inicio": "(?i)DATOS DE LA PERSONA TRABAJADORA",
+    "fin": "(?i)DATOS DE LA ASISTENCIA LEGAL"
+  },
+  "campos": {
+    "EMPRESA": {
+      "en": "empresa",
+      "patrones": [
+        "(?im)^NOMBRE O RAZ[ÓO]N SOCIAL DE LA EMPRESA\\s*\\n([^\\n]+)"
+      ]
+    },
+    "CIF_EMPRESA": {
+      "en": "empresa",
+      "formato": "cif",
+      "patrones": [
+        "(?im)^CIF/NIF/NIE\\s*\\n\\s*([A-Z0-9]{9})\\b"
+      ]
+    },
+    "DOMICILIO_EMPRESA": {
+      "en": "empresa",
+      "patrones": [
+        {
+          "re": "(?im)^DOMICILIO SOCIAL\\s*\\n([^\\n]+)\\nMUNICIPIO\\s*\\n([^\\n]+)\\nC[ÓO]DIGO POSTAL[^\\n]*\\n(\\d{5})",
+          "salida": "{0}, {2} {1}"
+        }
+      ]
+    },
+    "REPRESENTANTE": {
+      "en": "empresa",
+      "patrones": [
+        {
+          "re": "(?im)^D\\./D[ÑN]A\\. NIF/NIE\\s*\\n(.+?)\\s+(?:[XYZ]\\d{7}[A-Z]|\\d{8}[A-Z])\\s*\\nEN CONCEPTO[^\\n]*\\n([^\\n]+)",
+          "salida": "{0}, {1}"
+        }
+      ]
+    },
+    "ACTIVIDAD_EMPRESA": {
+      "en": "empresa",
+      "formato": "minuscula_inicial",
+      "patrones": [
+        "(?im)^ACTIVIDAD ECON[ÓO]MICA\\s*\\n([^\\n]+)"
+      ]
+    },
+    "NOMBRE": {
+      "en": "trabajador",
+      "patrones": [
+        "(?im)^D\\./D[ÑN]A\\. NIF/NIE\\s*\\n(.+?)\\s+(?:[XYZ]\\d{7}[A-Z]|\\d{8}[A-Z])\\s*$"
+      ]
+    },
+    "DNI": {
+      "en": "trabajador",
+      "formato": "dni",
+      "patrones": [
+        "(?im)^D\\./D[ÑN]A\\. NIF/NIE\\s*\\n.+?\\s+((?:[XYZ]\\d{7}[A-Z]|\\d{8}[A-Z]))\\s*$"
+      ]
+    },
+    "NSS": {
+      "en": "trabajador",
+      "formato": "nss",
+      "patrones": [
+        "(?im)^FECHA NACIMIENTO[^\\n]*\\n\\d{2}/\\d{2}/\\d{4}\\s+(\\d{2}\\s+\\d{8}\\s+\\d{2})"
+      ]
+    },
+    "DOMICILIO": {
+      "en": "trabajador",
+      "patrones": [
+        {
+          "re": "(?im)^MUNICIPIO DOMICILIO\\s*\\n(.+?)\\s+\\d{5}\\s*\\nC[ÓO]DIGO POSTAL[^\\n]*\\n(\\d{5})",
+          "salida": "{0} (C.P. {1})"
+        }
+      ]
+    },
+    "MODALIDAD": {
+      "en": "todo",
+      "formato": "minusculas",
+      "patrones": [
+        "(?m)^(CONTRATO DE TRABAJO[^\\n]*)$"
+      ]
+    },
+    "PUESTO": {
+      "en": "todo",
+      "patrones": [
+        "(?i)servicios como \\(3\\)\\s*\\n([^\\n]+)"
+      ]
+    },
+    "GRUPO_CONTRATO": {
+      "en": "todo",
+      "patrones": [
+        "(?i)incluido en el grupo profesional de\\s*\\n([^\\n]+)"
+      ]
+    },
+    "CENTRO_TRABAJO": {
+      "en": "todo",
+      "patrones": [
+        "(?i)centro\\s+de\\s+trabajo\\s+ubicado\\s+en\\s+\\(calle,\\s*n[ºo]\\s+y\\s+localidad\\)\\s*\\n([^\\n]+)"
+      ]
+    },
+    "DURACION": {
+      "en": "todo",
+      "formato": "minusculas",
+      "patrones": [
+        "(?i)duraci[óo]n del presente contrato ser[áa]\\s+([^,.\\n]+)"
+      ]
+    },
+    "FECHA_INICIO": {
+      "en": "todo",
+      "formato": "fecha",
+      "patrones": [
+        "(?i)relaci[óo]n laboral en fecha\\s+(\\d{1,2}/\\d{1,2}/\\d{2,4})"
+      ]
+    },
+    "PERIODO_PRUEBA": {
+      "en": "todo",
+      "formato": "minusculas",
+      "patrones": [
+        "(?i)per[ií]odo de prueba de \\(14\\)\\s*([^\\n]+)"
+      ]
+    },
+    "HORAS_SEMANALES": {
+      "en": "todo",
+      "patrones": [
+        "(?i)jornada de trabajo ser[áa] de\\s+(\\d+(?:[.,]\\d+)?)\\s+horas semanales"
+      ]
+    },
+    "DIAS_PRESTACION": {
+      "en": "todo",
+      "formato": "minusculas",
+      "patrones": [
+        {
+          "re": "(?i)horas semanales, prestadas de\\s+(\\w+)\\s*,\\s*a\\s+(\\w+)",
+          "salida": "de {0} a {1}"
+        }
+      ]
+    },
+    "SALARIO": {
+      "en": "todo",
+      "patrones": [
+        {
+          "re": "(?i)retribuci[óo]n total de\\s+(.+?)\\s+euros brutos\\s*\\(15\\)\\s*(\\w+)",
+          "salida": "{0} euros brutos ({1})"
+        }
+      ]
+    },
+    "CONVENIO_CONTRATO": {
+      "en": "todo",
+      "patrones": [
+        "(?i)Convenio Colectivo de\\s*\\n([^\\n]+)\\n"
+      ]
+    },
+    "LOCALIDAD": {
+      "en": "todo",
+      "titulo": true,
+      "patrones": [
+        "(?m)\\bEn\\s+([A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ ]+?)\\s+a\\s+\\d{1,2}\\s+de\\s+[A-Za-záéíóú]+\\s+de\\s+\\d{4}"
+      ]
+    },
+    "FECHA_CONTRATO": {
+      "en": "todo",
+      "formato": "fecha",
+      "patrones": [
+        {
+          "re": "(?m)\\bEn\\s+[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ ]+?\\s+a\\s+(\\d{1,2})\\s+de\\s+([A-Za-záéíóú]+)\\s+de\\s+(\\d{4})",
+          "salida": "{0} de {1} de {2}"
+        }
+      ]
+    }
+  }
+}

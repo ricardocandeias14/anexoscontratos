@@ -1,0 +1,5 @@
+Componentes de terceros incluidos en esta carpeta (se sirven desde aquí; la web no carga nada de internet):
+- pdf.js 4.10.38 (Mozilla) - Apache License 2.0
+- JSZip 3.10.1 - MIT / GPLv3 (se usa bajo MIT)
+- Tesseract.js 5.1.1 y tesseract.js-core 5.1.1 - Apache License 2.0
+- Datos de idioma español de Tesseract (tessdata_best_int) - Apache License 2.0

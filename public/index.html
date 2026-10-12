@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Anexos de contrato</title>
+<link rel="stylesheet" href="estilos.css">
+<script src="vendor/jszip.min.js"></script>
+<script type="module" src="js/app.js"></script>
+</head>
+<body>
+<header>
+  <h1>Anexos de contrato</h1>
+  <nav role="tablist">
+    <button id="tabAnexo" role="tab" aria-selected="true" type="button">Crear anexo</button>
+    <button id="tabAdmin" role="tab" aria-selected="false" type="button">Modelos y convenios</button>
+  </nav>
+  <p class="sub">🔒 El contrato se lee en <strong>este navegador</strong>: no se envía, no se sube y no se guarda en ningún servidor.</p>
+</header>
+
+<main>
+<div id="errorGlobal"></div>
+
+<!-- ======================= CREAR ANEXO ======================= -->
+<div id="vistaAnexo" class="dos-col">
+  <div class="col-pdf">
+    <section>
+      <h2>1. Contrato (PDF)</h2>
+      <div id="drop">
+        Arrastra aquí el PDF del contrato<br>
+        <label class="btn" style="margin-top:8px; display:inline-block">Elegir archivo
+          <input type="file" id="fichero" accept="application/pdf,.pdf" hidden></label>
+      </div>
+      <div id="estadoLectura" class="nota">También puedes rellenar el anexo a mano sin PDF: elige convenio y categoría.</div>
+      <div id="visor" hidden></div>
+    </section>
+  </div>
+
+  <div class="col-form">
+    <section>
+      <h2>2. Convenio y categoría</h2>
+      <div class="fila">
+        <label>Convenio <select id="convenio"></select></label>
+        <label>Categoría profesional <select id="categoria"></select></label>
+      </div>
+      <div id="pistaConvenio" class="nota"></div>
+    </section>
+
+    <section id="paso3" hidden>
+      <h2>3. Revisar y completar los datos</h2>
+      <div id="mensajeCampos"></div>
+      <div id="campos"></div>
+      <div class="acciones">
+        <button id="btnNoProcede" type="button">Poner «No procede» en los campos vacíos</button>
+        <button id="btnMarcar" type="button">Marcar todos para recordar</button>
+        <button id="btnRecordar" type="button">Recordar marcados para esta empresa</button>
+      </div>
+      <div id="estadoRecordar" class="nota"></div>
+    </section>
+
+    <section id="paso4" hidden>
+      <h2>4. Comprobar y generar</h2>
+      <div class="acciones" style="margin-top:0">
+        <button id="btnPrevia" type="button">Vista previa del anexo</button>
+        <button id="btnGenerar" class="primario" type="button">Generar anexo (Word)</button>
+      </div>
+      <div id="previa" hidden></div>
+      <div id="resultado"></div>
+    </section>
+  </div>
+</div>
+
+<!-- ======================= MODELOS Y CONVENIOS ======================= -->
+<div id="vistaAdmin" hidden>
+  <section>
+    <h2>Cómo añadir o cambiar un convenio</h2>
+    <ol class="pasos">
+      <li>Prepara el modelo en Word (<code>.docx</code>) con los campos <code>{{CLAVE}}</code> o <code>{{CLAVE|texto de ayuda}}</code>. Pruébalo abajo en «Comprobar un Word».</li>
+      <li>Si el convenio tiene categorías con datos propios (grupo, salario…), edítalas abajo y descarga los dos archivos <code>.json</code>.</li>
+      <li>En GitHub, entra en la carpeta <code>public/modelos/&lt;Nombre del convenio&gt;/</code> → <em>Add file → Upload files</em> y arrastra el Word y los <code>.json</code> (la carpeta se crea sola si escribes la ruta).</li>
+      <li>Cloudflare publica el cambio solo en 1–2 minutos. Recarga esta página con <kbd>Ctrl</kbd>+<kbd>F5</kbd>.</li>
+    </ol>
+    <p class="nota">Estos cambios son de <strong>convenios y empresas</strong>, nunca de trabajadores: el repositorio no debe contener datos personales.</p>
+  </section>
+
+  <section>
+    <h2>Estado de los modelos publicados</h2>
+    <div class="acciones" style="margin-top:0"><button id="btnComprobarTodo" type="button">Comprobar todos los modelos</button></div>
+    <div id="adminProblemas"></div>
+  </section>
+
+  <section>
+    <h2>Comprobar un Word antes de subirlo</h2>
+    <div class="fila">
+      <label>Archivo Word (.docx) <input type="file" id="admFichero" accept=".docx"></label>
+      <label>Comparar con los datos del convenio <select id="admComparar"></select></label>
+    </div>
+    <div id="admInforme"></div>
+  </section>
+
+  <section>
+    <h2>Categorías y datos de un convenio</h2>
+    <div class="fila">
+      <label>Convenio <select id="admConvenio"></select></label>
+      <label>…o uno nuevo (nombre de la carpeta) <input type="text" id="admNuevo" placeholder="p. ej. Hostelería Badajoz"></label>
+    </div>
+    <p class="nota">Cada fila es una categoría del desplegable. Las columnas son datos propios de la categoría que se escriben solos en el anexo
+      (por ejemplo <code>GRUPO</code>, <code>SALARIO_BASE</code>, <code>FUNCIONES</code>).</p>
+    <div class="tabla-scroll"><div id="tablaCategorias"></div></div>
+    <div class="acciones">
+      <button id="btnNuevaCategoria" type="button">+ Categoría</button>
+      <button id="btnNuevaColumna" type="button">+ Dato por categoría</button>
+    </div>
+    <h3>Valores comunes a todo el convenio</h3>
+    <div id="kvConvenio"></div>
+    <div class="acciones">
+      <button id="btnDescargarCategorias" class="primario" type="button">Descargar _categorias.json y _valores.json</button>
+    </div>
+    <div id="admGuardado" class="nota"></div>
+  </section>
+
+  <section>
+    <h2>Datos por empresa</h2>
+    <p class="nota" style="margin-top:0">Se rellenan solos al leer un contrato de esa empresa (por su CIF).
+      «Guardar aquí» los deja solo en este navegador. Para que los tengan todos tus compañeros, descarga el archivo y súbelo a
+      <code>public/empresas/</code> en GitHub.</p>
+    <div class="fila">
+      <label>Empresa (CIF) <select id="admEmpresa"></select></label>
+      <div class="acciones" style="margin:0"><button id="btnNuevaEmpresa" type="button">Nueva empresa…</button></div>
+    </div>
+    <div id="kvEmpresa" style="margin-top:12px"></div>
+    <div class="acciones">
+      <button id="btnGuardarEmpresa" type="button" hidden>Guardar aquí (este navegador)</button>
+      <button id="btnDescargarEmpresa" type="button" hidden>Descargar para compartir</button>
+    </div>
+    <div id="admEmpresaEstado" class="nota"></div>
+  </section>
+</div>
+</main>
+</body>
+</html>

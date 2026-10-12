@@ -1,0 +1,81 @@
+{
+  "nombre": "General (a calibrar con contratos reales de A3 / Monitor)",
+  "bloque_trabajador": {
+    "inicio": "(?i)de\\s+otra\\s+parte|datos\\s+del\\s+trabajador(?:/a)?|datos\\s+de\\s+la\\s+persona\\s+trabajadora",
+    "fin": "(?i)\\bexponen\\b|\\bmanifiestan\\b|\\bacuerdan\\b|cl[aá]usulas|datos\\s+del\\s+contrato|\\bprimera\\b"
+  },
+  "campos": {
+    "NOMBRE": {
+      "en": "trabajador",
+      "titulo": true,
+      "patrones": [
+        {
+          "re": "(?im)^\\s*(?:apellidos\\s+y\\s+nombre|apellidos,?\\s*nombre)\\s*[:\\-]\\s*(.+?)\\s*$",
+          "salida": "{0}"
+        },
+        "(?im)^\\s*(?:nombre\\s+y\\s+apellidos|nombre\\s+completo|trabajador(?:/a)?|nombre)\\s*[:\\-]\\s*(.+?)\\s*$",
+        "(?:D\\.\\s*/\\s*D[ñn]a\\.|D\\.ª|Dª|D\\.|D[ñn]a\\.|Don|Doña)\\s+([A-ZÁÉÍÓÚÜÑ][^,\\n]{4,80}?)\\s*,\\s*(?:mayor\\s+de\\s+edad|con\\s+(?:D\\.?N\\.?I|N\\.?I\\.?F|N\\.?I\\.?E))"
+      ],
+      "formato": "apellidos_coma_nombre"
+    },
+    "DNI": {
+      "en": "trabajador",
+      "formato": "dni",
+      "patrones": [
+        "(?i)(?:D\\.?\\s?N\\.?\\s?I\\.?(?:\\s*/\\s*N\\.?I\\.?E\\.?)?|N\\.?\\s?I\\.?\\s?F\\.?|N\\.?\\s?I\\.?\\s?E\\.?)[^\\n\\dXYZxyz]{0,25}?([XYZxyz]?[\\s\\-]?\\d{7,8}[\\s\\-]?[A-Za-z])\\b",
+        "\\b([XYZ]?\\d{7,8}[A-Z])\\b"
+      ]
+    },
+    "NSS": {
+      "en": "trabajador",
+      "formato": "nss",
+      "patrones": [
+        "(?i)(?:n[ºo°\\.]*\\s*(?:de\\s+)?(?:afiliaci[oó]n|seguridad\\s+social)|N\\.?\\s?S\\.?\\s?S\\.?|N\\.?\\s?A\\.?\\s?F\\.?)[^\\d]{0,40}?(\\d{2}\\s?[/\\-]?\\s?\\d{8}\\s?[/\\-]?\\s?\\d{2})"
+      ]
+    },
+    "DOMICILIO": {
+      "en": "trabajador",
+      "patrones": [
+        "(?im)^\\s*(?:domicilio|direcci[oó]n)\\s*[:\\-]\\s*(.+?)\\s*$",
+        "(?is)domicilio\\s+(?:en|:)\\s*(.+?)(?=,\\s*(?:y\\s+)?(?:con\\s+n[úu]m|afiliad|NSS|n[ºo]\\s)|\\.\\s|\\n)"
+      ]
+    },
+    "FECHA_CONTRATO": {
+      "en": "todo",
+      "formato": "fecha",
+      "patrones": [
+        "(?i)fecha\\s+(?:de\\s+)?(?:inicio|alta|ingreso|contrato|incorporaci[oó]n|efectos)[^\\n\\d]{0,20}?(\\d{1,2}[/\\-.]\\d{1,2}[/\\-.]\\d{2,4}|\\d{1,2}\\s+de\\s+[A-Za-záéíóú]+\\s+de\\s+\\d{4})"
+      ]
+    },
+    "JORNADA": {
+      "en": "todo",
+      "patrones": [
+        "(?im)^\\s*jornada(?:\\s+laboral)?\\s*[:\\-]\\s*(.+?)\\s*$",
+        {
+          "re": "(?i)(\\d{1,2}(?:[.,]\\d+)?)\\s*horas\\s+(?:semanales|a\\s+la\\s+semana)",
+          "salida": "{0} horas semanales"
+        }
+      ]
+    },
+    "SALARIO": {
+      "en": "todo",
+      "patrones": [
+        "(?i)(?:salario|retribuci[oó]n)[^\\n\\d]{0,40}?(\\d[\\d.,]*\\s*(?:€|euros)[^\\n]{0,40})"
+      ]
+    },
+    "EMPRESA": {
+      "en": "empresa",
+      "patrones": [
+        "(?im)^\\s*(?:empresa|raz[oó]n\\s+social|denominaci[oó]n(?:\\s+social)?)\\s*[:\\-]\\s*(.+?)\\s*$",
+        "(?i)(?:empresa|mercantil|sociedad)\\s+([^,\\n]{3,80}?)\\s*,\\s*con\\s+(?:CIF|NIF)"
+      ]
+    },
+    "CIF_EMPRESA": {
+      "en": "empresa",
+      "formato": "cif",
+      "patrones": [
+        "(?i)(?:CIF|NIF)[^\\n\\w]{0,10}([A-HJNPQRSUVW][\\s\\-]?\\d{7}[\\s\\-]?[0-9A-J])"
+      ]
+    }
+  }
+}

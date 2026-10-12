@@ -1,0 +1,2 @@
+Carpeta para datos de EMPRESA (no de trabajadores): un archivo <CIF>.json por empresa.
+Ejemplo de contenido: {"PLAN_IGUALDAD": "Plan de igualdad vigente desde 2024"}
