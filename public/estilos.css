@@ -20,7 +20,7 @@
   --tinta-950:#030a1f; --tinta-900:#0a1530; --tinta-800:#1a2446; --tinta-600:#4b5676;
 
   --bg:#f6f4ee; --bg-alt:#eeebe1; --card:#fffefb; --ink:var(--tinta-800); --muted:#636d8a;
-  --line:#e2dccb; --accent:var(--granate-600); --accent-ink:#fff8f6;
+  --line:#e2dccb; --accent:var(--granate-600); --accent-hover:var(--granate-700); --accent-ink:#fff8f6;
   --ok:#1d6b43; --warn-bg:#fdf1dc; --warn:#8a5a00; --err-bg:#fbeae6; --err:#9c2a1f;
   --chip:#efe9dd; --falta:#f3d35a;
   --masthead-bg: linear-gradient(155deg, var(--tinta-950), var(--tinta-900) 65%, #0e1b3e);
@@ -32,7 +32,7 @@
     --line:#2b3040; --accent:#d8707a; --accent-ink:#241012;
     --ok:#6fd49c; --warn-bg:#3a2f12; --warn:#f0c36a; --err-bg:#3b1c1c; --err:#ff9a92;
     --chip:#232838; --falta:#caa73a;
-    --granate-100:#2c1416;
+    --granate-100:#2c1416; --accent-hover:#ef9ea6;
   }
 }
 
@@ -67,22 +67,22 @@ body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 var(--fon
 }
 
 /* ---------- Sello (marca de pasos / garantías) ---------- */
-.sello-mini { display:inline-grid; place-items:center; width:19px; height:19px; border-radius:50%; border:1.5px solid var(--granate-600); color:var(--granate-600); font:600 10px/1 var(--font-mono); flex:none; }
+.sello-mini { display:inline-grid; place-items:center; width:19px; height:19px; border-radius:50%; border:1.5px solid var(--accent); color:var(--accent); font:600 10px/1 var(--font-mono); flex:none; }
 .hero .garantia .sello-mini { border-color:#e3a8ae; color:#f6d8da; background:rgba(255,255,255,.04); }
-.pie-app .sello-mini { border-color:var(--granate-600); color:var(--granate-600); }
+.pie-app .sello-mini { border-color:var(--accent); color:var(--accent); }
 
 .paso-cab { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
-.sello { position:relative; display:inline-grid; place-items:center; width:38px; height:38px; flex:none; border-radius:50%; border:2px solid var(--granate-600); color:var(--granate-600); font:600 15px/1 var(--font-mono); background:var(--card); transform:rotate(-5deg); }
-.sello::after { content:""; position:absolute; inset:4px; border:1px solid var(--granate-600); border-radius:50%; opacity:.5; }
+.sello { position:relative; display:inline-grid; place-items:center; width:38px; height:38px; flex:none; border-radius:50%; border:2px solid var(--accent); color:var(--accent); font:600 15px/1 var(--font-mono); background:var(--card); transform:rotate(-5deg); }
+.sello::after { content:""; position:absolute; inset:4px; border:1px solid var(--accent); border-radius:50%; opacity:.5; }
 .paso-cab h2 { margin:0; }
 
 /* ---------- Estructura general ---------- */
 main { max-width:1400px; margin:0 auto; padding:22px 20px 10px; }
-h2 { font:600 16px/1.3 var(--font-serif); margin:0 0 12px; color:var(--tinta-800); }
-h3 { font:600 13.5px/1.3 var(--font-sans); margin:16px 0 6px; color:var(--tinta-800); }
+h2 { font:600 16px/1.3 var(--font-serif); margin:0 0 12px; color:var(--ink); }
+h3 { font:600 13.5px/1.3 var(--font-sans); margin:16px 0 6px; color:var(--ink); }
 section { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin-bottom:16px; box-shadow:0 1px 2px rgba(10,15,30,.03); }
 
-.eyebrow-admin { font:500 11px/1.4 var(--font-mono); letter-spacing:.09em; text-transform:uppercase; color:var(--granate-600); margin:2px 0 14px; }
+.eyebrow-admin { font:500 11px/1.4 var(--font-mono); letter-spacing:.09em; text-transform:uppercase; color:var(--accent); margin:2px 0 14px; }
 
 #drop { border:2px dashed var(--line); border-radius:10px; padding:20px 12px; text-align:center; color:var(--muted); transition:.15s; background:var(--bg-alt); }
 #drop.sobre { border-color:var(--accent); background:var(--granate-100); color:var(--ink); }
@@ -90,7 +90,7 @@ section { background:var(--card); border:1px solid var(--line); border-radius:12
 .btn, button { font:500 14px/1 var(--font-sans); border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:8px; padding:8px 13px; cursor:pointer; }
 .btn:hover, button:hover { border-color:var(--accent); color:var(--accent); }
 button.primario { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); padding:10px 18px; font-weight:600; }
-button.primario:hover { background:var(--granate-700); border-color:var(--granate-700); color:#fff; }
+button.primario:hover { background:var(--accent-hover); border-color:var(--accent-hover); color:#fff; }
 button.mini { padding:1px 8px; line-height:1.3; }
 button:disabled { opacity:.5; cursor:not-allowed; }
 
