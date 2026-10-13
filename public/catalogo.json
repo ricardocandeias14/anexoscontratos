@@ -51,11 +51,13 @@
     "REF_VACACIONES": "24 días laborables según el artículo 48 del convenio; el período de disfrute se fija de común acuerdo conforme a ese artículo y al artículo 38 del Estatuto de los Trabajadores, y la persona trabajadora conocerá las fechas con al menos dos meses de antelación",
     "REF_PRUEBA": "lo dispuesto en el artículo 14 del Estatuto de los Trabajadores y en los artículos 13 a 17 del convenio (máximo de seis meses en los grupos 1 y 2, dos meses en el grupo 3, un mes en los grupos 4 y 5 y quince días en los grupos 6 y 7)",
     "REF_FORMACION": "los artículos 4.2.b) y 23 del Estatuto de los Trabajadores (incluido el permiso retribuido de veinte horas anuales de formación vinculada a la actividad de la empresa, a partir de un año de antigüedad) y los artículos 67 y 70 del convenio",
-    "REF_EXTINCION": "los artículos 49 a 56 del Estatuto de los Trabajadores y el artículo 24 del convenio, conforme al cual la empresa comunicará el cese por escrito con quince días naturales de antelación, con traslado a la representación legal, y puede sustituir el preaviso por una indemnización equivalente a los días omitidos; el preaviso se extiende también a la persona trabajadora",
+    "REF_EXTINCION": "los artículos 49 a 56 del Estatuto de los Trabajadores y el artículo 24 del convenio, conforme al cual la empresa comunicará el cese por escrito respetando los plazos y formalidades que corresponda en cada caso, con traslado a la representación legal, y puede sustituir el preaviso por una indemnización equivalente a los días omitidos; el preaviso se extiende también a la persona trabajadora",
     "REF_MODIFICACION": "los artículos 46 y 47 del convenio",
     "MEJORAS_VOLUNTARIAS": "complemento de incapacidad temporal del artículo 45 del convenio: hasta el 100 % del salario líquido desde el primer día en accidente de trabajo, y hasta el 100 % del salario neto a partir del séptimo día en enfermedad común o accidente no laboral"
    },
-   "modelos": []
+   "modelos": [
+    "_base.docx"
+   ]
   },
   {
    "nombre": "Sin convenio colectivo (Estatuto de los Trabajadores)",
