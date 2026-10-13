@@ -207,6 +207,7 @@ export async function prepararCampos(conv, cat, valoresContrato = {}, editados =
   const notas = {};                      // avisos informativos: no bloquean
   avisoCuatroSemanas(valor, notas);
   avisoPlazoEntrega(valor, notas);
+  avisoClausulasAdicionales(valor, notas);
   if (esVerdadero(valor.ES_TEMPORAL) && /indefinid/i.test(valor.DURACION || "") && !av.DURACION)
     av.DURACION = "El contrato dice «indefinida» pero has marcado que es temporal: revisa";
   const modelo = await abrirModelo(conv, cat);
@@ -248,6 +249,22 @@ function avisoPlazoEntrega(valor, av) {
     : conversion
       ? "Fecha posterior a la conversión: la información debía entregarse, como tarde, el día en que surtió efecto (art. 7.3 RD 723/2026)"
       : "Fecha posterior al inicio: la información debía entregarse antes del inicio de la relación (art. 7.1 RD 723/2026)";
+}
+
+/** Art. 3.2.d) y g).5.iii RD 723/2026: la causa de temporalidad y los períodos de actividad/inactividad del
+ *  fijo-discontinuo rara vez están en un campo propio del modelo SEPE; suelen escribirse a mano en el recuadro
+ *  de «Cláusulas adicionales» del contrato, con redacción libre. Por eso no se intentan extraer por expresión
+ *  regular (el riesgo de copiar mal una causa legal es alto): se avisa de dónde buscarlas para copiarlas tal cual. */
+function avisoClausulasAdicionales(valor, notas) {
+  if (esVerdadero(valor.ES_TEMPORAL) && !esVerdadero(valor.ES_CONVERSION)) {
+    const aviso = "No se localiza solo/a: cópialo de «Cláusulas adicionales» en el contrato original";
+    for (const clave of ["CAUSA_TEMPORAL", "CIRCUNSTANCIAS_TEMPORAL", "EXPLICACION_DURACION"]) {
+      if (!(valor[clave] || "").trim()) notas[clave] = aviso;
+    }
+  }
+  if (esVerdadero(valor.ES_FIJO_DISCONTINUO) && !(valor.PERIODOS_FIJO_DISCONTINUO || "").trim()) {
+    notas.PERIODOS_FIJO_DISCONTINUO = "No se localiza solo/a: cópialo de «Cláusulas adicionales» en el contrato original";
+  }
 }
 
 function aFecha(t) {
