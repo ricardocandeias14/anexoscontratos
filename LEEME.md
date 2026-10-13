@@ -35,30 +35,47 @@ public/
 
 Cada vez que cambies algo en GitHub, Cloudflare vuelve a publicar solo en 1–2 minutos.
 
-## Uso diario
-Abrir la dirección → arrastrar el PDF del contrato → comprobar convenio y categoría → revisar los datos →
-«Vista previa del anexo» → «Generar anexo (Word)». El .docx se descarga en la carpeta de descargas del equipo
+## Uso diario (personal del despacho)
+1. Arrastrar el PDF del contrato (de A3 o de Monitor).
+2. Elegir la categoría profesional (el convenio se elige solo).
+3. Rellenar solo lo que pida «Falta…». Los datos de la empresa se piden la primera vez y se guardan solos al generar.
+4. «Generar anexo». El resto de datos se puede revisar en «Revisar o cambiar cualquier otro dato». El .docx se descarga en la carpeta de descargas del equipo
 (contiene datos personales: tratarlo como tal y borrarlo cuando proceda).
 
-## Añadir o cambiar convenios, categorías y modelos (sin informática)
-Pestaña **«Modelos y convenios»**: comprueba el Word, edita la tabla de categorías y descarga los `.json`.
-Después, en GitHub: carpeta `public/modelos/<Convenio>/` → *Add file → Upload files* → arrastra el Word y los `.json`.
-(Si el convenio es nuevo, escribe la ruta completa al subir y GitHub crea la carpeta.)
+## Cómo está hecho el anexo (Real Decreto 723/2026)
+Un único **modelo común** (`public/modelos/_comun/_base.docx`) sirve para todos los convenios:
+- **Remisiones (art. 3.3 RD 723/2026):** salario, jornada, horas extra, vacaciones, período de prueba, formación,
+  extinción y modificaciones se cumplen remitiendo a artículos concretos del convenio elegido o, si no hay convenio, del
+  Estatuto de los Trabajadores. Esos textos están en `_valores.json` de cada convenio (claves `REF_…` y `CONV_…`).
+- **Apartados según el tipo de contrato:** temporal, fijo-discontinuo, conversión, período de prueba, ETT, trabajo a
+  distancia, varios centros, turnos, distribución irregular, algoritmos, conciliación, LGTBI y trabajo en el extranjero
+  solo aparecen si proceden. En pantalla son preguntas Sí/No, deducidas del contrato y corregibles.
+- **Datos de empresa** (plan de igualdad, protocolo de acoso, mutua, horario, forma de pago…): se piden la primera vez y se guardan solos al generar; la siguiente vez salen rellenos
+  (en ese ordenador; para compartirlos con todos: «Administración» → «Datos por empresa»).
+- Avisos: duración de 4 semanas o menos (art. 2.2), entrega fuera de plazo (art. 7) y relaciones anteriores al 5/10/2026
+  (disposición transitoria única).
 
-En el Word, cada hueco se escribe `{{CLAVE}}` o `{{CLAVE|texto de ayuda}}`. Las claves del contrato (NOMBRE, DNI, EMPRESA,
-PUESTO, FECHA_INICIO…) se rellenan solas; las del convenio salen de `_categorias.json` / `_valores.json`; el resto
-aparece en «A completar». Automáticas: `FECHA_HOY`, `CONVENIO`, `CATEGORIA`.
-Los modelos pueden prepararse con Claude a partir del texto público del convenio (sin datos de trabajadores) y revisarse antes de subirlos.
+En el Word, la sintaxis es:
+- `{{CLAVE|ayuda}}`: campo.
+- `{{#SI CLAVE|pregunta}}` … `{{/SI}}`, cada marca en su propio párrafo: bloque que aparece si la respuesta es Sí.
+- `{{#NO CLAVE|pregunta}}` … `{{/SI}}`: bloque que aparece si la respuesta es No.
+Un convenio puede tener su propio Word (`_base.docx` o `<Categoría>.docx` en su carpeta), que tiene prioridad sobre el común.
 
-**El repositorio solo debe contener datos de convenios y empresas. Nunca contratos, DNI ni anexos generados.**
+## Añadir un convenio (sin informática)
+1. Pestaña «Administración» → «Preparar un convenio nuevo con Claude» → «Copiar instrucciones».
+2. En un chat de Claude, pega las instrucciones y adjunta el **PDF público del convenio** (nunca contratos ni datos de trabajadores).
+3. Pega la respuesta en la web → «Comprobar y cargar». Revisa artículos, cuantías y vigencia en la tabla y descarga los archivos.
+4. En GitHub: `public/modelos/<Nombre sin acentos>/` → *Add file → Upload files* → arrastra `_valores.json`, `_categorias.json`
+   y, si lo descargó, `_nombre.txt`. Con el modelo común no hace falta subir ningún Word.
+5. «Comprobar todos los modelos» avisa si a un convenio le falta alguna remisión.
 
-## Datos de empresa
-«Recordar para la empresa» guarda los campos marcados en **ese navegador** (localStorage). Para compartirlos:
-pestaña «Modelos y convenios» → «Datos por empresa» → «Descargar para compartir» y subir el `<CIF>.json` a `public/empresas/`.
+Sin convenio aplicable: elegir «Sin convenio colectivo (Estatuto de los Trabajadores)».
 
-## Si un contrato no se lee bien
-Las reglas están en `public/perfiles/*.json` (expresiones regulares por campo). Si A3 o Monitor cambian su formato,
-se ajustan ahí. Los escaneos se leen con OCR local (más lento y menos fiable: revisar todo).
+## Lectura del contrato
+- Reglas por campo en `public/perfiles/sepe.json` (expresiones regulares). El texto se normaliza antes (números en casillas, espacios),
+  y los patrones no dependen de los números de nota del modelo del SEPE.
+- Si el nombre del archivo lleva el CIF y el DNI (como hace Monitor: `…_CIF.EMPRESA_DNI.NOMBRE_TIPO.pdf`), sirven de respaldo y de control: si no coinciden con el contrato, avisa.
+- `public/perfiles/_reglas.json`: deducciones (tipo de contrato, respuestas por defecto, antigüedad, funciones…). Se ven como «deducido: revisar».
 
 ## Probar en local
 `python3 build.py` y, dentro de `public`, `python3 -m http.server 8000` → http://localhost:8000

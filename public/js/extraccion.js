@@ -71,6 +71,26 @@ export async function leerPdf(bytes, { alProgreso } = {}) {
 // ----------------------------------------------------------------------------
 const cacheRegex = new Map();
 
+/** \w de Python incluye letras acentuadas; en JavaScript no. Se sustituye teniendo en cuenta si va entre corchetes. */
+function unicodizar(p) {
+  let out = "", enClase = false;
+  for (let i = 0; i < p.length; i++) {
+    const c = p[i];
+    if (c === "\\") {
+      const sig = p[i + 1] ?? "";
+      if (sig === "w") out += enClase ? "\\p{L}\\p{N}_" : "[\\p{L}\\p{N}_]";
+      else if (sig === "W" && !enClase) out += "[^\\p{L}\\p{N}_]";
+      else out += c + sig;
+      i++;
+      continue;
+    }
+    if (c === "[" && !enClase) enClase = true;
+    else if (c === "]" && enClase) enClase = false;
+    out += c;
+  }
+  return out;
+}
+
 /** Convierte una expresión estilo Python (con (?i)(?m) al principio) en RegExp de JavaScript. */
 export function aRegex(patron) {
   if (cacheRegex.has(patron)) return cacheRegex.get(patron);
@@ -81,7 +101,7 @@ export function aRegex(patron) {
     p = p.slice(m[0].length);
     for (const f of m[1]) if ("ims".includes(f) && !flags.includes(f)) flags += f;
   }
-  p = p.replace(/\\w/g, "[\\p{L}\\p{N}_]");
+  p = unicodizar(p);
   const re = new RegExp(p, flags);
   cacheRegex.set(patron, re);
   return re;
@@ -98,7 +118,8 @@ export function aplicarFormato(valor, formato) {
   let v = recortar(valor.replace(/\s+/g, " ").trim(), " .,;:-\t");
   v = v.replace(/\s+([,.;:])/g, "$1");
   if (formato === "minusculas") v = v.toLowerCase();
-  else if (formato === "minuscula_inicial") v = v.slice(0, 1).toLowerCase() + v.slice(1);
+  else if (formato === "minusculas_si_mayusculas") { if (v === v.toUpperCase()) v = v.toLowerCase(); }
+  else if (formato === "minuscula_inicial") v = v === v.toUpperCase() ? v.toLowerCase() : v.slice(0, 1).toLowerCase() + v.slice(1);
   else if (formato === "apellidos_coma_nombre" && v.includes(",")) {
     const i = v.indexOf(",");
     v = `${v.slice(i + 1).trim()} ${v.slice(0, i).trim()}`;
@@ -129,12 +150,13 @@ function buscarCampo(spec, texto) {
   for (const patron of spec.patrones) {
     const regex = typeof patron === "object" ? patron.re : patron;
     const salida = typeof patron === "object" ? patron.salida : null;
+    const formato = (typeof patron === "object" && patron.formato) || spec.formato || "";
     const m = aRegex(regex).exec(texto);
     if (!m) continue;
     let valor;
     if (salida) valor = salida.replace(/\{(\d+)\}/g, (_, n) => m[+n + 1] ?? "");
     else valor = m.slice(1).find((g) => g) ?? m[0];
-    valor = aplicarFormato(valor, spec.formato || "");
+    valor = aplicarFormato(valor, formato);
     if (spec.titulo) valor = tituloNombre(valor);
     if (valor) return valor;
   }
@@ -152,13 +174,35 @@ export function extraerConPerfil(texto, perfil) {
   return valores;
 }
 
+/**
+ * Normaliza el texto antes de buscar, para que los patrones no dependan de detalles de impresión:
+ *  - Números y letras sueltos en casillas ("B 0 6 3 8 6 4 4 5", "0 6 3 6 0") se juntan ("B06386445").
+ *    Solo se juntan secuencias de 5 o más caracteres sueltos (CP, CIF, NSS...; no «1 2 A» de número/piso/puerta) (mayúsculas, dígitos o "/"), nunca palabras.
+ *  - Espacios raros (no separables, tabuladores) pasan a espacio normal; "N°" pasa a "Nº".
+ */
+export function normalizarTexto(texto) {
+  return texto
+    .replace(/[\u00a0\u2007\u202f\t]/g, " ")
+    .replace(/N°/g, "Nº")
+    .split("\n")
+    .map((l) => l
+      .replace(/(?<=^|\s)(?:[A-ZÑ0-9/] ){4,}[A-ZÑ0-9/](?=\s|$)/gu, (m) => m.replace(/ /g, ""))
+      .replace(/ {2,}/g, " ")
+      .trimEnd())
+    .join("\n");
+}
+
 /** Prueba todos los perfiles y se queda con el que más campos rellena. */
 export function extraer(texto, perfiles) {
+  const limpio = normalizarTexto(texto);
   let mejor = null;
   for (const [nombre, perfil] of Object.entries(perfiles)) {
-    const vals = extraerConPerfil(texto, perfil);
+    const vals = extraerConPerfil(limpio, perfil);
     const puntos = Object.values(vals).filter(Boolean).length;
-    if (!mejor || puntos > mejor.puntos) mejor = { puntos, nombre, valores: vals };
+    if (!mejor || puntos > mejor.puntos) {
+      mejor = { puntos, nombre, valores: vals, noEncontrados: Object.keys(vals).filter((k) => !vals[k]) };
+    }
   }
+  mejor.texto = limpio;
   return mejor;
 }

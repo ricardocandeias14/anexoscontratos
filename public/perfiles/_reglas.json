@@ -1,0 +1,271 @@
+{
+  "nota": "Reglas que deducen datos y respuestas Sí/No a partir del contrato. En pantalla aparecen como «deducido: revisar». 'si': el campo debe cumplir la expresión; 'si_no': no debe cumplirla (o estar vacío); 'si_texto': se busca en todo el contrato. 'solo_si_vacio': true = no pisa lo que venga de la categoría, la empresa o el convenio (por ejemplo, respuestas recordadas para la empresa). Para una misma clave, gana la primera regla que se cumple. En 'poner' se puede usar {CLAVE} para copiar otro dato. 'datos_empresa': campos que son iguales para todos los trabajadores de una empresa; se guardan solos al generar y se rellenan la próxima vez.",
+  "datos_empresa": [
+    "PLAN_IGUALDAD",
+    "PROTOCOLO_ACOSO",
+    "SISTEMA_SS",
+    "COLABORACION_DIRECTA",
+    "MEJORAS_VOLUNTARIAS",
+    "PLANES_PENSIONES",
+    "FORMA_PAGO",
+    "HORARIO",
+    "OTROS_COMPLEMENTOS",
+    "CONCEPTOS_VARIABLES",
+    "FORMA_ENTREGA",
+    "HAY_SISTEMAS_AUTOMATIZADOS",
+    "SISTEMAS_IDENTIFICACION",
+    "SISTEMAS_CONDICIONES",
+    "SISTEMAS_DESCRIPCION",
+    "HAY_POLITICA_CONCILIACION",
+    "POLITICA_CONCILIACION",
+    "HAY_MEDIDAS_LGTBI",
+    "MEDIDAS_LGTBI",
+    "HAY_TURNOS_NOCTURNO",
+    "TURNOS",
+    "HAY_DISTRIBUCION_IRREGULAR",
+    "SISTEMA_IRREGULAR",
+    "DIAS_FRANJAS",
+    "PREAVISO_INICIO",
+    "PREAVISO_CANCELACION",
+    "HAY_OTRO_CONVENIO",
+    "OTRO_CONVENIO"
+  ],
+  "reglas": [
+    {
+      "descripcion": "El contrato incluye la fecha de conversión de temporal en indefinido",
+      "si": {
+        "FECHA_CONVERSION": "."
+      },
+      "poner": {
+        "ES_CONVERSION": "Sí"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Conversión en indefinido: la relación ya no es temporal",
+      "si": {
+        "MODALIDAD": "(?i)conversi[óo]n"
+      },
+      "poner": {
+        "ES_TEMPORAL": "No"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Conversión en indefinido: no cabe un nuevo período de prueba para las mismas funciones (artículo 14.1 del Estatuto de los Trabajadores)",
+      "si": {
+        "MODALIDAD": "(?i)conversi[óo]n"
+      },
+      "poner": {
+        "HAY_PERIODO_PRUEBA": "No"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "El contrato tiene fecha de conversión: la relación ya no es temporal",
+      "si": {
+        "FECHA_CONVERSION": "."
+      },
+      "poner": {
+        "ES_TEMPORAL": "No",
+        "HAY_PERIODO_PRUEBA": "No"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "El contrato marca la conversión de temporal en indefinido",
+      "si": {
+        "MODALIDAD": "(?i)conversi[óo]n"
+      },
+      "poner": {
+        "ES_CONVERSION": "Sí"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "El contrato no es una conversión",
+      "si": {
+        "MODALIDAD": "."
+      },
+      "si_no": {
+        "MODALIDAD": "(?i)conversi[óo]n"
+      },
+      "poner": {
+        "ES_CONVERSION": "No"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Duración indefinida según el contrato",
+      "si": {
+        "DURACION": "(?i)indefinid"
+      },
+      "poner": {
+        "ES_TEMPORAL": "No"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Duración determinada según el contrato",
+      "si": {
+        "DURACION": "."
+      },
+      "si_no": {
+        "DURACION": "(?i)indefinid"
+      },
+      "poner": {
+        "ES_TEMPORAL": "Sí"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Modalidad temporal según el contrato",
+      "si": {
+        "MODALIDAD": "(?i)temporal|duraci[óo]n determinada|sustituci[óo]n|circunstancias de la producci"
+      },
+      "si_no": {
+        "MODALIDAD": "(?i)indefinid"
+      },
+      "poner": {
+        "ES_TEMPORAL": "Sí"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "El contrato es fijo-discontinuo",
+      "si": {
+        "MODALIDAD": "(?i)fijo.?discontinuo"
+      },
+      "poner": {
+        "ES_FIJO_DISCONTINUO": "Sí"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "El contrato no es fijo-discontinuo",
+      "si": {
+        "MODALIDAD": "."
+      },
+      "si_no": {
+        "MODALIDAD": "(?i)fijo.?discontinuo"
+      },
+      "poner": {
+        "ES_FIJO_DISCONTINUO": "No"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "El contrato fija una duración de período de prueba",
+      "si": {
+        "PERIODO_PRUEBA": "(?i)\\d|mes|d[ií]a|semana"
+      },
+      "si_no": {
+        "PERIODO_PRUEBA": "(?i)superado|no se|sin per[ií]odo|no procede"
+      },
+      "poner": {
+        "HAY_PERIODO_PRUEBA": "Sí"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "El contrato no fija período de prueba (o ya se superó)",
+      "si_no": {
+        "PERIODO_PRUEBA": "(?i)^(?!.*(superado|no se|sin per)).*(\\d|mes|d[ií]a|semana)"
+      },
+      "poner": {
+        "HAY_PERIODO_PRUEBA": "No"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Por defecto en contratos del SEPE: sin cesión por ETT ni trabajo en el extranjero",
+      "poner": {
+        "ES_ETT": "No",
+        "HAY_TRABAJO_EXTRANJERO": "No"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Por defecto (cámbialo y márcalo como «recordar» si en la empresa es distinto)",
+      "poner": {
+        "HAY_TRABAJO_DISTANCIA": "No",
+        "HAY_VARIOS_CENTROS": "No",
+        "HAY_TURNOS_NOCTURNO": "No",
+        "HAY_DISTRIBUCION_IRREGULAR": "No",
+        "HAY_SISTEMAS_AUTOMATIZADOS": "No",
+        "HAY_POLITICA_CONCILIACION": "No",
+        "HAY_MEDIDAS_LGTBI": "No",
+        "HAY_OTRO_CONVENIO": "No"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Funciones: si la categoría no las define, se usan las del contrato",
+      "si": {
+        "FUNCIONES_CONTRATO": "."
+      },
+      "poner": {
+        "FUNCIONES": "{FUNCIONES_CONTRATO}"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Grupo: si la categoría no lo define, se usa el del contrato",
+      "si": {
+        "GRUPO_CONTRATO": "."
+      },
+      "poner": {
+        "GRUPO": "{GRUPO_CONTRATO}"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Antigüedad en una conversión: desde el contrato temporal de origen",
+      "si": {
+        "MODALIDAD": "(?i)conversi[óo]n",
+        "FECHA_CONTRATO_ORIGEN": "."
+      },
+      "poner": {
+        "ANTIGUEDAD": "{FECHA_CONTRATO_ORIGEN}"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Antigüedad: desde la fecha de inicio del contrato",
+      "si": {
+        "FECHA_INICIO": "."
+      },
+      "poner": {
+        "ANTIGUEDAD": "{FECHA_INICIO}"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Sin convenio: salario base según el contrato",
+      "si": {
+        "SALARIO": "\\d"
+      },
+      "poner": {
+        "SALARIO_BASE": "{SALARIO}"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "El contrato no prevé prorrateo de pagas",
+      "si_no": {
+        "PRORRATEO": "."
+      },
+      "poner": {
+        "PRORRATEO": "No se prorratean; se abonan en sus fechas de devengo"
+      },
+      "solo_si_vacio": true
+    },
+    {
+      "descripcion": "Entrega habitual (cámbialo y recuérdalo para la empresa si se entrega de otra forma)",
+      "poner": {
+        "FORMA_ENTREGA": "en papel, en mano"
+      },
+      "solo_si_vacio": true
+    }
+  ]
+}

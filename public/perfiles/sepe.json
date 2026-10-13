@@ -1,5 +1,6 @@
 {
   "nombre": "Modelo oficial SEPE de contrato de trabajo (el que imprimen A3 y Monitor)",
+  "nota": "Expresiones regulares por campo. Se prueban en orden y vale la primera que encuentra algo. Los números de nota del SEPE, como (3) o (14), cambian según la versión del modelo: por eso se escriben \\(\\d+\\). El texto llega normalizado: los números en casillas (B 0 6 3 ...) ya vienen juntos.",
   "bloque_trabajador": {
     "inicio": "(?i)DATOS DE LA PERSONA TRABAJADORA",
     "fin": "(?i)DATOS DE LA ASISTENCIA LEGAL"
@@ -15,15 +16,19 @@
       "en": "empresa",
       "formato": "cif",
       "patrones": [
-        "(?im)^CIF/NIF/NIE\\s*\\n\\s*([A-Z0-9]{9})\\b"
+        "(?im)^CIF/NIF/NIE\\s*\\n\\s*([A-Z]\\s?\\d{7}\\s?[0-9A-J]|[XYZ]?\\d{7,8}[A-Z])\\b"
       ]
     },
     "DOMICILIO_EMPRESA": {
       "en": "empresa",
       "patrones": [
         {
-          "re": "(?im)^DOMICILIO SOCIAL\\s*\\n([^\\n]+)\\nMUNICIPIO\\s*\\n([^\\n]+)\\nC[ÓO]DIGO POSTAL[^\\n]*\\n(\\d{5})",
+          "re": "(?im)^DOMICILIO SOCIAL\\s*\\n([^\\n]+)\\n\\s*MUNICIPIO\\s*\\n(.+?)(?:\\s+\\d{5})?\\s*\\n\\s*C[ÓO]DIGO POSTAL[^\\n]*\\n\\s*(\\d{5})",
           "salida": "{0}, {2} {1}"
+        },
+        {
+          "re": "(?im)^DOMICILIO SOCIAL\\s*\\n([^\\n]+)\\n\\s*MUNICIPIO\\s*\\n(.+?)(?:\\s+\\d{5})?\\s*$",
+          "salida": "{0}, {1}"
         }
       ]
     },
@@ -31,7 +36,7 @@
       "en": "empresa",
       "patrones": [
         {
-          "re": "(?im)^D\\./D[ÑN]A\\. NIF/NIE\\s*\\n(.+?)\\s+(?:[XYZ]\\d{7}[A-Z]|\\d{8}[A-Z])\\s*\\nEN CONCEPTO[^\\n]*\\n([^\\n]+)",
+          "re": "(?im)^D\\./D[ÑN]A\\.\\s*NIF/NIE\\s*\\n(.+?)\\s+(?:[XYZ]\\d{7}[A-Z]|\\d{8}[A-Z])\\s*\\n\\s*EN CONCEPTO[^\\n]*\\n([^\\n]+)",
           "salida": "{0}, {1}"
         }
       ]
@@ -46,82 +51,118 @@
     "NOMBRE": {
       "en": "trabajador",
       "patrones": [
-        "(?im)^D\\./D[ÑN]A\\. NIF/NIE\\s*\\n(.+?)\\s+(?:[XYZ]\\d{7}[A-Z]|\\d{8}[A-Z])\\s*$"
+        "(?im)^D\\./D[ÑN]A\\.\\s*NIF/NIE\\s*\\n(.+?)\\s+(?:[XYZ]\\d{7}[A-Z]|\\d{8}[A-Z])\\s*$"
       ]
     },
     "DNI": {
       "en": "trabajador",
       "formato": "dni",
       "patrones": [
-        "(?im)^D\\./D[ÑN]A\\. NIF/NIE\\s*\\n.+?\\s+((?:[XYZ]\\d{7}[A-Z]|\\d{8}[A-Z]))\\s*$"
+        "(?im)^D\\./D[ÑN]A\\.\\s*NIF/NIE\\s*\\n.+?\\s+((?:[XYZ]\\d{7}[A-Z]|\\d{8}[A-Z]))\\s*$"
       ]
     },
     "NSS": {
       "en": "trabajador",
       "formato": "nss",
       "patrones": [
-        "(?im)^FECHA NACIMIENTO[^\\n]*\\n\\d{2}/\\d{2}/\\d{4}\\s+(\\d{2}\\s+\\d{8}\\s+\\d{2})"
+        "(?im)^FECHA NACIMIENTO[^\\n]*\\n\\s*\\d{2}\\s?/\\s?\\d{2}\\s?/\\s?\\d{4}\\s*(\\d{2}\\s*\\d{8}\\s*\\d{2})(?!\\d)"
       ]
     },
     "DOMICILIO": {
       "en": "trabajador",
       "patrones": [
         {
-          "re": "(?im)^MUNICIPIO DOMICILIO\\s*\\n(.+?)\\s+\\d{5}\\s*\\nC[ÓO]DIGO POSTAL[^\\n]*\\n(\\d{5})",
+          "re": "(?im)^MUNICIPIO (?:DEL )?DOMICILIO\\s*\\n(.+?)(?:\\s+\\d{5})?\\s*\\n\\s*C[ÓO]DIGO POSTAL[^\\n]*\\n\\s*(\\d{5})",
           "salida": "{0} (C.P. {1})"
-        }
+        },
+        "(?im)^MUNICIPIO (?:DEL )?DOMICILIO\\s*\\n(.+?)(?:\\s+\\d{5})?\\s*$"
       ]
     },
     "MODALIDAD": {
       "en": "todo",
       "formato": "minusculas",
       "patrones": [
+        {
+          "re": "(?im)^X\\s+(?:CL[ÁA]USULAS\\s+ESPEC[ÍI]FICAS\\s+DE\\s+LA\\s+)?CONVERSI[ÓO]N\\s+DE\\s+CONTRATO\\s+TEMPORAL\\s+EN\\s+(?:CONTRATO\\s+)?INDEFINIDO",
+          "salida": "contrato de trabajo indefinido (conversión de contrato temporal en indefinido)"
+        },
+        {
+          "re": "(?im)^X\\s+Contrato\\s+FIJO-DISCONTINUO",
+          "salida": "contrato de trabajo fijo-discontinuo"
+        },
         "(?m)^(CONTRATO DE TRABAJO[^\\n]*)$"
       ]
     },
     "PUESTO": {
       "en": "todo",
       "patrones": [
-        "(?i)servicios como \\(3\\)\\s*\\n([^\\n]+)"
+        "(?i)servicios\\s+como\\s*\\(\\d+\\)\\s*\\n([^\\n]+)"
       ]
     },
     "GRUPO_CONTRATO": {
       "en": "todo",
       "patrones": [
-        "(?i)incluido en el grupo profesional de\\s*\\n([^\\n]+)"
+        "(?i)incluido\\s+en\\s+el\\s+grupo\\s+profesional\\s+de\\s*\\n([^\\n]+)"
+      ]
+    },
+    "FUNCIONES_CONTRATO": {
+      "en": "todo",
+      "patrones": [
+        "(?i)realizaci[óo]n\\s+de\\s+las\\s+funciones\\s*\\(\\d+\\)\\s*\\n(?!de acuerdo)([^\\n]+)"
       ]
     },
     "CENTRO_TRABAJO": {
       "en": "todo",
       "patrones": [
-        "(?i)centro\\s+de\\s+trabajo\\s+ubicado\\s+en\\s+\\(calle,\\s*n[ºo]\\s+y\\s+localidad\\)\\s*\\n([^\\n]+)"
+        "(?i)centro\\s+de\\s+trabajo\\s+ubicado\\s+en\\s+\\(calle,\\s*n[ºo°]\\s+y\\s+localidad\\)\\s*\\n(?!Trabajo a distancia)([^\\n]+)"
+      ]
+    },
+    "FECHA_CONVERSION": {
+      "en": "todo",
+      "formato": "fecha",
+      "patrones": [
+        "(?i)que\\s+con\\s+fecha\\s+(\\d{1,2}\\s?[-/]\\s?\\d{1,2}\\s?[-/]\\s?\\d{2,4})\\s*,?\\s*han\\s+acordado\\s+la\\s+CONVERSI"
+      ]
+    },
+    "CONTRATO_ORIGEN": {
+      "en": "todo",
+      "formato": "minusculas",
+      "patrones": [
+        "(?i)De\\s+un\\s+contrato\\s*\\(\\d+\\)\\s*\\n(?!celebrado)([^\\n]+)"
+      ]
+    },
+    "FECHA_CONTRATO_ORIGEN": {
+      "en": "todo",
+      "formato": "fecha",
+      "patrones": [
+        "(?i)celebrado\\s+por\\s+las\\s+partes\\s+arriba\\s+mencionadas\\s+el\\s+d[ií]a\\s+(\\d{1,2}\\s?/\\s?\\d{1,2}\\s?/\\s?\\d{2,4})"
       ]
     },
     "DURACION": {
       "en": "todo",
       "formato": "minusculas",
       "patrones": [
-        "(?i)duraci[óo]n del presente contrato ser[áa]\\s+([^,.\\n]+)"
+        "(?i)duraci[óo]n\\s+del\\s+presente\\s+contrato\\s+ser[áa]\\s+([^,.\\n]+)"
       ]
     },
     "FECHA_INICIO": {
       "en": "todo",
       "formato": "fecha",
       "patrones": [
-        "(?i)relaci[óo]n laboral en fecha\\s+(\\d{1,2}/\\d{1,2}/\\d{2,4})"
+        "(?i)relaci[óo]n\\s+laboral\\s+en\\s+fecha\\s+(\\d{1,2}\\s?/\\s?\\d{1,2}\\s?/\\s?\\d{2,4})"
       ]
     },
     "PERIODO_PRUEBA": {
       "en": "todo",
-      "formato": "minusculas",
+      "formato": "minusculas_si_mayusculas",
       "patrones": [
-        "(?i)per[ií]odo de prueba de \\(14\\)\\s*([^\\n]+)"
+        "(?i)per[ií]odo\\s+de\\s+prueba\\s+de\\s*\\(\\d+\\)[ \\t]*\\n?[ \\t]*(?!QUINTA)([^\\n]+)"
       ]
     },
     "HORAS_SEMANALES": {
       "en": "todo",
       "patrones": [
-        "(?i)jornada de trabajo ser[áa] de\\s+(\\d+(?:[.,]\\d+)?)\\s+horas semanales"
+        "(?i)jornada\\s+de\\s+trabajo\\s+ser[áa]\\s+de\\s+(\\d+(?:[.,]\\d+)?)\\s+horas\\s+semanales"
       ]
     },
     "DIAS_PRESTACION": {
@@ -129,7 +170,7 @@
       "formato": "minusculas",
       "patrones": [
         {
-          "re": "(?i)horas semanales, prestadas de\\s+(\\w+)\\s*,\\s*a\\s+(\\w+)",
+          "re": "(?i)horas\\s+semanales,\\s*prestadas\\s+de\\s+(\\w+)\\s*,?\\s*a\\s+(\\w+)",
           "salida": "de {0} a {1}"
         }
       ]
@@ -138,22 +179,34 @@
       "en": "todo",
       "patrones": [
         {
-          "re": "(?i)retribuci[óo]n total de\\s+(.+?)\\s+euros brutos\\s*\\(15\\)\\s*(\\w+)",
+          "re": "(?i)retribuci[óo]n\\s+total\\s+de\\s+(\\d[\\d.,]*)\\s+euros\\s+brutos\\s*\\(\\d+\\)\\s*(\\w+)",
           "salida": "{0} euros brutos ({1})"
+        },
+        {
+          "re": "(?i)retribuci[óo]n\\s+total\\s+de\\s+(.+?)\\s+euros\\s+brutos\\s*\\(\\d+\\)\\s*(\\w+)",
+          "salida": "{0} ({1})",
+          "formato": "minusculas"
         }
+      ]
+    },
+    "PRORRATEO": {
+      "en": "todo",
+      "patrones": [
+        "(?is)((?:las\\s+)?pagas\\s+extra(?:s|ordinarias)?[^.]{0,120}?prorratead[^.]{0,200}\\.)"
       ]
     },
     "CONVENIO_CONTRATO": {
       "en": "todo",
       "patrones": [
-        "(?i)Convenio Colectivo de\\s*\\n([^\\n]+)\\n"
+        "(?i)Trabajadores\\s+y\\s+el\\s+Convenio\\s+Colectivo\\s+de\\s*\\n([^\\n]+)",
+        "(?i)Convenio\\s+Colectivo\\s+de\\s*\\n([^\\n]+)\\n"
       ]
     },
     "LOCALIDAD": {
       "en": "todo",
       "titulo": true,
       "patrones": [
-        "(?m)\\bEn\\s+([A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ ]+?)\\s+a\\s+\\d{1,2}\\s+de\\s+[A-Za-záéíóú]+\\s+de\\s+\\d{4}"
+        "(?m)\\bEn\\s+([A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ ]+?)\\s*,?\\s+a\\s+\\d{1,2}\\s+de\\s+[A-Za-záéíóú]+\\s+de\\s+\\d{4}"
       ]
     },
     "FECHA_CONTRATO": {
@@ -161,7 +214,7 @@
       "formato": "fecha",
       "patrones": [
         {
-          "re": "(?m)\\bEn\\s+[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ ]+?\\s+a\\s+(\\d{1,2})\\s+de\\s+([A-Za-záéíóú]+)\\s+de\\s+(\\d{4})",
+          "re": "(?m)\\bEn\\s+[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ ]+?\\s*,?\\s+a\\s+(\\d{1,2})\\s+de\\s+([A-Za-záéíóú]+)\\s+de\\s+(\\d{4})",
           "salida": "{0} de {1} de {2}"
         }
       ]

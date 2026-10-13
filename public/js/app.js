@@ -1,10 +1,10 @@
 // Pantalla: todo se ejecuta en el navegador. No hay ninguna llamada a servidores (solo se piden los archivos de la propia web).
 import * as F from "./flujo.js";
 import { abrirPdf } from "./extraccion.js";
-import { cargarDocx, informe } from "./docx.js";
+import { cargarDocx, informe, camposDeModelo, textoModelo } from "./docx.js";
 
 const $ = (id) => document.getElementById(id);
-const estado = { contrato: null, editados: {}, campos: [], bytesPdf: null };
+const estado = { contrato: null, deducidos: [], editados: {}, campos: [], bytesPdf: null };
 
 function el(tag, props = {}, ...hijos) {
   const n = document.createElement(tag);
@@ -41,8 +41,16 @@ $("tabAdmin").addEventListener("click", () => mostrarVista(true));
 /* ====================== desplegables ====================== */
 function rellenarCategorias(conservar) {
   const cats = F.categoriasDe($("convenio").value);
-  $("categoria").replaceChildren(...cats.map((c) => el("option", { value: c, text: c })));
+  const opciones = cats.map((c) => el("option", { value: c, text: c }));
+  // con varias categorías hay que elegir: así nadie genera con «Grupo 1» por descuido
+  if (cats.length > 1) opciones.unshift(el("option", { value: "", text: "— elige la categoría —" }));
+  $("categoria").replaceChildren(...opciones);
   if (conservar && cats.includes(conservar)) $("categoria").value = conservar;
+  marcarCategoria();
+}
+
+function marcarCategoria() {
+  $("categoria").classList.toggle("pendiente", !$("categoria").value);
 }
 
 function cargarCatalogoUI(conservar = false) {
@@ -75,11 +83,13 @@ async function dibujarPdf(bytes) {
 }
 
 /* ====================== lectura del contrato ====================== */
-function mostrarEstado(texto, esError = false, aviso = "") {
+function mostrarEstado(texto, esError = false, ...avisos) {
   const c = $("estadoLectura");
   c.replaceChildren(el("span", { class: esError ? "error" : "ok", text: texto }));
-  if (aviso) c.append(el("div", { class: "aviso", text: aviso }));
+  for (const a of avisos.flat()) if (a) c.append(typeof a === "string" ? el("div", { class: "aviso", text: a }) : a);
 }
+
+const nombreLegible = (k) => k.replace(/_/g, " ").toLowerCase();
 
 async function subirContrato(archivo) {
   if (!archivo) return;
@@ -90,11 +100,14 @@ async function subirContrato(archivo) {
     if (String.fromCharCode(...bytes.slice(0, 4)) !== "%PDF") throw new Error("El archivo no parece un PDF.");
     estado.bytesPdf = bytes;
     dibujarPdf(bytes).catch(() => {});
-    const r = await F.leerContrato(bytes, { alProgreso: (t) => mostrarEstado(t) });
+    const r = await F.leerContrato(bytes, { alProgreso: (t) => mostrarEstado(t), nombreArchivo: archivo.name });
     estado.contrato = r.valores;
+    estado.deducidos = r.deducidos;
     estado.editados = {};
-    mostrarEstado(`Contrato leído: ${Object.keys(r.valores).length} datos detectados.`, false, r.escaneo
-      ? "El PDF es un escaneo: se ha leído con OCR, que puede equivocarse. Revisa todos los datos con atención." : "");
+    const extras = [];
+    if (r.escaneo) extras.push("Era un escaneo: se ha leído con reconocimiento de texto y puede haber errores. Revisa los datos.");
+    extras.push(...r.avisosLectura);
+    mostrarEstado(`Contrato leído (${Object.keys(r.valores).length} datos).`, false, extras);
     if (r.convenio_sugerido) {
       const antes = $("categoria").value;
       $("convenio").value = r.convenio_sugerido;
@@ -102,131 +115,177 @@ async function subirContrato(archivo) {
     }
     const cc = r.valores.CONVENIO_CONTRATO;
     $("pistaConvenio").textContent = cc
-      ? `El contrato indica el convenio: «${cc}»` + (r.convenio_sugerido ? " (seleccionado automáticamente)." : ". Elige el modelo que corresponda.")
+      ? `El contrato dice: «${cc}»` + (r.convenio_sugerido ? "." : ". Elige el convenio que corresponda.")
       : "";
     await cargarCampos();
+    $("paso2").scrollIntoView({ behavior: "smooth", block: "start" });
   } catch (e) { mostrarEstado(e.message, true); }
 }
 
-/* ====================== formulario de revisión ====================== */
+/* ====================== formulario: resumen + solo lo que falta ====================== */
 async function cargarCampos() {
   const conv = $("convenio").value, cat = $("categoria").value;
-  if (!conv || !cat) return;
+  marcarCategoria();
+  if (!conv) return;
+  if (!cat) {
+    $("paso3").hidden = false;
+    $("resumen").replaceChildren();
+    $("pendientes").replaceChildren(mensaje("aviso", "Elige la categoría profesional (arriba) para continuar."));
+    $("campos").replaceChildren(); $("bloqueGenerar").hidden = true;
+    return;
+  }
   try {
-    estado.campos = await F.prepararCampos(conv, cat, estado.contrato || {}, estado.editados);
+    // sin contrato leído se aplican igualmente las respuestas por defecto de las reglas
+    const deducidos = estado.contrato ? estado.deducidos : F.evaluarReglas({}, "");
+    estado.campos = await F.prepararCampos(conv, cat, estado.contrato || {}, estado.editados, deducidos);
     pintarCampos();
     $("errorGlobal").replaceChildren();
   } catch (e) {
     $("paso3").hidden = false;
-    $("mensajeCampos").replaceChildren(mensaje("error", e.message));
+    $("pendientes").replaceChildren(mensaje("error", e.message));
   }
 }
 
-const ORIGEN = { contrato: "del contrato", empresa: "datos de la empresa", categoria: "de la categoría",
-  defecto: "por defecto", editado: "editado", "": "sin rellenar" };
+const ORIGEN = { contrato: "del contrato", empresa: "guardado de la empresa", categoria: "del convenio",
+  defecto: "por defecto", editado: "escrito a mano", deducido: "deducido", "": "" };
 
 function filaCampo(c) {
-  const largo = (c.valor || "").length > 70 || c.etiqueta.length > 70;
-  const entrada = largo ? el("textarea", { rows: 2, value: c.valor || "" }) : el("input", { type: "text", value: c.valor || "" });
+  const largo = c.tipo !== "si_no" && ((c.valor || "").length > 70 || c.etiqueta.length > 60);
+  let entrada;
+  if (c.tipo === "si_no") {
+    entrada = el("select", {}, el("option", { value: "", text: "— elige —" }),
+      el("option", { value: "Sí", text: "Sí" }), el("option", { value: "No", text: "No" }));
+    entrada.value = c.valor || "";
+    // cambiar una respuesta añade o quita los apartados que dependen de ella
+    entrada.addEventListener("change", () => { estado.editados[c.clave] = entrada.value; recordarValoresEscritos(); cargarCampos(); });
+  } else {
+    entrada = largo ? el("textarea", { rows: 2, value: c.valor || "" }) : el("input", { type: "text", value: c.valor || "" });
+    entrada.addEventListener("input", () => { estado.editados[c.clave] = entrada.value; });
+  }
   entrada.dataset.clave = c.clave;
-  entrada.addEventListener("input", () => { estado.editados[c.clave] = entrada.value; });
-  const recordar = el("input", { type: "checkbox" });
-  recordar.dataset.recordar = c.clave;
   const pie = el("div", { class: "pie" },
-    ...(c.origen ? [el("span", { class: "chip", text: ORIGEN[c.origen] })] : []),
+    ...(c.origen && ORIGEN[c.origen] ? [el("span", { class: "chip" + (c.origen === "deducido" ? " chip-deducido" : ""), text: ORIGEN[c.origen], title: c.motivo || "" })] : []),
     ...(c.aviso ? [el("span", { class: "alerta", text: c.aviso })] : []),
-    ...(c.origen === "contrato" ? [] : [el("label", {}, recordar, " recordar para la empresa")]));
+    ...(c.nota ? [el("span", { text: c.nota })] : []));
   return el("div", { class: "campo" + (c.aviso ? " revisar" : "") + (largo ? " ancho" : "") },
-    el("label", { class: "et", text: c.etiqueta }), entrada, pie);
+    el("label", { class: "et", text: c.etiqueta.charAt(0).toUpperCase() + c.etiqueta.slice(1) }), entrada, pie);
 }
 
-function grupo(titulo, campos, abierto) {
+function bloque(titulo, nota, campos) {
   if (!campos.length) return null;
-  const d = el("details", {}, el("summary", { text: `${titulo} (${campos.length})` }),
+  return el("div", { class: "bloque" }, el("h3", { text: titulo }), ...(nota ? [el("p", { class: "nota", text: nota })] : []),
     el("div", { class: "grid" }, ...campos.map(filaCampo)));
-  d.open = abierto;
-  return d;
+}
+
+function grupo(titulo, campos) {
+  if (!campos.length) return null;
+  return el("div", {}, el("h3", { text: `${titulo} (${campos.length})` }), el("div", { class: "grid" }, ...campos.map(filaCampo)));
+}
+
+/** Antes de repintar, guarda lo escrito para no perderlo. */
+function recordarValoresEscritos() {
+  document.querySelectorAll("#paso3 [data-clave]").forEach((n) => {
+    const c = estado.campos.find((x) => x.clave === n.dataset.clave);
+    if (c && n.value !== c.valor) estado.editados[n.dataset.clave] = n.value;
+  });
+}
+
+function pintarResumen(v, preguntas) {
+  const si = (k) => (preguntas.find((p) => p.clave === k) || {}).valor === "Sí";
+  const tipo = [];
+  if (si("ES_CONVERSION")) tipo.push("Conversión de temporal en indefinido");
+  else tipo.push(si("ES_TEMPORAL") ? "Temporal" : "Indefinido");
+  if (si("ES_FIJO_DISCONTINUO")) tipo.push("fijo-discontinuo");
+  tipo.push(si("HAY_PERIODO_PRUEBA") ? `con período de prueba${v.PERIODO_PRUEBA ? " (" + v.PERIODO_PRUEBA + ")" : ""}` : "sin período de prueba");
+  if (!si("HAY_CONVENIO")) tipo.push("sin convenio colectivo");
+  const fila = (et, val) => el("div", {}, el("span", { class: "et", text: et }), el("strong", { text: val || "—" }));
+  $("resumen").replaceChildren(
+    fila("Persona trabajadora", [v.NOMBRE, v.DOCUMENTO].filter(Boolean).join(" · ")),
+    fila("Empresa", [v.EMPRESA, v.CIF_EMPRESA].filter(Boolean).join(" · ")),
+    fila("Contrato", tipo.join(", ")),
+    ...estado.campos.filter((c) => c.nota).map((c) => mensaje("aviso", c.nota)));
 }
 
 function pintarCampos() {
-  const cs = estado.campos;
-  const revisar = cs.filter((c) => c.aviso);
-  const vacios = cs.filter((c) => !c.valor && !c.aviso);
-  const contrato = cs.filter((c) => c.valor && c.origen === "contrato" && !c.aviso);
-  const resto = cs.filter((c) => c.valor && c.origen !== "contrato" && !c.aviso);
+  const campos = estado.campos;
+  const v = Object.fromEntries(campos.map((c) => [c.clave, c.valor]));
+  const preguntas = campos.filter((c) => c.tipo === "si_no");
+  const deEmpresa = new Set(F.estado.camposEmpresa);
+  const pendiente = (c) => !c.valor || c.aviso;
+  const pend = campos.filter(pendiente);
+  const pendEmpresa = pend.filter((c) => deEmpresa.has(c.clave));
+  const pendContrato = pend.filter((c) => !deEmpresa.has(c.clave));
+  const resto = campos.filter((c) => !pendiente(c));
+
+  pintarResumen(v, preguntas);
+  const nombreEmpresa = v.EMPRESA || "la empresa";
+  $("pendientes").replaceChildren(...(pend.length ? [
+    bloque("Falta en este contrato", "", pendContrato),
+    bloque(`Datos de ${nombreEmpresa}`, "Solo la primera vez: se guardan al generar el anexo y la próxima vez saldrán rellenos.", pendEmpresa),
+  ].filter(Boolean) : [mensaje("ok", "No falta nada. Revisa el resumen y genera el anexo.")]));
+
+  // todo lo demás, plegado
+  const rPreg = resto.filter((c) => c.tipo === "si_no");
+  const rTexto = resto.filter((c) => c.tipo !== "si_no");
   $("campos").replaceChildren(...[
-    grupo("Revisar: datos que no cuadran", revisar, true),
-    grupo("Leídos del contrato (comprobar)", contrato, true),
-    grupo("A completar", vacios, true),
-    grupo("Ya rellenados (datos de la empresa, categoría o por defecto)", resto, false),
+    grupo("Tipo de contrato y circunstancias", rPreg),
+    grupo("Leídos del contrato", rTexto.filter((c) => c.origen === "contrato")),
+    grupo("Deducidos", rTexto.filter((c) => c.origen === "deducido")),
+    grupo("Del convenio, de la empresa o por defecto", rTexto.filter((c) => !["contrato", "deducido"].includes(c.origen))),
   ].filter(Boolean));
-  $("mensajeCampos").replaceChildren(el("div", { class: "nota",
-    text: `${cs.length} campos en este modelo: ${vacios.length} por completar. Todos se pueden editar a mano.` }));
   $("paso3").hidden = false;
-  $("paso4").hidden = false;
+  $("bloqueGenerar").hidden = false;
   $("resultado").replaceChildren();
   $("previa").hidden = true;
-  $("estadoRecordar").textContent = "";
+  $("btnPrevia").textContent = "Ver cómo queda";
 }
 
 function valoresActuales() {
   const v = {};
-  document.querySelectorAll("#campos [data-clave]").forEach((n) => { v[n.dataset.clave] = n.value; });
+  document.querySelectorAll("#paso3 [data-clave]").forEach((n) => { v[n.dataset.clave] = n.value; });
   return v;
 }
-
-$("btnNoProcede").addEventListener("click", () => {
-  document.querySelectorAll("#campos [data-clave]").forEach((n) => {
-    if (!n.value.trim()) { n.value = "No procede"; estado.editados[n.dataset.clave] = n.value; }
-  });
-});
-$("btnMarcar").addEventListener("click", () => {
-  document.querySelectorAll("#campos [data-recordar]").forEach((c) => { c.checked = true; });
-});
-$("btnRecordar").addEventListener("click", () => {
-  const valores = valoresActuales();
-  const marcados = [...document.querySelectorAll("#campos [data-recordar]")].filter((c) => c.checked).map((c) => c.dataset.recordar);
-  const cif = (valores.CIF_EMPRESA || (estado.contrato || {}).CIF_EMPRESA || "").trim();
-  const dest = $("estadoRecordar");
-  if (!cif) { dest.textContent = "No se conoce el CIF de la empresa; no se puede guardar."; return; }
-  if (!marcados.length) { dest.textContent = "Marca primero los campos que quieres recordar."; return; }
-  const sel = {};
-  marcados.forEach((k) => { sel[k] = valores[k]; });
-  try {
-    F.guardarEmpresa(cif, sel);
-    dest.textContent = `Recordados ${marcados.length} campos de la empresa ${cif} en este navegador. ` +
-      "Para compartirlos con tus compañeros: «Modelos y convenios» → «Datos por empresa».";
-  } catch (e) { dest.textContent = e.message; }
-});
 
 /* ====================== vista previa y generación ====================== */
 $("btnPrevia").addEventListener("click", async () => {
   const panel = $("previa");
+  if (!panel.hidden) { panel.hidden = true; $("btnPrevia").textContent = "Ver cómo queda"; return; }
   try {
     const r = await F.previsualizarAnexo($("convenio").value, $("categoria").value, valoresActuales());
     panel.replaceChildren(
       mensaje(r.faltan.length ? "aviso" : "ok", r.faltan.length
-        ? `Quedan ${r.faltan.length} campos sin rellenar (en amarillo): ${r.faltan.join(", ")}` : "No falta ningún campo."),
+        ? `Quedan ${r.faltan.length} datos sin rellenar (en amarillo).` : "Así quedará el anexo."),
       ...r.parrafos.map((p) => el("p", {}, ...p.map((t) =>
         el("span", { class: (t.b ? "neg " : "") + (t.falta ? "falta" : ""), text: t.t })))));
     panel.hidden = false;
+    $("btnPrevia").textContent = "Ocultar";
     panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
   } catch (e) { panel.replaceChildren(mensaje("error", e.message)); panel.hidden = false; }
 });
 
 $("btnGenerar").addEventListener("click", async () => {
+  if (!$("categoria").value) { alert("Elige primero la categoría profesional."); $("categoria").focus(); return; }
   const valores = valoresActuales();
-  const vacios = Object.values(valores).filter((v) => !v.trim()).length;
-  if (vacios && !confirm(`Hay ${vacios} campos vacíos. Quedarán resaltados en amarillo en el documento. ¿Generar igualmente?`)) return;
+  const vacios = Object.values(valores).filter((x) => !x.trim()).length;
+  if (vacios && !confirm(`Quedan ${vacios} datos sin rellenar. Saldrán resaltados en amarillo en el Word. ¿Generar igualmente?`)) return;
   const btn = $("btnGenerar");
   btn.disabled = true;
   try {
     const r = await F.generarAnexo($("convenio").value, $("categoria").value, valores);
+    // los datos de empresa se guardan solos para la próxima vez (en este ordenador)
+    let guardados = 0;
+    const cif = (valores.CIF_EMPRESA || "").trim();
+    if (cif) {
+      const datos = Object.fromEntries(F.estado.camposEmpresa.filter((k) => (valores[k] || "").trim()).map((k) => [k, valores[k]]));
+      guardados = Object.keys(datos).length;
+      if (guardados) { try { F.guardarEmpresa(cif, datos); } catch { guardados = 0; } }
+    }
     const url = URL.createObjectURL(r.blob);
-    const caja = el("div", { class: "nota" },
-      mensaje("ok", "Anexo generado: " + r.nombre),
-      el("a", { href: url, download: r.nombre, text: "Descargar el anexo (.docx)" }));
-    if (r.faltan.length) caja.append(mensaje("aviso", "Sin rellenar (resaltado en amarillo en el documento): " + r.faltan.join(", ")));
+    const caja = el("div", {},
+      mensaje("ok", "Anexo generado y descargado: " + r.nombre),
+      el("a", { href: url, download: r.nombre, text: "Volver a descargar" }));
+    if (guardados) caja.append(el("div", { class: "nota", text: `Datos de la empresa guardados: la próxima vez saldrán rellenos.` }));
+    if (r.faltan.length) caja.append(mensaje("aviso", `${r.faltan.length} datos quedaron sin rellenar (en amarillo en el Word).`));
     $("resultado").replaceChildren(caja);
     descargar(r.blob, r.nombre);
   } catch (e) { $("resultado").replaceChildren(mensaje("error", e.message)); }
@@ -234,7 +293,7 @@ $("btnGenerar").addEventListener("click", async () => {
 });
 
 $("convenio").addEventListener("change", () => { rellenarCategorias(); cargarCampos(); });
-$("categoria").addEventListener("change", cargarCampos);
+$("categoria").addEventListener("change", () => { recordarValoresEscritos(); cargarCampos(); });
 
 const zona = $("drop");
 ["dragenter", "dragover"].forEach((t) => zona.addEventListener(t, (e) => { e.preventDefault(); zona.classList.add("sobre"); }));
@@ -299,19 +358,35 @@ async function comprobarTodo() {
   F.olvidarModelos();
   const problemas = [];
   const cs = F.convenios();
+  const comun = (F.estado.catalogo.modelos_comunes || []).includes("_base.docx");
   if (!cs.length) problemas.push({ nivel: "error", mensaje: "No hay ningún convenio en la carpeta «modelos»." });
+  let modeloComun = null;
+  if (comun) {
+    try {
+      const bytes = await F.bytesModelo("_comun", "_base.docx");
+      modeloComun = await cargarDocx(bytes);
+      const inf = informe(modeloComun, { conocidas: F.estado.conocidas });
+      inf.avisos.forEach((a) => problemas.push({ nivel: "aviso", mensaje: `Modelo común: ${a}` }));
+    } catch (e) { problemas.push({ nivel: "error", mensaje: `Modelo común: no se puede abrir (${e.message}).` }); }
+  }
   for (const c of cs) {
     const base = c.modelos.includes("_base.docx");
     const propios = c.modelos.filter((m) => !m.startsWith("_")).map((m) => m.replace(/\.docx$/i, ""));
-    if (!base && !propios.length) problemas.push({ nivel: "error", mensaje: `${c.nombre}: no tiene ningún modelo Word.` });
-    for (const cat of Object.keys(c.categorias_datos))
-      if (!base && !propios.includes(cat)) problemas.push({ nivel: "error", mensaje: `${c.nombre}: la categoría «${cat}» no tiene modelo ni hay _base.docx.` });
+    if (!base && !propios.length && !comun) problemas.push({ nivel: "error", mensaje: `${c.nombre}: no tiene ningún modelo Word.` });
     if (!c.categorias.length) problemas.push({ nivel: "aviso", mensaje: `${c.nombre}: no tiene categorías definidas.` });
     for (const m of c.modelos.filter((x) => !x.startsWith("_") || x === "_base.docx")) {
       try {
-        const inf = await informeDeBytes(await F.bytesModelo(c.nombre, m), c.nombre);
+        const inf = await informeDeBytes(await F.bytesModelo(c.carpeta, m), c.nombre);
         inf.avisos.forEach((a) => problemas.push({ nivel: "aviso", mensaje: `${c.nombre} / ${m}: ${a}` }));
       } catch (e) { problemas.push({ nivel: "error", mensaje: `${c.nombre} / ${m}: no se puede abrir (${e.message}).` }); }
+    }
+    // Con el modelo común, cada convenio debe definir las remisiones (REF_...) y su identificación (CONV_...)
+    if (!base && modeloComun) {
+      const vals = F.upperKeys(c.valores);
+      if (!("HAY_CONVENIO" in vals)) problemas.push({ nivel: "error", mensaje: `${c.nombre}: falta HAY_CONVENIO («Sí» o «No») en _valores.json.` });
+      const faltan = camposDeModelo(modeloComun, vals).map((x) => x.clave)
+        .filter((k) => /^(REF_|CONV_)/.test(k) && !String(vals[k] || "").trim());
+      if (faltan.length) problemas.push({ nivel: "error", mensaje: `${c.nombre}: faltan en _valores.json las remisiones ${faltan.join(", ")}.` });
     }
   }
   cont.replaceChildren(...(problemas.length
@@ -404,7 +479,88 @@ $("btnDescargarCategorias").addEventListener("click", () => {
     }
     descargarJson(categorias, "_categorias.json");
     descargarJson(limpiarClaves(adm.kv.leer()), "_valores.json");
-    dest.replaceChildren(mensaje("ok", `Descargados. Súbelos a GitHub en public/modelos/${nombre}/ (junto al Word del modelo).`));
+    // la carpeta sin acentos (algunos servidores no sirven bien rutas con acentos); el nombre visible va en _nombre.txt
+    const carpeta = (F.convenio(nombre) || {}).carpeta || nombre.normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+    if (carpeta !== nombre) setTimeout(() => descargar(new Blob([nombre], { type: "text/plain" }), "_nombre.txt"), 400);
+    dest.replaceChildren(mensaje("ok", `Descargados. Súbelos a GitHub en public/modelos/${carpeta}/` +
+      (carpeta !== nombre ? " (incluido _nombre.txt, que guarda el nombre con acentos)" : "") +
+      ". Si el convenio usa el modelo común, no hace falta subir ningún Word."));
+  } catch (e) { dest.replaceChildren(mensaje("error", e.message)); }
+});
+
+/* ---- preparar convenio con Claude (solo texto público del convenio; nunca datos de trabajadores) ---- */
+async function clavesDeConvenio() {
+  const modelo = await cargarDocx(await F.bytesModelo("_comun", "_base.docx"));
+  const claves = camposDeModelo(modelo, { HAY_CONVENIO: "Sí" })
+    .filter((c) => /^(REF_|CONV_)/.test(c.clave))
+    .filter((c, i, a) => a.findIndex((x) => x.clave === c.clave) === i);
+  // claves que en el modelo van detrás de «de» o «a» (no pueden empezar por «el»)
+  claves.trasPreposicion = new Set([...textoModelo(modelo).matchAll(/\b(?:de|a)\s+\{\{\s*(REF_[A-Z0-9_]+)/g)].map((m) => m[1]));
+  return claves;
+}
+
+async function textoPrompt() {
+  const claves = await clavesDeConvenio();
+  const ejemplo = F.convenios().find((c) => c.valores && c.valores.HAY_CONVENIO === "Sí");
+  return [
+    "Te adjunto el texto oficial de un convenio colectivo. Necesito los datos para el documento informativo del art. 8.5 ET y del Real Decreto 723/2026 (art. 3.2 y remisiones del art. 3.3).",
+    "Devuelve SOLO un JSON con esta forma: {\"nombre\": \"nombre corto del convenio\", \"valores\": {...}, \"categorias\": {...}}.",
+    "",
+    "En \"valores\", pon \"HAY_CONVENIO\": \"Sí\" y estas claves (texto en español jurídico, citando artículos concretos del convenio y, cuando proceda, del Estatuto de los Trabajadores):",
+    ...claves.map((c) => `- ${c.clave}: ${c.etiqueta}`),
+    "",
+    "Reglas de redacción: cada REF_ se inserta en mitad de una frase, así que no empieces con mayúscula ni termines en punto, y no empieces por «el artículo» (usa «lo dispuesto en el artículo…» o «los artículos…»). CONV_PUBLICACION empieza por «el Boletín…» o «el Diario…» con la fecha. CONV_VIGENCIA incluye el período y la prórroga o ultraactividad.",
+    "Si un dato no figura en el convenio, remite al artículo del Estatuto de los Trabajadores aplicable y dilo. No inventes artículos ni cuantías.",
+    "",
+    "En \"categorias\", una entrada por grupo o categoría profesional del convenio: {\"Nombre\": {\"GRUPO\": \"número o nombre del grupo\", \"FUNCIONES\": \"descripción resumida de funciones según el convenio\"}}.",
+    "",
+    ...(ejemplo ? ["Ejemplo de valores ya preparados para otro convenio:", JSON.stringify(ejemplo.valores, null, 1)] : []),
+  ].join("\n");
+}
+
+$("btnCopiarPrompt").addEventListener("click", async () => {
+  const t = await textoPrompt();
+  const area = $("admPrompt");
+  area.value = t; area.hidden = false;
+  try { await navigator.clipboard.writeText(t); $("btnCopiarPrompt").textContent = "Copiado ✓"; }
+  catch { area.select(); $("btnCopiarPrompt").textContent = "Selecciona el texto y cópialo (Ctrl+C)"; }
+});
+
+$("btnCargarRespuesta").addEventListener("click", async () => {
+  const dest = $("admRespuestaEstado");
+  try {
+    let t = $("admRespuesta").value.trim();
+    const bloque = t.match(/```(?:json)?\s*([\s\S]*?)```/);
+    if (bloque) t = bloque[1];
+    t = t.slice(t.indexOf("{"), t.lastIndexOf("}") + 1);
+    let d;
+    try { d = JSON.parse(t); } catch { throw new Error("La respuesta no es un JSON válido. Pide a Claude que devuelva solo el JSON."); }
+    const valores = limpiarClaves(d.valores || {});
+    const categorias = d.categorias || {};
+    const avisos = [];
+    const claves = await clavesDeConvenio();
+    const faltan = claves.map((c) => c.clave).filter((k) => !String(valores[k] || "").trim());
+    if (faltan.length) avisos.push(`Faltan: ${faltan.join(", ")}. Complétalos en «Valores comunes» antes de descargar.`);
+    for (const [k, v] of Object.entries(valores)) {
+      if (claves.trasPreposicion.has(k) && /^el\s/i.test(v)) avisos.push(`${k} empieza por «el…»: quedaría «de el…». Cámbialo por «lo dispuesto en el…».`);
+      if (/^REF_/.test(k) && /\.$/.test(v.trim())) avisos.push(`${k} termina en punto: quítalo, va en mitad de una frase.`);
+    }
+    if (!valores.HAY_CONVENIO) valores.HAY_CONVENIO = "Sí";
+    if (!Object.keys(categorias).length) avisos.push("No trae categorías.");
+    // cargar en el editor
+    adm.cols = [];
+    adm.cats = Object.entries(categorias).map(([nombre, datos]) => {
+      const lim = limpiarClaves(datos || {});
+      Object.keys(lim).forEach((k) => { if (!adm.cols.includes(k)) adm.cols.push(k); });
+      return { nombre, datos: lim };
+    });
+    adm.kv = crearKV($("kvConvenio"), valores);
+    $("admConvenio").value = "";
+    $("admNuevo").value = d.nombre || "";
+    pintarCategorias();
+    dest.replaceChildren(mensaje("ok", `Cargado: ${adm.cats.length} categorías y ${Object.keys(valores).length} valores. Revísalos abajo y descarga los archivos.`),
+      ...avisos.map((a) => mensaje("aviso", a)));
+    $("tablaCategorias").scrollIntoView({ behavior: "smooth", block: "start" });
   } catch (e) { dest.replaceChildren(mensaje("error", e.message)); }
 });
 

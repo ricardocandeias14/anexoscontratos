@@ -37,6 +37,7 @@ def nombre_visible(carpeta: Path) -> str:
 def main():
     convenios = []
     dir_modelos = PUBLIC / "modelos"
+    # las carpetas que empiezan por _ no son convenios (p. ej. _comun, con el modelo común para todos)
     for d in sorted(p for p in dir_modelos.iterdir() if p.is_dir() and not p.name.startswith(("_", "."))):
         categorias_datos = leer_json(d / "_categorias.json", {})
         modelos = sorted(p.name for p in d.glob("*.docx") if not p.name.startswith("~$"))
@@ -55,8 +56,10 @@ def main():
     if dir_emp.exists():
         for f in sorted(dir_emp.glob("*.json")):
             empresas[f.stem.upper()] = leer_json(f, {})
-    perfiles = sorted(p.stem for p in (PUBLIC / "perfiles").glob("*.json"))
-    catalogo = {"convenios": convenios, "empresas": empresas, "perfiles": perfiles}
+    perfiles = sorted(p.stem for p in (PUBLIC / "perfiles").glob("*.json") if not p.name.startswith("_"))
+    leer_json(PUBLIC / "perfiles" / "_reglas.json", {})  # solo comprueba que está bien escrito
+    comun = sorted(p.name for p in (dir_modelos / "_comun").glob("*.docx")) if (dir_modelos / "_comun").is_dir() else []
+    catalogo = {"convenios": convenios, "empresas": empresas, "perfiles": perfiles, "modelos_comunes": comun}
     (PUBLIC / "catalogo.json").write_text(json.dumps(catalogo, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"catalogo.json: {len(convenios)} convenios, {len(empresas)} empresas, {len(perfiles)} perfiles")
 

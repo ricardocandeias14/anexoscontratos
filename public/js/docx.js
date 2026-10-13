@@ -119,10 +119,93 @@ const esNegrita = (r) => {
 // ---------------------------------------------------------------- campos del modelo
 const todosLosParrafos = (modelo) => modelo.partes.flatMap((p) => parrafosDe(p.doc));
 
-/** Lista ordenada de {clave, etiqueta} de los marcadores, sin los automáticos. */
-export function camposDeModelo(modelo) {
+// ---------------------------------------------------------------- bloques condicionales
+// En el Word, un párrafo que contiene SOLO  {{#SI CLAVE|pregunta}}  abre un bloque que se mantiene si CLAVE es «Sí»;
+// {{#NO CLAVE|pregunta}} abre uno que se mantiene si CLAVE es «No»; {{/SI}} lo cierra. Se pueden anidar.
+const MARCA = /^\s*\{\{\s*(#SI|#NO|\/SI|\/NO|\/)\s*([A-Za-z0-9_]*)\s*(?:\|([^}]*))?\}\}\s*$/;
+export const esVerdadero = (v) => /^(s[ií]|x|true|1|yes)$/i.test(String(v ?? "").trim());
+
+function contenedores(doc) {
+  const out = [];
+  for (const tag of ["body", "hdr", "ftr", "tc"]) out.push(...doc.getElementsByTagNameNS(W, tag));
+  return out;
+}
+
+/** Recorre los bloques. Con valores=null todo cuenta como activo (para listar o comprobar el modelo). */
+function analizarBloques(doc, valores) {
+  const inactivos = new Set(), marcas = new Set(), condiciones = [], errores = [];
+  for (const cont of contenedores(doc)) {
+    const pila = [];
+    const activo = () => pila.every((b) => b.ok);
+    for (const hijo of [...cont.childNodes]) {
+      if (hijo.nodeType !== 1 || hijo.namespaceURI !== W) continue;
+      if (hijo.localName === "p") {
+        const m = MARCA.exec(textoParrafo(hijo));
+        if (m) {
+          marcas.add(hijo);
+          if (m[1].startsWith("#")) {
+            const clave = m[2].toUpperCase();
+            if (!clave) errores.push("Hay un {{#SI}} sin clave.");
+            if (activo()) condiciones.push({ clave, etiqueta: (m[3] || "").trim() });
+            const ok = valores ? esVerdadero(valores[clave]) === (m[1] === "#SI") : true;
+            pila.push({ ok, clave });
+          } else if (!pila.length) errores.push("Hay un {{/SI}} de más (cierra un bloque que no se abrió).");
+          else pila.pop();
+          continue;
+        }
+      }
+      if (!activo() && ["p", "tbl", "sdt"].includes(hijo.localName)) inactivos.add(hijo);
+    }
+    for (const b of pila) errores.push(`Falta el {{/SI}} que cierra el bloque de ${b.clave}.`);
+  }
+  return { inactivos, marcas, condiciones, errores };
+}
+
+function fueraDeBloque(p, a) {
+  if (a.marcas.has(p)) return false;
+  for (let n = p; n; n = n.parentNode) if (a.inactivos.has(n)) return false;
+  return true;
+}
+
+/** Preguntas Sí/No del modelo que afectan a lo que se ve con estos valores: [{clave, etiqueta}] */
+export function condicionesDeModelo(modelo, valores = null) {
+  const vistas = new Map();
+  for (const parte of modelo.partes) {
+    for (const c of analizarBloques(parte.doc, valores).condiciones) {
+      if (!vistas.has(c.clave) || (!vistas.get(c.clave).etiqueta && c.etiqueta)) vistas.set(c.clave, c);
+    }
+  }
+  return [...vistas.values()];
+}
+
+/** Quita del documento los bloques que no proceden y los propios marcadores de bloque. */
+function aplicarBloques(modelo, valores) {
+  for (const parte of modelo.partes) {
+    const a = analizarBloques(parte.doc, valores);
+    for (const n of [...a.inactivos, ...a.marcas]) {
+      const padre = n.parentNode;
+      if (!padre) continue;
+      padre.removeChild(n);
+      // una celda de tabla no puede quedar sin párrafos
+      if (padre.localName === "tc" && ![...padre.childNodes].some((x) => x.localName === "p" || x.localName === "tbl")) {
+        padre.appendChild(parte.doc.createElementNS(W, "w:p"));
+      }
+    }
+  }
+}
+
+/** Texto completo del modelo (para comprobaciones). */
+export const textoModelo = (modelo) => todosLosParrafos(modelo).map(textoParrafo).join("\n");
+
+/** Lista ordenada de {clave, etiqueta} de los marcadores, sin los automáticos.
+ *  Con valores, solo los de los bloques que proceden. */
+export function camposDeModelo(modelo, valores = null) {
   const orden = [], etiquetas = {};
-  for (const p of todosLosParrafos(modelo)) {
+  const parrafos = modelo.partes.flatMap((parte) => {
+    const a = analizarBloques(parte.doc, valores);
+    return parrafosDe(parte.doc).filter((p) => fueraDeBloque(p, a));
+  });
+  for (const p of parrafos) {
     for (const m of textoParrafo(p).matchAll(nuevoPat())) {
       const k = m[1].toUpperCase();
       if (AUTOMATICOS.includes(k)) continue;
@@ -183,6 +266,7 @@ function reemplazarEnParrafo(p, valores, faltan) {
 
 /** Rellena el modelo (en memoria) con los valores. Devuelve el conjunto de claves sin rellenar. */
 export function rellenar(modelo, valores) {
+  aplicarBloques(modelo, valores);
   const faltan = new Set();
   for (const p of todosLosParrafos(modelo)) reemplazarEnParrafo(p, valores, faltan);
   return faltan;
@@ -214,10 +298,12 @@ export function informe(modelo, { categorias = {}, valores = {}, conocidas = new
   for (const m of texto.matchAll(/(?<!\{)\{([^{}\n]{1,60})\}(?!\})/g))
     avisos.push(`«{${m[1]}}» lleva una sola llave: los campos se escriben con dos, {{CLAVE}}.`);
   for (const m of texto.matchAll(/\{\{\s*([^}|]*?)\s*(?:\|[^}]*)?\}\}/g))
-    if (!/^[A-Za-zÁÉÍÓÚÑáéíóúñ0-9_]+$/.test(m[1]))
+    if (!/^[#/]/.test(m[1]) && !/^[A-Za-zÁÉÍÓÚÑáéíóúñ0-9_]+$/.test(m[1]))
       avisos.push(`La clave «${m[1]}» no es válida (solo letras, números y _; sin espacios).`);
   if (texto.includes("[COMPLETAR")) avisos.push("El modelo contiene «[COMPLETAR:» de un anexo anterior; debería ser un modelo limpio.");
 
+  for (const parte of modelo.partes) avisos.push(...analizarBloques(parte.doc, null).errores);
+  const condiciones = condicionesDeModelo(modelo);
   const campos = camposDeModelo(modelo);
   const deConvenio = new Set(Object.values(categorias).flatMap((d) => Object.keys(d).map((k) => k.toUpperCase())));
   Object.keys(valores).forEach((k) => deConvenio.add(k.toUpperCase()));
@@ -227,6 +313,7 @@ export function informe(modelo, { categorias = {}, valores = {}, conocidas = new
     del_contrato: campos.filter((c) => conocidas.has(c.clave)).map((c) => c.clave),
     del_convenio: campos.filter((c) => !conocidas.has(c.clave) && deConvenio.has(c.clave)).map((c) => c.clave),
     a_mano: campos.filter((c) => !conocidas.has(c.clave) && !deConvenio.has(c.clave)),
+    condiciones,
     avisos,
   };
 }

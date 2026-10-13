@@ -14,7 +14,7 @@
   <h1>Anexos de contrato</h1>
   <nav role="tablist">
     <button id="tabAnexo" role="tab" aria-selected="true" type="button">Crear anexo</button>
-    <button id="tabAdmin" role="tab" aria-selected="false" type="button">Modelos y convenios</button>
+    <button id="tabAdmin" role="tab" aria-selected="false" type="button" class="discreto">Administración</button>
   </nav>
   <p class="sub">🔒 El contrato se lee en <strong>este navegador</strong>: no se envía, no se sube y no se guarda en ningún servidor.</p>
 </header>
@@ -32,13 +32,13 @@
         <label class="btn" style="margin-top:8px; display:inline-block">Elegir archivo
           <input type="file" id="fichero" accept="application/pdf,.pdf" hidden></label>
       </div>
-      <div id="estadoLectura" class="nota">También puedes rellenar el anexo a mano sin PDF: elige convenio y categoría.</div>
+      <div id="estadoLectura" class="nota">Arrastra el PDF del contrato tal como sale de A3 o de Monitor.</div>
       <div id="visor" hidden></div>
     </section>
   </div>
 
   <div class="col-form">
-    <section>
+    <section id="paso2">
       <h2>2. Convenio y categoría</h2>
       <div class="fila">
         <label>Convenio <select id="convenio"></select></label>
@@ -48,25 +48,19 @@
     </section>
 
     <section id="paso3" hidden>
-      <h2>3. Revisar y completar los datos</h2>
-      <div id="mensajeCampos"></div>
-      <div id="campos"></div>
-      <div class="acciones">
-        <button id="btnNoProcede" type="button">Poner «No procede» en los campos vacíos</button>
-        <button id="btnMarcar" type="button">Marcar todos para recordar</button>
-        <button id="btnRecordar" type="button">Recordar marcados para esta empresa</button>
+      <h2>3. Comprobar y generar</h2>
+      <div id="resumen" class="resumen"></div>
+      <div id="pendientes"></div>
+      <div id="bloqueGenerar" class="acciones generar">
+        <button id="btnGenerar" class="primario grande" type="button">Generar anexo</button>
+        <button id="btnPrevia" class="enlace" type="button">Ver cómo queda</button>
       </div>
-      <div id="estadoRecordar" class="nota"></div>
-    </section>
-
-    <section id="paso4" hidden>
-      <h2>4. Comprobar y generar</h2>
-      <div class="acciones" style="margin-top:0">
-        <button id="btnPrevia" type="button">Vista previa del anexo</button>
-        <button id="btnGenerar" class="primario" type="button">Generar anexo (Word)</button>
-      </div>
-      <div id="previa" hidden></div>
       <div id="resultado"></div>
+      <div id="previa" hidden></div>
+      <details class="todo">
+        <summary>Revisar o cambiar cualquier otro dato (opcional)</summary>
+        <div id="campos"></div>
+      </details>
     </section>
   </div>
 </div>
@@ -97,6 +91,22 @@
       <label>Comparar con los datos del convenio <select id="admComparar"></select></label>
     </div>
     <div id="admInforme"></div>
+  </section>
+
+  <section>
+    <h2>Preparar un convenio nuevo con ayuda de Claude (opcional)</h2>
+    <ol class="pasos">
+      <li>Pulsa «Copiar instrucciones» y pégalas en un chat de Claude junto con el <strong>PDF público del convenio</strong>
+        (el del boletín oficial). No adjuntes nunca contratos ni datos de trabajadores.</li>
+      <li>Copia la respuesta de Claude, pégala aquí abajo y pulsa «Comprobar y cargar». Se cargará en la tabla de categorías para que la revises.</li>
+      <li>Revisa sobre todo los artículos citados, las cuantías y la vigencia. Después descarga los archivos y súbelos a GitHub.</li>
+    </ol>
+    <div class="acciones" style="margin-top:0"><button id="btnCopiarPrompt" type="button">Copiar instrucciones para Claude</button></div>
+    <textarea id="admPrompt" rows="6" readonly hidden></textarea>
+    <label class="nota" for="admRespuesta" style="display:block;margin-top:12px">Respuesta de Claude (JSON)</label>
+    <textarea id="admRespuesta" rows="6" placeholder='{"nombre": "...", "valores": {...}, "categorias": {...}}'></textarea>
+    <div class="acciones"><button id="btnCargarRespuesta" type="button">Comprobar y cargar</button></div>
+    <div id="admRespuestaEstado"></div>
   </section>
 
   <section>

@@ -36,16 +36,56 @@
     }
    },
    "valores": {
-    "ANIO_TABLA": "2026"
+    "HAY_CONVENIO": "Sí",
+    "CONV_NOMBRE": "Convenio Colectivo de Trabajo del sector Industrias Siderometalúrgicas de la provincia de Badajoz",
+    "CONV_CODIGO": "06000505011981",
+    "CONV_PUBLICACION": "el Diario Oficial de Extremadura núm. 122, de 26 de junio de 2025",
+    "CONV_VIGENCIA": "del 1 de enero de 2025 al 31 de diciembre de 2026 (artículo 4); al término de su vigencia se entiende denunciado y se prorroga tácitamente hasta la firma de un convenio posterior (artículo 6). A la fecha de este documento se encuentra en su período de vigencia inicial",
+    "REF_CLASIFICACION": "la clasificación profesional del artículo 25 del convenio",
+    "REF_SALARIO": "las tablas salariales anexas al convenio (tabla vigente: año 2026)",
+    "REF_COMPLEMENTOS": "plus de asistencia (287,60 euros mensuales en la tabla de 2026), que se percibe mensualmente y del que puede descontarse la parte proporcional por cada día laborable de inasistencia (artículos 32, 33 y 38 del convenio)",
+    "REF_PAGAS_EXTRA": "tres gratificaciones extraordinarias: verano (julio), Navidad (diciembre) y beneficio (segunda decena de marzo del año siguiente), con el devengo y la proporcionalidad de los artículos 33, 35 y 36 del convenio",
+    "REF_JORNADA_ANUAL": "1.760 horas de trabajo efectivo (artículo 46.1 del convenio)",
+    "REF_MOD_JORNADA": "los artículos 46.3 y 47 del convenio (calendario anual antes del 15 de febrero, modificable una sola vez antes del 30 de mayo con quince días de aviso a la representación legal; distribución irregular entre 6 y 10 horas diarias y entre 35 y 45 semanales, recuperable en los seis meses siguientes) y, para otras modificaciones, los artículos 34 y 41 del Estatuto de los Trabajadores (artículo 47.6 del convenio)",
+    "REF_HORAS_EXTRA": "el artículo 42 del convenio (incremento del 100 % o, por acuerdo, compensación de cada hora por una hora y cuarenta y cinco minutos de descanso; valor de la hora según el artículo 47.4) y el artículo 35 del Estatuto de los Trabajadores (máximo de ochenta horas al año; voluntarias salvo pacto)",
+    "REF_VACACIONES": "24 días laborables según el artículo 48 del convenio; el período de disfrute se fija de común acuerdo conforme a ese artículo y al artículo 38 del Estatuto de los Trabajadores, y la persona trabajadora conocerá las fechas con al menos dos meses de antelación",
+    "REF_PRUEBA": "lo dispuesto en el artículo 14 del Estatuto de los Trabajadores y en los artículos 13 a 17 del convenio (máximo de seis meses en los grupos 1 y 2, dos meses en el grupo 3, un mes en los grupos 4 y 5 y quince días en los grupos 6 y 7)",
+    "REF_FORMACION": "los artículos 4.2.b) y 23 del Estatuto de los Trabajadores (incluido el permiso retribuido de veinte horas anuales de formación vinculada a la actividad de la empresa, a partir de un año de antigüedad) y los artículos 67 y 70 del convenio",
+    "REF_EXTINCION": "los artículos 49 a 56 del Estatuto de los Trabajadores y el artículo 24 del convenio, conforme al cual la empresa comunicará el cese por escrito con quince días naturales de antelación, con traslado a la representación legal, y puede sustituir el preaviso por una indemnización equivalente a los días omitidos; el preaviso se extiende también a la persona trabajadora",
+    "REF_MODIFICACION": "los artículos 46 y 47 del convenio",
+    "MEJORAS_VOLUNTARIAS": "complemento de incapacidad temporal del artículo 45 del convenio: hasta el 100 % del salario líquido desde el primer día en accidente de trabajo, y hasta el 100 % del salario neto a partir del séptimo día en enfermedad común o accidente no laboral"
    },
-   "modelos": [
-    "_base.docx"
-   ]
+   "modelos": []
+  },
+  {
+   "nombre": "Sin convenio colectivo (Estatuto de los Trabajadores)",
+   "carpeta": "Sin convenio colectivo",
+   "categorias": [
+    "Según contrato"
+   ],
+   "categorias_datos": {
+    "Según contrato": {}
+   },
+   "valores": {
+    "HAY_CONVENIO": "No",
+    "REF_CLASIFICACION": "lo dispuesto en el artículo 22 del Estatuto de los Trabajadores y el sistema de clasificación profesional de la empresa",
+    "REF_JORNADA_ANUAL": "la que resulte de la jornada pactada, con el máximo de cuarenta horas semanales de trabajo efectivo de promedio en cómputo anual (artículo 34.1 del Estatuto de los Trabajadores)",
+    "REF_MOD_JORNADA": "los artículos 34.2 (distribución irregular de hasta el diez por ciento de la jornada anual, con preaviso mínimo de cinco días), 34.8 (adaptación de la jornada a solicitud de la persona trabajadora), 36.3 (trabajo a turnos) y 41 (modificación sustancial de condiciones) del Estatuto de los Trabajadores",
+    "REF_HORAS_EXTRA": "el artículo 35 del Estatuto de los Trabajadores: son voluntarias salvo pacto, con un máximo de ochenta al año, y se abonan en la cuantía pactada, que no puede ser inferior al valor de la hora ordinaria, o se compensan con descanso retribuido equivalente; a falta de pacto, se compensan con descanso dentro de los cuatro meses siguientes a su realización",
+    "REF_VACACIONES": "treinta días naturales según el artículo 38 del Estatuto de los Trabajadores; el período de disfrute se fija de común acuerdo entre la empresa y la persona trabajadora, que conocerá las fechas con al menos dos meses de antelación; en caso de desacuerdo, la fecha la fija la jurisdicción social",
+    "REF_PRUEBA": "lo dispuesto en el artículo 14 del Estatuto de los Trabajadores (máximo de seis meses para personal técnico titulado y de dos meses para el resto, o tres en empresas de menos de veinticinco personas trabajadoras; un mes en contratos temporales de hasta seis meses)",
+    "REF_FORMACION": "los artículos 4.2.b) y 23 del Estatuto de los Trabajadores, incluido el permiso retribuido de veinte horas anuales de formación profesional para el empleo vinculada a la actividad de la empresa, acumulables hasta cinco años, a partir de un año de antigüedad",
+    "REF_EXTINCION": "los artículos 49 a 56 del Estatuto de los Trabajadores; en particular: en los contratos temporales de duración superior a un año, la parte que denuncie el contrato debe preavisar a la otra con quince días; el despido por causas objetivas se comunica por escrito expresando la causa, poniendo a disposición simultáneamente la indemnización legal y con quince días de preaviso; el despido disciplinario se notifica por escrito con los hechos que lo motivan y su fecha de efectos; la dimisión requiere el preaviso que señale la costumbre del lugar; y la empresa acompañará a la comunicación de la extinción una propuesta del documento de liquidación de las cantidades adeudadas"
+   },
+   "modelos": []
   }
  ],
  "empresas": {},
  "perfiles": [
   "general",
   "sepe"
+ ],
+ "modelos_comunes": [
+  "_base.docx"
  ]
 }
