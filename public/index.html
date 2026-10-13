@@ -4,19 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Anexos de contrato</title>
+<title>Lexitania · Transparencia contractual RD 723/2026</title>
+<link rel="icon" href="img/lexitania-logo.png">
 <link rel="stylesheet" href="estilos.css">
 <script src="vendor/jszip.min.js"></script>
 <script type="module" src="js/app.js"></script>
 </head>
 <body>
-<header>
-  <h1>Anexos de contrato</h1>
-  <nav role="tablist">
-    <button id="tabAnexo" role="tab" aria-selected="true" type="button">Crear anexo</button>
-    <button id="tabAdmin" role="tab" aria-selected="false" type="button" class="discreto">Administración</button>
-  </nav>
-  <p class="sub">🔒 El contrato se lee en <strong>este navegador</strong>: no se envía, no se sube y no se guarda en ningún servidor.</p>
+<header class="masthead">
+  <div class="topbar">
+    <div class="marca">
+      <img class="logo" src="img/lexitania-logo.png" alt="Lexitania — legal y fiscal" width="40" height="40">
+      <span class="separador" aria-hidden="true"></span>
+      <span class="depto">Departamento&nbsp;Laboral</span>
+    </div>
+    <nav role="tablist">
+      <button id="tabAnexo" role="tab" aria-selected="true" type="button">Crear anexo</button>
+      <button id="tabAdmin" role="tab" aria-selected="false" type="button" class="discreto">Administración</button>
+    </nav>
+  </div>
+  <div class="hero">
+    <p class="eyebrow">Real Decreto 723/2026 · información sobre las condiciones de trabajo</p>
+    <h1>Generador de anexos de transparencia contractual</h1>
+    <p class="lead">Convierte el contrato SEPE ya firmado en el anexo informativo que exige el RD 723/2026, con las remisiones al convenio o al Estatuto de los Trabajadores ya redactadas. Uso interno del departamento laboral de Lexitania.</p>
+    <p class="garantia"><span class="sello-mini" aria-hidden="true">✓</span> Todo ocurre en este navegador: el contrato no se envía, no se sube ni se guarda en ningún servidor.</p>
+  </div>
 </header>
 
 <main>
@@ -26,7 +38,7 @@
 <div id="vistaAnexo" class="dos-col">
   <div class="col-pdf">
     <section>
-      <h2>1. Contrato (PDF)</h2>
+      <div class="paso-cab"><span class="sello" aria-hidden="true">1</span><h2>Contrato (PDF)</h2></div>
       <div id="drop">
         Arrastra aquí el PDF del contrato<br>
         <label class="btn" style="margin-top:8px; display:inline-block">Elegir archivo
@@ -39,7 +51,7 @@
 
   <div class="col-form">
     <section id="paso2">
-      <h2>2. Convenio y categoría</h2>
+      <div class="paso-cab"><span class="sello" aria-hidden="true">2</span><h2>Convenio y categoría</h2></div>
       <div class="fila">
         <label>Convenio <select id="convenio"></select></label>
         <label>Categoría profesional <select id="categoria"></select></label>
@@ -48,7 +60,7 @@
     </section>
 
     <section id="paso3" hidden>
-      <h2>3. Comprobar y generar</h2>
+      <div class="paso-cab"><span class="sello" aria-hidden="true">3</span><h2>Comprobar y generar</h2></div>
       <div id="resumen" class="resumen"></div>
       <div id="pendientes"></div>
       <div id="bloqueGenerar" class="acciones generar">
@@ -67,6 +79,8 @@
 
 <!-- ======================= MODELOS Y CONVENIOS ======================= -->
 <div id="vistaAdmin" hidden>
+  <p class="eyebrow eyebrow-admin">Administración · solo convenios, categorías y empresas — nunca datos de trabajadores</p>
+
   <section>
     <h2>Cómo añadir o cambiar un convenio</h2>
     <ol class="pasos">
@@ -148,5 +162,9 @@
   </section>
 </div>
 </main>
+<footer class="pie-app">
+  <span class="sello-mini" aria-hidden="true">✓</span>
+  Herramienta de uso interno — Lexitania, Legal y Fiscal · Departamento Laboral
+</footer>
 </body>
 </html>
