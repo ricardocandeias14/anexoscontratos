@@ -1,0 +1,17 @@
+{
+  "Jefe/a de Tráfico": { "GRUPO": "Jefe/a de Tráfico (Grupo I, superior técnico)", "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)" },
+  "Oficial 1ª y 2ª (administración)": { "GRUPO": "Oficial 1ª y 2ª (Grupo II, administración)", "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)" },
+  "Oficial de 1ª de oficios": { "GRUPO": "Oficial de 1ª de oficios (Grupo IV, servicios auxiliares de taller)", "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)" },
+  "Conductor/a mecánico": { "GRUPO": "Conductor/a mecánico (Grupo III, movimiento)", "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)" },
+  "Conductor/a gruista": { "GRUPO": "Conductor/a gruista (Grupo III, movimiento)", "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)" },
+  "Conductor/a repartidor (vehículo hasta 20 Tm)": { "GRUPO": "Conductor/a repartidor, vehículo pma 20 Tm (Grupo III, movimiento)", "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)" },
+  "Conductor/a": { "GRUPO": "Conductor/a (Grupo III, movimiento)", "SALARIO_BASE": "1.240,00 euros mensuales (tabla 2026)" },
+  "Oficial de 2ª de oficios": { "GRUPO": "Oficial de 2ª de oficios (Grupo IV, servicios auxiliares de taller)", "SALARIO_BASE": "1.240,00 euros mensuales (tabla 2026)" },
+  "Auxiliar administrativo/a": { "GRUPO": "Auxiliar administrativo/a (Grupo II, administración)", "SALARIO_BASE": "1.230,00 euros mensuales (tabla 2026)" },
+  "Auxiliar de almacén": { "GRUPO": "Auxiliar de almacén (Grupo III, movimiento)", "SALARIO_BASE": "1.230,00 euros mensuales (tabla 2026)" },
+  "Conductor/a repartidor (vehículo ligero)": { "GRUPO": "Conductor/a repartidor, vehículo ligero (Grupo III, movimiento)", "SALARIO_BASE": "1.230,00 euros mensuales (tabla 2026)" },
+  "Guarda": { "GRUPO": "Guarda (Grupo IV, servicios auxiliares)", "SALARIO_BASE": "1.225,00 euros mensuales (tabla 2026)" },
+  "Ayudante / Mozo especializado": { "GRUPO": "Ayudante y/o mozo especializado (Grupo III, movimiento)", "SALARIO_BASE": "1.225,00 euros mensuales (tabla 2026)" },
+  "Ordenanza": { "GRUPO": "Ordenanza (Grupo IV, servicios auxiliares)", "SALARIO_BASE": "1.225,00 euros mensuales (tabla 2026)" },
+  "Auxiliar": { "GRUPO": "Auxiliar (Grupo II, administración)", "SALARIO_BASE": "1.225,00 euros mensuales (tabla 2026)" }
+}

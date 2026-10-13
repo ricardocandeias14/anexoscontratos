@@ -1,0 +1,9 @@
+{
+  "Dirección (Grupo 0)": { "GRUPO": "Grupo profesional 0 (dirección)", "SALARIO_BASE": "retribución pactada individualmente; el convenio no fija tabla salarial propia para este grupo de dirección (artículo 81 del convenio)" },
+  "Técnico superior / Jefatura de área (Grupo 7)": { "GRUPO": "Grupo profesional 7", "SALARIO_BASE": "23.495,15 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)" },
+  "Técnico / Mando intermedio (Grupo 6)": { "GRUPO": "Grupo profesional 6", "SALARIO_BASE": "21.593,25 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)" },
+  "Técnico de grado medio / Coordinación (Grupo 5)": { "GRUPO": "Grupo profesional 5", "SALARIO_BASE": "20.160,00 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)" },
+  "Oficial especializado (Grupo 4)": { "GRUPO": "Grupo profesional 4", "SALARIO_BASE": "18.904,20 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)" },
+  "Oficial (Grupo 3)": { "GRUPO": "Grupo profesional 3", "SALARIO_BASE": "17.912,30 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)" },
+  "Auxiliar / Operario especializado (Grupo 2)": { "GRUPO": "Grupo profesional 2", "SALARIO_BASE": "17.598,35 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)" }
+}

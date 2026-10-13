@@ -1,6 +1,204 @@
 {
  "convenios": [
   {
+   "nombre": "Comercio de Alimentación Mayor y Menor (Badajoz)",
+   "carpeta": "Alimentacion Badajoz",
+   "categorias": [
+    "Director/a",
+    "Jefe/a de Compras",
+    "Jefe/a de Ventas",
+    "Jefe/a de Sucursal",
+    "Jefe/a de Sección",
+    "Jefe/a de Almacén",
+    "Jefe/a de Administración",
+    "Viajante",
+    "Oficial Administrativo/a",
+    "Operador/a de Ordenador",
+    "Auxiliar Administrativo/a",
+    "Dependiente/a",
+    "Auxiliar de Caja",
+    "Carnicero/a - Pescadero/a",
+    "Conductor/a - Repartidor/a",
+    "Charcutero/a",
+    "Mozo/a",
+    "Mozo/a Especializado/a",
+    "Oficial de 1ª",
+    "Conserje / Vigilante",
+    "Reponedor/a"
+   ],
+   "categorias_datos": {
+    "Director/a": {
+     "GRUPO": "Director/a",
+     "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)"
+    },
+    "Jefe/a de Compras": {
+     "GRUPO": "Jefe/a de Compras",
+     "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)"
+    },
+    "Jefe/a de Ventas": {
+     "GRUPO": "Jefe/a de Ventas",
+     "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)"
+    },
+    "Jefe/a de Sucursal": {
+     "GRUPO": "Jefe/a de Sucursal",
+     "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)"
+    },
+    "Jefe/a de Sección": {
+     "GRUPO": "Jefe/a de Sección",
+     "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)"
+    },
+    "Jefe/a de Almacén": {
+     "GRUPO": "Jefe/a de Almacén",
+     "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)"
+    },
+    "Jefe/a de Administración": {
+     "GRUPO": "Jefe/a de Administración",
+     "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)"
+    },
+    "Viajante": {
+     "GRUPO": "Viajante",
+     "SALARIO_BASE": "1.058,60 euros mensuales (tabla 2026)"
+    },
+    "Oficial Administrativo/a": {
+     "GRUPO": "Oficial Administrativo/a",
+     "SALARIO_BASE": "1.058,60 euros mensuales (tabla 2026)"
+    },
+    "Operador/a de Ordenador": {
+     "GRUPO": "Operador/a de Ordenador",
+     "SALARIO_BASE": "1.058,60 euros mensuales (tabla 2026)"
+    },
+    "Auxiliar Administrativo/a": {
+     "GRUPO": "Auxiliar Administrativo/a",
+     "SALARIO_BASE": "1.052,37 euros mensuales (tabla 2026)"
+    },
+    "Dependiente/a": {
+     "GRUPO": "Dependiente/a",
+     "SALARIO_BASE": "1.052,37 euros mensuales (tabla 2026)"
+    },
+    "Auxiliar de Caja": {
+     "GRUPO": "Auxiliar de Caja",
+     "SALARIO_BASE": "1.052,37 euros mensuales (tabla 2026)"
+    },
+    "Carnicero/a - Pescadero/a": {
+     "GRUPO": "Carnicero/a - Pescadero/a",
+     "SALARIO_BASE": "1.157,60 euros mensuales (tabla 2026)"
+    },
+    "Conductor/a - Repartidor/a": {
+     "GRUPO": "Conductor/a - Repartidor/a",
+     "SALARIO_BASE": "1.157,60 euros mensuales (tabla 2026)"
+    },
+    "Charcutero/a": {
+     "GRUPO": "Charcutero/a",
+     "SALARIO_BASE": "1.066,23 euros mensuales (tabla 2026)"
+    },
+    "Mozo/a": {
+     "GRUPO": "Mozo/a",
+     "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)"
+    },
+    "Mozo/a Especializado/a": {
+     "GRUPO": "Mozo/a Especializado/a",
+     "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)"
+    },
+    "Oficial de 1ª": {
+     "GRUPO": "Oficial de 1ª",
+     "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)"
+    },
+    "Conserje / Vigilante": {
+     "GRUPO": "Conserje / Vigilante",
+     "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)"
+    },
+    "Reponedor/a": {
+     "GRUPO": "Reponedor/a",
+     "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)"
+    }
+   },
+   "valores": {
+    "HAY_CONVENIO": "Sí",
+    "CONV_NOMBRE": "Convenio Colectivo del sector Comercio de Alimentación Mayor y Menor de la provincia de Badajoz",
+    "CONV_CODIGO": "06000135011981",
+    "CONV_PUBLICACION": "el Diario Oficial de Extremadura núm. 80, de 28 de abril de 2026",
+    "CONV_VIGENCIA": "del 1 de enero de 2025 al 31 de diciembre de 2026 (artículo 4); si no se denuncia con quince días de antelación a su finalización se entiende prorrogado de año en año en todo su articulado, salvo salarios y demás conceptos retributivos, que se actualizan con el IPC; denunciado, mantiene su vigencia hasta la consecución de un nuevo acuerdo. A la fecha de este documento se encuentra en su período de vigencia inicial",
+    "REF_CLASIFICACION": "la definición de categorías del artículo 43 del convenio",
+    "REF_SALARIO": "las tablas salariales anexas al convenio (tabla vigente: año 2026)",
+    "REF_COMPLEMENTOS": "el plus de convenio del artículo 39 (cuantía fija mensual, no compensable ni absorbible), el complemento de antigüedad del artículo 33 (cuatrienios al cinco por ciento según la legislación vigente) y el plus de nocturnidad del artículo 35 (25 % sobre el valor de la hora entre las 22:00 y las 6:00) del convenio",
+    "REF_PAGAS_EXTRA": "tres gratificaciones extraordinarias de una mensualidad cada una, pagaderas en marzo, julio y diciembre, con el devengo del artículo 11 del convenio",
+    "REF_JORNADA_ANUAL": "1.800 horas de trabajo efectivo en cómputo anual, con un máximo de 40 horas semanales (artículo 27 del convenio)",
+    "REF_MOD_JORNADA": "los artículos 27 a 30 del convenio (calendario laboral anual comunicado con quince días de antelación, horario de apertura de los establecimientos y consolidación de horas complementarias en los contratos a tiempo parcial) y, para el resto de modificaciones, los artículos 34 y 41 del Estatuto de los Trabajadores",
+    "REF_HORAS_EXTRA": "el artículo 21 del convenio (suprimidas las horas extraordinarias habituales; las estructurales se compensan con descanso o se retribuyen a petición de la persona trabajadora, con un recargo del 75 % en horario nocturno, del 100 % si además el recargo se acumula por ser nocturno y festivo a la vez, y del 150 % en domingos o festivos) y el artículo 35 del Estatuto de los Trabajadores (máximo de ochenta horas al año, voluntarias salvo pacto)",
+    "REF_VACACIONES": "30 días naturales según el artículo 13 del convenio; el calendario de vacaciones se confecciona antes del 10 de enero de cada año y, a falta de acuerdo, por orden de antigüedad, rotativo en años posteriores",
+    "REF_PRUEBA": "lo dispuesto en el artículo 14 del Estatuto de los Trabajadores, ya que el convenio no fija un período de prueba propio (máximo de seis meses para personal técnico titulado y de dos meses para el resto, o tres en empresas de menos de veinticinco personas trabajadoras; un mes en contratos temporales de hasta seis meses)",
+    "REF_FORMACION": "el compromiso del artículo 23 del convenio de impulsar cursos de formación del sector ante la Junta de Extremadura, y los artículos 4.2.b) y 23 del Estatuto de los Trabajadores, incluido el permiso retribuido de veinte horas anuales de formación vinculada a la actividad de la empresa, a partir de un año de antigüedad",
+    "REF_EXTINCION": "los artículos 49 a 56 del Estatuto de los Trabajadores, conforme a los cuales la empresa comunicará el cese por escrito respetando los plazos y formalidades que corresponda en cada caso; el artículo 26 del convenio obliga además a acompañar a la comunicación de la extinción una propuesta del documento de liquidación de las cantidades adeudadas",
+    "REF_MODIFICACION": "los artículos 27 a 30 del convenio en materia de jornada, calendario laboral y horario de apertura",
+    "MEJORAS_VOLUNTARIAS": "complemento de incapacidad temporal del artículo 17 del convenio: 100 % del salario real desde el primer día; y póliza de accidentes del artículo 16 con las indemnizaciones por muerte e invalidez permanente allí fijadas"
+   },
+   "modelos": []
+  },
+  {
+   "nombre": "Industrias Extractivas, del Vidrio, Cerámicas y Comercio Exclusivista (ámbito estatal)",
+   "carpeta": "Industrias Extractivas",
+   "categorias": [
+    "Dirección (Grupo 0)",
+    "Técnico superior / Jefatura de área (Grupo 7)",
+    "Técnico / Mando intermedio (Grupo 6)",
+    "Técnico de grado medio / Coordinación (Grupo 5)",
+    "Oficial especializado (Grupo 4)",
+    "Oficial (Grupo 3)",
+    "Auxiliar / Operario especializado (Grupo 2)"
+   ],
+   "categorias_datos": {
+    "Dirección (Grupo 0)": {
+     "GRUPO": "Grupo profesional 0 (dirección)",
+     "SALARIO_BASE": "retribución pactada individualmente; el convenio no fija tabla salarial propia para este grupo de dirección (artículo 81 del convenio)"
+    },
+    "Técnico superior / Jefatura de área (Grupo 7)": {
+     "GRUPO": "Grupo profesional 7",
+     "SALARIO_BASE": "23.495,15 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)"
+    },
+    "Técnico / Mando intermedio (Grupo 6)": {
+     "GRUPO": "Grupo profesional 6",
+     "SALARIO_BASE": "21.593,25 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)"
+    },
+    "Técnico de grado medio / Coordinación (Grupo 5)": {
+     "GRUPO": "Grupo profesional 5",
+     "SALARIO_BASE": "20.160,00 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)"
+    },
+    "Oficial especializado (Grupo 4)": {
+     "GRUPO": "Grupo profesional 4",
+     "SALARIO_BASE": "18.904,20 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)"
+    },
+    "Oficial (Grupo 3)": {
+     "GRUPO": "Grupo profesional 3",
+     "SALARIO_BASE": "17.912,30 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)"
+    },
+    "Auxiliar / Operario especializado (Grupo 2)": {
+     "GRUPO": "Grupo profesional 2",
+     "SALARIO_BASE": "17.598,35 euros anuales (Salario Mínimo Garantizado, tabla 2026, artículo 11 del convenio)"
+    }
+   },
+   "valores": {
+    "HAY_CONVENIO": "Sí",
+    "CONV_NOMBRE": "XXIII Convenio colectivo de ámbito estatal para las industrias extractivas, industrias del vidrio, industrias cerámicas y para las del comercio exclusivista de los mismos materiales",
+    "CONV_CODIGO": "99002045011981",
+    "CONV_PUBLICACION": "el Boletín Oficial del Estado núm. 107, de 2 de mayo de 2026 (Resolución de 23 de abril de 2026, de la Dirección General de Trabajo)",
+    "CONV_VIGENCIA": "del 1 de enero de 2025 al 31 de diciembre de 2027 (artículo 4); si no se denuncia con al menos tres meses de antelación a su expiración se prorroga de año en año, manteniéndose vigente en su totalidad hasta la sustitución por otro convenio (artículo 6)",
+    "REF_CLASIFICACION": "los artículos 75 a 82 del convenio, que clasifican a las personas trabajadoras en Grupos Profesionales (0 y 2 a 7, tras la promoción automática del antiguo Grupo 1 al Grupo 2) atendiendo a sus aptitudes profesionales, titulaciones y contenido general de la prestación",
+    "REF_SALARIO": "el Salario Mínimo Garantizado por Grupo profesional de los artículos 7, 8 y 11 del convenio (tabla vigente: año 2026), que integra el plus de asistencia del artículo 14",
+    "REF_COMPLEMENTOS": "el Plus de Homogeneización del artículo 12 (garantía personal para quien tuviera un salario base superior al de convenios anteriores), el complemento de antigüedad del artículo 13 (3 % del salario base por trienio, con el límite del 18 %), el plus de nocturnidad del artículo 17 (25 % sobre el salario base entre las 22:00 y las 6:00), el plus de turnicidad del artículo 18 y el plus de domingos y festivos del artículo 19 del convenio",
+    "REF_PAGAS_EXTRA": "tres gratificaciones extraordinarias de treinta días de salario base más antigüedad cada una: la de Verano (devengada del 1 de enero al 30 de junio, pagadera antes del 15 de julio), la de Navidad (devengada del 1 de julio al 31 de diciembre, pagadera antes del 15 de diciembre) y la de Marzo, sustitutiva de la de Beneficios (devengada durante todo el año natural, pagadera antes del 15 de marzo del año siguiente), conforme al artículo 15 del convenio",
+    "REF_JORNADA_ANUAL": "1.747 horas de trabajo efectivo en cómputo anual para 2026, con equivalencia de 40 horas semanales (artículo 26 del convenio)",
+    "REF_MOD_JORNADA": "el artículo 37 del convenio sobre adaptación de la duración y distribución de la jornada, la ordenación del tiempo de trabajo y la forma de prestación de servicios por motivos de conciliación, conforme al artículo 34.8 del Estatuto de los Trabajadores, y el artículo 41 del Estatuto de los Trabajadores para el resto de modificaciones sustanciales",
+    "REF_HORAS_EXTRA": "el artículo 28 del convenio, que recomienda la supresión de las horas extraordinarias por razones de política social solidaria, y el artículo 16, conforme al cual se compensan con tiempo de descanso incrementado en un 75 %, acumulable en días completos, o, por acuerdo entre empresa y representación de los trabajadores, con una compensación económica equivalente al valor de la hora ordinaria incrementado en un 40 %",
+    "REF_VACACIONES": "30 días naturales consecutivos por año completo de servicio efectivo, conforme al artículo 29 del convenio; su disfrute podrá fraccionarse de común acuerdo y no podrá iniciarse en festivo o víspera de festivo, siendo nulo el pacto de compensarlas en metálico salvo cese del trabajador",
+    "REF_PRUEBA": "el período de prueba del artículo 66 del convenio, cuya duración máxima es de seis meses para los Grupos profesionales V, VI y VII, de dos meses para los Grupos III y IV, de un mes para el personal administrativo del Grupo II y de quince días para los Grupos I y II",
+    "REF_FORMACION": "los artículos 116 a 120 del convenio en materia de formación profesional (programas de formación sectoriales, transversales y de cualificación y reconocimiento profesional, permisos individuales de formación del Real Decreto 694/2017 y actuación de la Comisión Paritaria Sectorial de Formación), y los artículos 4.2.b) y 23 del Estatuto de los Trabajadores",
+    "REF_EXTINCION": "los artículos 49 a 56 del Estatuto de los Trabajadores, conforme a los cuales la empresa comunicará el cese por escrito respetando los plazos y formalidades que corresponda en cada caso, el artículo 54 del Estatuto de los Trabajadores para el despido disciplinario por faltas muy graves conforme al artículo 87.C) del convenio, y el artículo 74 del convenio, que fija los plazos de preaviso en caso de baja voluntaria: dos meses para el Grupo profesional 7, un mes para los Grupos 4, 5 y 6, y quince días para los Grupos 1, 2 y 3",
+    "REF_MODIFICACION": "el artículo 37 del convenio sobre adaptación de la jornada por conciliación, el artículo 52 sobre cambios de puesto de trabajo conforme al artículo 82 del convenio, y los artículos 77 y 78 sobre movilidad funcional dentro del Grupo profesional y en Grupo superior o inferior, con los límites de los artículos 22 y 39 del Estatuto de los Trabajadores",
+    "MEJORAS_VOLUNTARIAS": "complemento por accidente de trabajo y enfermedad profesional del artículo 25 del convenio: 25 % sobre la base de la prestación de incapacidad temporal, que sumado al 75 % que abona la mutua colaboradora equivale al 100 % de la base reguladora; y póliza de seguros para accidentes de trabajo del artículo 24, con una suma asegurada de 32.249,00 euros en 2026 para los supuestos de muerte e incapacidad permanente"
+   },
+   "modelos": []
+  },
+  {
    "nombre": "Siderometalúrgica Badajoz",
    "carpeta": "Siderometalurgica Badajoz",
    "categorias": [
@@ -55,9 +253,7 @@
     "REF_MODIFICACION": "los artículos 46 y 47 del convenio",
     "MEJORAS_VOLUNTARIAS": "complemento de incapacidad temporal del artículo 45 del convenio: hasta el 100 % del salario líquido desde el primer día en accidente de trabajo, y hasta el 100 % del salario neto a partir del séptimo día en enfermedad común o accidente no laboral"
    },
-   "modelos": [
-    "_base.docx"
-   ]
+   "modelos": []
   },
   {
    "nombre": "Sin convenio colectivo (Estatuto de los Trabajadores)",
@@ -78,6 +274,110 @@
     "REF_PRUEBA": "lo dispuesto en el artículo 14 del Estatuto de los Trabajadores (máximo de seis meses para personal técnico titulado y de dos meses para el resto, o tres en empresas de menos de veinticinco personas trabajadoras; un mes en contratos temporales de hasta seis meses)",
     "REF_FORMACION": "los artículos 4.2.b) y 23 del Estatuto de los Trabajadores, incluido el permiso retribuido de veinte horas anuales de formación profesional para el empleo vinculada a la actividad de la empresa, acumulables hasta cinco años, a partir de un año de antigüedad",
     "REF_EXTINCION": "los artículos 49 a 56 del Estatuto de los Trabajadores; en particular: en los contratos temporales de duración superior a un año, la parte que denuncie el contrato debe preavisar a la otra con quince días; el despido por causas objetivas se comunica por escrito expresando la causa, poniendo a disposición simultáneamente la indemnización legal y con quince días de preaviso; el despido disciplinario se notifica por escrito con los hechos que lo motivan y su fecha de efectos; la dimisión requiere el preaviso que señale la costumbre del lugar; y la empresa acompañará a la comunicación de la extinción una propuesta del documento de liquidación de las cantidades adeudadas"
+   },
+   "modelos": []
+  },
+  {
+   "nombre": "Transporte de Mercancías por Carretera (Badajoz)",
+   "carpeta": "Transporte Badajoz",
+   "categorias": [
+    "Jefe/a de Tráfico",
+    "Oficial 1ª y 2ª (administración)",
+    "Oficial de 1ª de oficios",
+    "Conductor/a mecánico",
+    "Conductor/a gruista",
+    "Conductor/a repartidor (vehículo hasta 20 Tm)",
+    "Conductor/a",
+    "Oficial de 2ª de oficios",
+    "Auxiliar administrativo/a",
+    "Auxiliar de almacén",
+    "Conductor/a repartidor (vehículo ligero)",
+    "Guarda",
+    "Ayudante / Mozo especializado",
+    "Ordenanza",
+    "Auxiliar"
+   ],
+   "categorias_datos": {
+    "Jefe/a de Tráfico": {
+     "GRUPO": "Jefe/a de Tráfico (Grupo I, superior técnico)",
+     "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)"
+    },
+    "Oficial 1ª y 2ª (administración)": {
+     "GRUPO": "Oficial 1ª y 2ª (Grupo II, administración)",
+     "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)"
+    },
+    "Oficial de 1ª de oficios": {
+     "GRUPO": "Oficial de 1ª de oficios (Grupo IV, servicios auxiliares de taller)",
+     "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)"
+    },
+    "Conductor/a mecánico": {
+     "GRUPO": "Conductor/a mecánico (Grupo III, movimiento)",
+     "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)"
+    },
+    "Conductor/a gruista": {
+     "GRUPO": "Conductor/a gruista (Grupo III, movimiento)",
+     "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)"
+    },
+    "Conductor/a repartidor (vehículo hasta 20 Tm)": {
+     "GRUPO": "Conductor/a repartidor, vehículo pma 20 Tm (Grupo III, movimiento)",
+     "SALARIO_BASE": "1.250,00 euros mensuales (tabla 2026)"
+    },
+    "Conductor/a": {
+     "GRUPO": "Conductor/a (Grupo III, movimiento)",
+     "SALARIO_BASE": "1.240,00 euros mensuales (tabla 2026)"
+    },
+    "Oficial de 2ª de oficios": {
+     "GRUPO": "Oficial de 2ª de oficios (Grupo IV, servicios auxiliares de taller)",
+     "SALARIO_BASE": "1.240,00 euros mensuales (tabla 2026)"
+    },
+    "Auxiliar administrativo/a": {
+     "GRUPO": "Auxiliar administrativo/a (Grupo II, administración)",
+     "SALARIO_BASE": "1.230,00 euros mensuales (tabla 2026)"
+    },
+    "Auxiliar de almacén": {
+     "GRUPO": "Auxiliar de almacén (Grupo III, movimiento)",
+     "SALARIO_BASE": "1.230,00 euros mensuales (tabla 2026)"
+    },
+    "Conductor/a repartidor (vehículo ligero)": {
+     "GRUPO": "Conductor/a repartidor, vehículo ligero (Grupo III, movimiento)",
+     "SALARIO_BASE": "1.230,00 euros mensuales (tabla 2026)"
+    },
+    "Guarda": {
+     "GRUPO": "Guarda (Grupo IV, servicios auxiliares)",
+     "SALARIO_BASE": "1.225,00 euros mensuales (tabla 2026)"
+    },
+    "Ayudante / Mozo especializado": {
+     "GRUPO": "Ayudante y/o mozo especializado (Grupo III, movimiento)",
+     "SALARIO_BASE": "1.225,00 euros mensuales (tabla 2026)"
+    },
+    "Ordenanza": {
+     "GRUPO": "Ordenanza (Grupo IV, servicios auxiliares)",
+     "SALARIO_BASE": "1.225,00 euros mensuales (tabla 2026)"
+    },
+    "Auxiliar": {
+     "GRUPO": "Auxiliar (Grupo II, administración)",
+     "SALARIO_BASE": "1.225,00 euros mensuales (tabla 2026)"
+    }
+   },
+   "valores": {
+    "HAY_CONVENIO": "Sí",
+    "CONV_NOMBRE": "Convenio Colectivo de Trabajo del sector Transporte de Mercancías por Carretera para la provincia de Badajoz",
+    "CONV_CODIGO": "06000525011981",
+    "CONV_PUBLICACION": "el Diario Oficial de Extremadura núm. 119, de 23 de junio de 2026",
+    "CONV_VIGENCIA": "del 1 de enero de 2026 al 31 de diciembre de 2026 (artículo 5); su denuncia es automática a la finalización y, para evitar el vacío normativo, el convenio continuará rigiendo en su totalidad, tanto en lo normativo como en lo obligacional, hasta que sea sustituido por otro. A la fecha de este documento se encuentra en su período de vigencia inicial",
+    "REF_CLASIFICACION": "la clasificación por categorías y grupos profesionales de la tabla salarial anexa al convenio (Anexo I), que desarrolla las categorías del II Acuerdo General para las Empresas de Transporte de Mercancías por Carretera",
+    "REF_SALARIO": "las tablas salariales anexas al convenio (tabla vigente: año 2026)",
+    "REF_COMPLEMENTOS": "el plus de nocturnidad del artículo 18 (25 % sobre el salario base para quien trabaje entre las 22:00 y las 6:00), el plus de festivos del artículo 18 (cuantía diaria fijada en la tabla vigente, abonable el mes siguiente o compensable en día libre) y el complemento de antigüedad del artículo 28 del convenio (cuantías fijas por trienios, congeladas a partir de los veinte años)",
+    "REF_PAGAS_EXTRA": "dos gratificaciones extraordinarias de treinta días de salario base más antigüedad cada una, pagaderas en julio y diciembre (artículo 8 del convenio)",
+    "REF_JORNADA_ANUAL": "1.800 horas de trabajo efectivo al año, con cómputo semanal de 40 horas (artículo 20 del convenio), sujeta a los tiempos de conducción y descanso del Real Decreto 1561/1995, el Real Decreto 902/2007 y el Reglamento (CE) 561/2006",
+    "REF_MOD_JORNADA": "los artículos 20 y 21 del convenio (distribución semanal, jornada diaria máxima de nueve horas con un mínimo de siete horas efectivas para el personal de conducción, y descanso ininterrumpido de doce horas entre jornadas) y, para el resto de modificaciones, el artículo 41 del Estatuto de los Trabajadores",
+    "REF_HORAS_EXTRA": "el artículo 22 del convenio (suprimidas las horas extraordinarias habituales; las estructurales requieren autorización de la representación legal; valor mínimo de la hora: 13,50 euros en 2026) y el artículo 35 del Estatuto de los Trabajadores (máximo de ochenta horas al año, voluntarias salvo pacto)",
+    "REF_VACACIONES": "30 días naturales según el artículo 10 del convenio; el período se fija de común acuerdo dentro del primer trimestre del año, con disfrute continuado salvo fraccionamiento en dos períodos como máximo, uno de ellos en verano, sin posibilidad de compensación en metálico",
+    "REF_PRUEBA": "lo dispuesto en el artículo 14 del Estatuto de los Trabajadores, ya que el convenio no fija un período de prueba propio (máximo de seis meses para personal técnico titulado y de dos meses para el resto, o tres en empresas de menos de veinticinco personas trabajadoras; un mes en contratos temporales de hasta seis meses)",
+    "REF_FORMACION": "la formación continua en el Certificado de Aptitud Profesional (35 horas) y la renovación del ADR a cargo de la empresa dentro de la formación bonificada, conforme al artículo 34 del convenio y al artículo 64 del II Acuerdo General para las Empresas de Transporte de Mercancías por Carretera, y los artículos 4.2.b) y 23 del Estatuto de los Trabajadores",
+    "REF_EXTINCION": "los artículos 49 a 56 del Estatuto de los Trabajadores, conforme a los cuales la empresa comunicará el cese por escrito respetando los plazos y formalidades que corresponda en cada caso; en caso de baja voluntaria, la persona trabajadora deberá preavisar con diez días de antelación (artículo 26 del convenio)",
+    "REF_MODIFICACION": "los artículos 20 y 21 del convenio en materia de jornada y descansos, y el artículo 33 en materia de subrogación de personal cuando la empresa pierda la adjudicación de un servicio concertado con la Administración",
+    "MEJORAS_VOLUNTARIAS": "complemento de incapacidad temporal del artículo 11 del convenio: 100 % del salario desde el primer día en accidente de trabajo o enfermedad con hospitalización, y desde el tercer día en enfermedad común sin hospitalización; y póliza de seguros del artículo 15 con las indemnizaciones por muerte e invalidez allí fijadas"
    },
    "modelos": []
   }

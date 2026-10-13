@@ -1,0 +1,23 @@
+{
+  "Director/a": { "GRUPO": "Director/a", "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)" },
+  "Jefe/a de Compras": { "GRUPO": "Jefe/a de Compras", "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)" },
+  "Jefe/a de Ventas": { "GRUPO": "Jefe/a de Ventas", "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)" },
+  "Jefe/a de Sucursal": { "GRUPO": "Jefe/a de Sucursal", "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)" },
+  "Jefe/a de Sección": { "GRUPO": "Jefe/a de Sección", "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)" },
+  "Jefe/a de Almacén": { "GRUPO": "Jefe/a de Almacén", "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)" },
+  "Jefe/a de Administración": { "GRUPO": "Jefe/a de Administración", "SALARIO_BASE": "1.060,77 euros mensuales (tabla 2026)" },
+  "Viajante": { "GRUPO": "Viajante", "SALARIO_BASE": "1.058,60 euros mensuales (tabla 2026)" },
+  "Oficial Administrativo/a": { "GRUPO": "Oficial Administrativo/a", "SALARIO_BASE": "1.058,60 euros mensuales (tabla 2026)" },
+  "Operador/a de Ordenador": { "GRUPO": "Operador/a de Ordenador", "SALARIO_BASE": "1.058,60 euros mensuales (tabla 2026)" },
+  "Auxiliar Administrativo/a": { "GRUPO": "Auxiliar Administrativo/a", "SALARIO_BASE": "1.052,37 euros mensuales (tabla 2026)" },
+  "Dependiente/a": { "GRUPO": "Dependiente/a", "SALARIO_BASE": "1.052,37 euros mensuales (tabla 2026)" },
+  "Auxiliar de Caja": { "GRUPO": "Auxiliar de Caja", "SALARIO_BASE": "1.052,37 euros mensuales (tabla 2026)" },
+  "Carnicero/a - Pescadero/a": { "GRUPO": "Carnicero/a - Pescadero/a", "SALARIO_BASE": "1.157,60 euros mensuales (tabla 2026)" },
+  "Conductor/a - Repartidor/a": { "GRUPO": "Conductor/a - Repartidor/a", "SALARIO_BASE": "1.157,60 euros mensuales (tabla 2026)" },
+  "Charcutero/a": { "GRUPO": "Charcutero/a", "SALARIO_BASE": "1.066,23 euros mensuales (tabla 2026)" },
+  "Mozo/a": { "GRUPO": "Mozo/a", "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)" },
+  "Mozo/a Especializado/a": { "GRUPO": "Mozo/a Especializado/a", "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)" },
+  "Oficial de 1ª": { "GRUPO": "Oficial de 1ª", "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)" },
+  "Conserje / Vigilante": { "GRUPO": "Conserje / Vigilante", "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)" },
+  "Reponedor/a": { "GRUPO": "Reponedor/a", "SALARIO_BASE": "1.052,34 euros mensuales (tabla 2026)" }
+}
