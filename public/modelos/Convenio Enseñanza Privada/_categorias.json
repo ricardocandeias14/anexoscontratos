@@ -1,0 +1,126 @@
+{
+  "Profesor titular / Titular de taller o laboratorio": {
+    "GRUPO": "Grupo I – Personal docente",
+    "FUNCIONES": "Con las condiciones y títulos académicos exigidos por la legislación, ejerce su actividad educativa para el desarrollo de los programas, en el aula, taller o laboratorio, dentro del marco pedagógico y didáctico establecido por el centro (anexo I)"
+  },
+  "Profesor adjunto, ayudante o auxiliar": {
+    "GRUPO": "Grupo I – Personal docente",
+    "FUNCIONES": "Profesor designado por el centro que colabora con el profesor titular en el desarrollo de los programas, bajo sus directrices y orientación (anexo I)"
+  },
+  "Profesor adjunto de taller o laboratorio": {
+    "GRUPO": "Grupo I – Personal docente",
+    "FUNCIONES": "Colabora con el profesor titular en la ejecución y aplicación de los programas que se desarrollan en taller o laboratorio, bajo sus directrices (anexo I)"
+  },
+  "Educador de infantil": {
+    "GRUPO": "Grupo I – Personal docente",
+    "FUNCIONES": "Con la titulación y capacidades exigidas por la ley, ejerce su actividad en el nivel de educación infantil, favoreciendo la formación integral de los alumnos (anexo I)"
+  },
+  "Instructor": {
+    "GRUPO": "Grupo I – Personal docente",
+    "FUNCIONES": "Auxilia al profesor en enseñanzas que comprenden materias no incluidas en los programas oficiales (anexo I)"
+  },
+  "Personal especializado, nivel I": {
+    "GRUPO": "Grupo II – Personal de servicios complementarios, subgrupo A",
+    "FUNCIONES": "Ejerce una función especializada o asesora, directamente sobre los alumnos o de forma genérica en los centros; comprende, entre otros, letrado, médico, psicólogo, pedagogo, bibliotecario, capellán y director espiritual (artículo 12 y anexo I)"
+  },
+  "Personal especializado, nivel II": {
+    "GRUPO": "Grupo II – Personal de servicios complementarios, subgrupo A",
+    "FUNCIONES": "Ejerce una función especializada o asesora, directamente sobre los alumnos o de forma genérica en los centros; comprende, entre otros, logopeda y enfermero/a (artículo 12 y anexo I)"
+  },
+  "Monitor de actividades extracurriculares": {
+    "GRUPO": "Grupo II – Personal de servicios complementarios, subgrupo B (personal de apoyo)",
+    "FUNCIONES": "Desarrolla actividades fuera del currículo oficial (educativas, deportivas, culturales o análogas) con uno o varios grupos de alumnos (anexo I)"
+  },
+  "Vigilante educador": {
+    "GRUPO": "Grupo II – Personal de servicios complementarios, subgrupo B (personal de apoyo)",
+    "FUNCIONES": "Con la preparación adecuada, colabora en la formación integral de los alumnos y cuida del orden e instalaciones, realizando las labores de apoyo que se le encomienden (anexo I)"
+  },
+  "Jefe de Administración o Secretaría": {
+    "GRUPO": "Grupo III – Personal de administración",
+    "FUNCIONES": "Tiene a su cargo la dirección administrativa y/o la secretaría del centro, de la que responde ante el titular (anexo I)"
+  },
+  "Jefe de Negociado": {
+    "GRUPO": "Grupo III – Personal de administración",
+    "FUNCIONES": "A las órdenes del Jefe de Administración o Secretaría, dirige una sección o departamento administrativo (anexo I)"
+  },
+  "Oficial (administración)": {
+    "GRUPO": "Grupo III – Personal de administración",
+    "FUNCIONES": "Ejerce funciones burocráticas, contables o de gestión que exigen iniciativa y responsabilidad (anexo I)"
+  },
+  "Auxiliar o telefonista": {
+    "GRUPO": "Grupo III – Personal de administración",
+    "FUNCIONES": "Realiza funciones administrativas, burocráticas o de biblioteca bajo la dirección de su inmediato superior, atiende teléfonos, recepción y demás servicios del centro (anexo I)"
+  },
+  "Intendente": {
+    "GRUPO": "Grupo III – Personal de administración (solo anexo IV)",
+    "FUNCIONES": "Tiene a su cargo la adquisición de objetos, muebles, víveres, combustibles y demás elementos necesarios para el funcionamiento del centro y sus servicios (anexo I)"
+  },
+  "Aprendiz / Aspirante": {
+    "GRUPO": "Grupo III – Personal de administración (solo anexo IV)",
+    "FUNCIONES": "Trabajador que se halla en el primer grado de una profesión antes de pasar a oficial (anexo I)"
+  },
+  "Conserje": {
+    "GRUPO": "Grupo IV – Personal de servicios generales",
+    "FUNCIONES": "Atiende las necesidades del centro y la recepción de visitas, procura la conservación de las dependencias y organiza el servicio de ordenanzas y personal auxiliar (anexo I)"
+  },
+  "Gobernante": {
+    "GRUPO": "Grupo IV – Personal de servicios generales",
+    "FUNCIONES": "Coordina el personal de limpieza, cocina y comedor si no hubiera jefes de los mismos, distribuye el servicio y responde, en su caso, de menaje, llaves, lencería, utensilios y material doméstico (anexo I)"
+  },
+  "Jefe de cocina": {
+    "GRUPO": "Grupo IV – Personal de servicios generales",
+    "FUNCIONES": "Dirige a todo el personal de cocina, se responsabiliza de la condimentación de los alimentos y cuida de su servicio en las debidas condiciones (anexo I)"
+  },
+  "Cocinero": {
+    "GRUPO": "Grupo IV – Personal de servicios generales",
+    "FUNCIONES": "Encargado de la preparación de alimentos, responsable de su buen estado y presentación y de la pulcritud del local y utensilios de cocina (anexo I)"
+  },
+  "Oficial (servicios generales)": {
+    "GRUPO": "Grupo IV – Personal de servicios generales",
+    "FUNCIONES": "Poseyendo la práctica de los oficios correspondientes, los ejerce con gran perfección, realizando trabajos generales e incluso los que suponen especial empeño y delicadeza (anexo I)"
+  },
+  "Conductor": {
+    "GRUPO": "Grupo IV – Personal de servicios generales",
+    "FUNCIONES": "Provisto del permiso de conducir correspondiente, conduce vehículos y se ocupa de su normal mantenimiento (anexo I)"
+  },
+  "Celador": {
+    "GRUPO": "Grupo IV – Personal de servicios generales",
+    "FUNCIONES": "Cuida del orden y compostura de los alumnos y de la conservación de las instalaciones; atiende la vigilancia y entretenimiento de los alumnos en actos que no sean docentes reglados (anexo I)"
+  },
+  "Portero y ordenanza": {
+    "GRUPO": "Grupo IV – Personal de servicios generales",
+    "FUNCIONES": "Limpieza y conservación de su zona, vigilancia de dependencias y personas que entran y salen, apertura y cierre de puertas, entregas y avisos, encendido y apagado de luces, cuidado de contadores y equipos comunes, y recados y encargos (anexo I)"
+  },
+  "Empleado de servicios generales": {
+    "GRUPO": "Grupo IV – Personal de servicios generales",
+    "FUNCIONES": "Realiza una o varias de las siguientes funciones: vigilancia de edificios y terrenos, cuidado y conservación de jardines e inmueble, servicios de comedor, limpieza, costura, lavado y plancha, actividades que no constituyen propiamente un oficio, auxilio en limpieza y aseo, y recados y reparto sin iniciativa ni responsabilidad (anexo I)"
+  },
+  "Ayudante de cocina": {
+    "GRUPO": "Grupo IV – Personal de servicios generales (solo anexo IV)",
+    "FUNCIONES": "A las órdenes del cocinero, le ayuda en sus funciones (anexo I)"
+  },
+  "Pinche": {
+    "GRUPO": "Grupo IV – Personal de servicios generales (solo anexo IV)",
+    "FUNCIONES": "Auxilia en la limpieza y aseo de la cocina, el comedor y las restantes dependencias del centro (anexo I)"
+  },
+  "Botones": {
+    "GRUPO": "Grupo IV – Personal de servicios generales (solo anexo IV)",
+    "FUNCIONES": "Realiza recados, reparto y otros trabajos que no requieren iniciativa ni responsabilidad (anexo I)"
+  },
+  "Director (cargo directivo temporal)": {
+    "GRUPO": "Cargo directivo temporal (artículo 13), personal docente",
+    "FUNCIONES": "Encargado por el titular del centro de dirigir, orientar y supervisar las actividades educativas en todos sus aspectos y otras que se le encomienden (anexo I)"
+  },
+  "Subdirector (cargo directivo temporal)": {
+    "GRUPO": "Cargo directivo temporal (artículo 13), personal docente",
+    "FUNCIONES": "Encargado de auxiliar y, en caso necesario, sustituir al Director en sus funciones (anexo I)"
+  },
+  "Jefe de Estudios (cargo directivo temporal)": {
+    "GRUPO": "Cargo directivo temporal (artículo 13), personal docente",
+    "FUNCIONES": "Con las condiciones y títulos académicos exigidos por la legislación, coordina el cumplimiento de horarios, el orden y la disciplina de alumnos y profesores del centro (anexo I)"
+  },
+  "Jefe de Departamento (cargo directivo temporal)": {
+    "GRUPO": "Cargo directivo temporal (artículo 13), personal docente",
+    "FUNCIONES": "Profesor que, en los centros cuya modalidad de enseñanza lo exige, dirige y coordina la investigación, programación y enseñanzas de las disciplinas de su departamento (anexo I)"
+  }
+}
