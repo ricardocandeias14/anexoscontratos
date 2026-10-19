@@ -1,0 +1,87 @@
+{
+ "Dependiente/a": {
+  "GRUPO": "Grupo II",
+  "FUNCIONES": "Realiza las ventas con conocimiento práctico de los artículos cuyo despacho le está confiado, orienta al público en sus compras, cuida el recuento de mercancías para solicitar su reposición en tiempo oportuno y su exhibición en escaparates y vitrinas, y posee los conocimientos elementales de cálculo mercantil necesarios para efectuar las ventas (anexo II)",
+  "SALARIO_BASE": "1.085,96 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Auxiliar Administrativo/a": {
+  "GRUPO": "Grupo II",
+  "FUNCIONES": "Con conocimientos generales de índole administrativa, auxilia a los oficiales y jefes en trabajos como redacción de correspondencia de trámite, confección de facturas y estados para liquidación de intereses e impuestos y mecanografía, entre otras (anexo II)",
+  "SALARIO_BASE": "1.085,96 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Mozo/a": {
+  "GRUPO": "Grupo II",
+  "FUNCIONES": "Efectúa el transporte de mercancías dentro o fuera del establecimiento, hace y reparte los paquetes corrientes, y puede encomendársele también trabajos de limpieza del establecimiento (anexo II)",
+  "SALARIO_BASE": "1.085,96 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Vigilante": {
+  "GRUPO": "Grupo II",
+  "FUNCIONES": "Realiza labores de vigilancia dentro o fuera del establecimiento y cuida del orden y la seguridad de las personas y de las mercancías; percibe un 10 % de aumento sobre el salario por este trabajo (artículo 6.º y anexo II)",
+  "SALARIO_BASE": "1.220,15 euros mensuales (tabla 2026, anexo I; incluye el 10 % del artículo 6.º)"
+ },
+ "Viajante": {
+  "GRUPO": "Grupo III",
+  "FUNCIONES": "Al servicio de una sola empresa, realiza los habituales viajes según la ruta señalada para ofrecer artículos, tomar nota de los pedidos, informar a los clientes y transmitir los encargos recibidos (anexo II)",
+  "SALARIO_BASE": "1.093,41 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Oficial de Primera": {
+  "GRUPO": "Grupo III",
+  "FUNCIONES": "Trabaja con iniciativa y responsabilidad propia, con alto grado de esmero en la realización de su cometido y de su rendimiento (anexo II)",
+  "SALARIO_BASE": "1.093,41 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Contable": {
+  "GRUPO": "Grupo IV",
+  "FUNCIONES": "Provisto o no de poder, asume con plenas facultades la dirección y vigilancia de todas las funciones contables de una empresa que las tenga organizadas o distribuidas en varias secciones (anexo II)",
+  "SALARIO_BASE": "1.127,98 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Cajero/a": {
+  "GRUPO": "Grupo IV",
+  "FUNCIONES": "Incluye a los contables y cajeros no comprendidos en la definición de la categoría de Contable (anexo II)",
+  "SALARIO_BASE": "1.127,98 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Oficial Administrativo/a": {
+  "GRUPO": "Grupo IV",
+  "FUNCIONES": "Con conocimientos técnicos y prácticos necesarios para la vida mercantil, realiza trabajos con propia iniciativa: redacción de correspondencia o contratos mercantiles corrientes, elaboración de estadísticas, gestión de informes, transcripción en libros de contabilidad y liquidación de subsidios y Seguros Sociales (anexo II)",
+  "SALARIO_BASE": "1.127,98 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Encargado/a Establecimiento": {
+  "GRUPO": "Grupo IV",
+  "FUNCIONES": "Está al frente de un pequeño establecimiento, con un número de empleados no superior a tres, bajo la directa dependencia de la empresa, con tareas como verificar compras, retirar pedidos y efectuar ingresos (anexo II)",
+  "SALARIO_BASE": "1.127,98 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Dependiente/a Mayor": {
+  "GRUPO": "Grupo IV",
+  "FUNCIONES": "Mayor de veintidós años, encargado de realizar las ventas con conocimientos prácticos de los artículos cuyo despacho le está confiado; por su capacitación se diferencia de la categoría de Dependiente/a (anexo II)",
+  "SALARIO_BASE": "1.240,77 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Titulado Superior": {
+  "GRUPO": "Grupo V",
+  "FUNCIONES": "En posesión de un título universitario de grado superior reconocido por la legislación académica vigente, ejerce en la empresa de forma permanente y con responsabilidad directa funciones propias y características de su profesión, sin sujeción a aranceles (anexo II)",
+  "SALARIO_BASE": "1.370,90 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Titulado Grado Medio": {
+  "GRUPO": "Grupo V",
+  "FUNCIONES": "En posesión de un título universitario de grado medio reconocido por la legislación académica vigente, ejerce en la empresa de forma permanente y con responsabilidad directa funciones propias y características de su profesión, sin sujeción a aranceles (anexo II)",
+  "SALARIO_BASE": "1.370,90 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Director/a Mercantil": {
+  "GRUPO": "Grupo V",
+  "FUNCIONES": "A las órdenes de la empresa y participando en la elaboración de su política, dirige, coordina y se responsabiliza de las actividades de la dirección a su cargo (anexo II)",
+  "SALARIO_BASE": "1.370,90 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Gerente": {
+  "GRUPO": "Grupo V",
+  "FUNCIONES": "A las órdenes de la empresa y participando en la elaboración de su política, dirige, coordina y se responsabiliza de las actividades de la dirección a su cargo (anexo II)",
+  "SALARIO_BASE": "1.370,90 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Jefe de Personal": {
+  "GRUPO": "Grupo V",
+  "FUNCIONES": "Al frente de todo el personal de una empresa, dicta las normas para una perfecta organización y distribución del trabajo cuya vigilancia le corresponde, así como la concesión de permisos y propuestas de sanciones (anexo II)",
+  "SALARIO_BASE": "1.370,90 euros mensuales (tabla 2026, anexo I)"
+ },
+ "Encargado General": {
+  "GRUPO": "Grupo V",
+  "FUNCIONES": "Está al frente de un establecimiento del que dependen sucursales en distintas plazas, o asume la dirección superior de varias sucursales radicadas en una misma plaza (anexo II)",
+  "SALARIO_BASE": "1.370,90 euros mensuales (tabla 2026, anexo I)"
+ }
+}
