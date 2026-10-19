@@ -135,6 +135,190 @@
    "modelos": []
   },
   {
+   "nombre": "Convenio de Enseñanza Privada no Concertada (XII Convenio nacional)",
+   "carpeta": "Convenio Enseñanza Privada",
+   "categorias": [
+    "Profesor titular / Titular de taller o laboratorio",
+    "Profesor adjunto, ayudante o auxiliar",
+    "Profesor adjunto de taller o laboratorio",
+    "Educador de infantil",
+    "Instructor",
+    "Personal especializado, nivel I",
+    "Personal especializado, nivel II",
+    "Monitor de actividades extracurriculares",
+    "Vigilante educador",
+    "Jefe de Administración o Secretaría",
+    "Jefe de Negociado",
+    "Oficial (administración)",
+    "Auxiliar o telefonista",
+    "Intendente",
+    "Aprendiz / Aspirante",
+    "Conserje",
+    "Gobernante",
+    "Jefe de cocina",
+    "Cocinero",
+    "Oficial (servicios generales)",
+    "Conductor",
+    "Celador",
+    "Portero y ordenanza",
+    "Empleado de servicios generales",
+    "Ayudante de cocina",
+    "Pinche",
+    "Botones",
+    "Director (cargo directivo temporal)",
+    "Subdirector (cargo directivo temporal)",
+    "Jefe de Estudios (cargo directivo temporal)",
+    "Jefe de Departamento (cargo directivo temporal)"
+   ],
+   "categorias_datos": {
+    "Profesor titular / Titular de taller o laboratorio": {
+     "GRUPO": "Grupo I – Personal docente",
+     "FUNCIONES": "Con las condiciones y títulos académicos exigidos por la legislación, ejerce su actividad educativa para el desarrollo de los programas, en el aula, taller o laboratorio, dentro del marco pedagógico y didáctico establecido por el centro (anexo I)"
+    },
+    "Profesor adjunto, ayudante o auxiliar": {
+     "GRUPO": "Grupo I – Personal docente",
+     "FUNCIONES": "Profesor designado por el centro que colabora con el profesor titular en el desarrollo de los programas, bajo sus directrices y orientación (anexo I)"
+    },
+    "Profesor adjunto de taller o laboratorio": {
+     "GRUPO": "Grupo I – Personal docente",
+     "FUNCIONES": "Colabora con el profesor titular en la ejecución y aplicación de los programas que se desarrollan en taller o laboratorio, bajo sus directrices (anexo I)"
+    },
+    "Educador de infantil": {
+     "GRUPO": "Grupo I – Personal docente",
+     "FUNCIONES": "Con la titulación y capacidades exigidas por la ley, ejerce su actividad en el nivel de educación infantil, favoreciendo la formación integral de los alumnos (anexo I)"
+    },
+    "Instructor": {
+     "GRUPO": "Grupo I – Personal docente",
+     "FUNCIONES": "Auxilia al profesor en enseñanzas que comprenden materias no incluidas en los programas oficiales (anexo I)"
+    },
+    "Personal especializado, nivel I": {
+     "GRUPO": "Grupo II – Personal de servicios complementarios, subgrupo A",
+     "FUNCIONES": "Ejerce una función especializada o asesora, directamente sobre los alumnos o de forma genérica en los centros; comprende, entre otros, letrado, médico, psicólogo, pedagogo, bibliotecario, capellán y director espiritual (artículo 12 y anexo I)"
+    },
+    "Personal especializado, nivel II": {
+     "GRUPO": "Grupo II – Personal de servicios complementarios, subgrupo A",
+     "FUNCIONES": "Ejerce una función especializada o asesora, directamente sobre los alumnos o de forma genérica en los centros; comprende, entre otros, logopeda y enfermero/a (artículo 12 y anexo I)"
+    },
+    "Monitor de actividades extracurriculares": {
+     "GRUPO": "Grupo II – Personal de servicios complementarios, subgrupo B (personal de apoyo)",
+     "FUNCIONES": "Desarrolla actividades fuera del currículo oficial (educativas, deportivas, culturales o análogas) con uno o varios grupos de alumnos (anexo I)"
+    },
+    "Vigilante educador": {
+     "GRUPO": "Grupo II – Personal de servicios complementarios, subgrupo B (personal de apoyo)",
+     "FUNCIONES": "Con la preparación adecuada, colabora en la formación integral de los alumnos y cuida del orden e instalaciones, realizando las labores de apoyo que se le encomienden (anexo I)"
+    },
+    "Jefe de Administración o Secretaría": {
+     "GRUPO": "Grupo III – Personal de administración",
+     "FUNCIONES": "Tiene a su cargo la dirección administrativa y/o la secretaría del centro, de la que responde ante el titular (anexo I)"
+    },
+    "Jefe de Negociado": {
+     "GRUPO": "Grupo III – Personal de administración",
+     "FUNCIONES": "A las órdenes del Jefe de Administración o Secretaría, dirige una sección o departamento administrativo (anexo I)"
+    },
+    "Oficial (administración)": {
+     "GRUPO": "Grupo III – Personal de administración",
+     "FUNCIONES": "Ejerce funciones burocráticas, contables o de gestión que exigen iniciativa y responsabilidad (anexo I)"
+    },
+    "Auxiliar o telefonista": {
+     "GRUPO": "Grupo III – Personal de administración",
+     "FUNCIONES": "Realiza funciones administrativas, burocráticas o de biblioteca bajo la dirección de su inmediato superior, atiende teléfonos, recepción y demás servicios del centro (anexo I)"
+    },
+    "Intendente": {
+     "GRUPO": "Grupo III – Personal de administración (solo anexo IV)",
+     "FUNCIONES": "Tiene a su cargo la adquisición de objetos, muebles, víveres, combustibles y demás elementos necesarios para el funcionamiento del centro y sus servicios (anexo I)"
+    },
+    "Aprendiz / Aspirante": {
+     "GRUPO": "Grupo III – Personal de administración (solo anexo IV)",
+     "FUNCIONES": "Trabajador que se halla en el primer grado de una profesión antes de pasar a oficial (anexo I)"
+    },
+    "Conserje": {
+     "GRUPO": "Grupo IV – Personal de servicios generales",
+     "FUNCIONES": "Atiende las necesidades del centro y la recepción de visitas, procura la conservación de las dependencias y organiza el servicio de ordenanzas y personal auxiliar (anexo I)"
+    },
+    "Gobernante": {
+     "GRUPO": "Grupo IV – Personal de servicios generales",
+     "FUNCIONES": "Coordina el personal de limpieza, cocina y comedor si no hubiera jefes de los mismos, distribuye el servicio y responde, en su caso, de menaje, llaves, lencería, utensilios y material doméstico (anexo I)"
+    },
+    "Jefe de cocina": {
+     "GRUPO": "Grupo IV – Personal de servicios generales",
+     "FUNCIONES": "Dirige a todo el personal de cocina, se responsabiliza de la condimentación de los alimentos y cuida de su servicio en las debidas condiciones (anexo I)"
+    },
+    "Cocinero": {
+     "GRUPO": "Grupo IV – Personal de servicios generales",
+     "FUNCIONES": "Encargado de la preparación de alimentos, responsable de su buen estado y presentación y de la pulcritud del local y utensilios de cocina (anexo I)"
+    },
+    "Oficial (servicios generales)": {
+     "GRUPO": "Grupo IV – Personal de servicios generales",
+     "FUNCIONES": "Poseyendo la práctica de los oficios correspondientes, los ejerce con gran perfección, realizando trabajos generales e incluso los que suponen especial empeño y delicadeza (anexo I)"
+    },
+    "Conductor": {
+     "GRUPO": "Grupo IV – Personal de servicios generales",
+     "FUNCIONES": "Provisto del permiso de conducir correspondiente, conduce vehículos y se ocupa de su normal mantenimiento (anexo I)"
+    },
+    "Celador": {
+     "GRUPO": "Grupo IV – Personal de servicios generales",
+     "FUNCIONES": "Cuida del orden y compostura de los alumnos y de la conservación de las instalaciones; atiende la vigilancia y entretenimiento de los alumnos en actos que no sean docentes reglados (anexo I)"
+    },
+    "Portero y ordenanza": {
+     "GRUPO": "Grupo IV – Personal de servicios generales",
+     "FUNCIONES": "Limpieza y conservación de su zona, vigilancia de dependencias y personas que entran y salen, apertura y cierre de puertas, entregas y avisos, encendido y apagado de luces, cuidado de contadores y equipos comunes, y recados y encargos (anexo I)"
+    },
+    "Empleado de servicios generales": {
+     "GRUPO": "Grupo IV – Personal de servicios generales",
+     "FUNCIONES": "Realiza una o varias de las siguientes funciones: vigilancia de edificios y terrenos, cuidado y conservación de jardines e inmueble, servicios de comedor, limpieza, costura, lavado y plancha, actividades que no constituyen propiamente un oficio, auxilio en limpieza y aseo, y recados y reparto sin iniciativa ni responsabilidad (anexo I)"
+    },
+    "Ayudante de cocina": {
+     "GRUPO": "Grupo IV – Personal de servicios generales (solo anexo IV)",
+     "FUNCIONES": "A las órdenes del cocinero, le ayuda en sus funciones (anexo I)"
+    },
+    "Pinche": {
+     "GRUPO": "Grupo IV – Personal de servicios generales (solo anexo IV)",
+     "FUNCIONES": "Auxilia en la limpieza y aseo de la cocina, el comedor y las restantes dependencias del centro (anexo I)"
+    },
+    "Botones": {
+     "GRUPO": "Grupo IV – Personal de servicios generales (solo anexo IV)",
+     "FUNCIONES": "Realiza recados, reparto y otros trabajos que no requieren iniciativa ni responsabilidad (anexo I)"
+    },
+    "Director (cargo directivo temporal)": {
+     "GRUPO": "Cargo directivo temporal (artículo 13), personal docente",
+     "FUNCIONES": "Encargado por el titular del centro de dirigir, orientar y supervisar las actividades educativas en todos sus aspectos y otras que se le encomienden (anexo I)"
+    },
+    "Subdirector (cargo directivo temporal)": {
+     "GRUPO": "Cargo directivo temporal (artículo 13), personal docente",
+     "FUNCIONES": "Encargado de auxiliar y, en caso necesario, sustituir al Director en sus funciones (anexo I)"
+    },
+    "Jefe de Estudios (cargo directivo temporal)": {
+     "GRUPO": "Cargo directivo temporal (artículo 13), personal docente",
+     "FUNCIONES": "Con las condiciones y títulos académicos exigidos por la legislación, coordina el cumplimiento de horarios, el orden y la disciplina de alumnos y profesores del centro (anexo I)"
+    },
+    "Jefe de Departamento (cargo directivo temporal)": {
+     "GRUPO": "Cargo directivo temporal (artículo 13), personal docente",
+     "FUNCIONES": "Profesor que, en los centros cuya modalidad de enseñanza lo exige, dirige y coordina la investigación, programación y enseñanzas de las disciplinas de su departamento (anexo I)"
+    }
+   },
+   "valores": {
+    "HAY_CONVENIO": "Sí",
+    "CONV_NOMBRE": "XII Convenio colectivo nacional de centros de enseñanza privada de régimen general o enseñanza reglada sin ningún nivel concertado ni subvencionado",
+    "CONV_CODIGO": "99001925011986",
+    "CONV_PUBLICACION": "el Boletín Oficial del Estado núm. 180, de 26 de julio de 2024 (Resolución de 15 de julio de 2024, de la Dirección General de Trabajo)",
+    "CONV_VIGENCIA": "con entrada en vigor el día siguiente al de su publicación en el BOE y efectos económicos retrotraídos al 1 de enero de 2024, hasta el 31 de diciembre de 2026 (artículo 4); se prorroga de año en año a partir del 1 de enero de 2027 por tácita reconducción salvo denuncia expresa con dos meses de antelación (artículo 6); denunciado, mantiene su vigencia el convenio anterior hasta la firma de uno nuevo (artículo 7). A la fecha de este documento se encuentra en su período de vigencia inicial",
+    "REF_CLASIFICACION": "los grupos profesionales del artículo 12 del convenio (Grupo I, personal docente; Grupo II, personal de servicios complementarios; Grupo III, personal de administración; y Grupo IV, personal de servicios generales), las definiciones de puestos del anexo I y los cargos directivos temporales del artículo 13",
+    "REF_SALARIO": "las tablas salariales de los anexos III y IV del convenio (artículo 64), que fijan las retribuciones para los años 2024, 2025 y 2026 según el anexo aplicable al centro (tabla vigente: año 2026), y la estructura salarial del artículo 58",
+    "REF_COMPLEMENTOS": "el complemento de desarrollo y perfeccionamiento profesional (CPP) del artículo 66 (por cada quinquenio de formación acreditada, con límites del 20 %, 30 % y 40 % del salario base según el grupo), el complemento de dedicación del artículo 69, el plus de productividad docente del artículo 71 (once mensualidades), el complemento para la finalización del Bachillerato del artículo 72, el complemento temporal de los cargos de gobierno del artículo 65, el complemento por trabajo nocturno del artículo 73 (25 % sobre el salario base), el plus de insularidad del artículo 74 y el complemento SMI de la disposición transitoria primera; los centros del anexo IV se rigen por las especialidades de dicho anexo",
+    "REF_PAGAS_EXTRA": "tres gratificaciones extraordinarias de una mensualidad cada una (salario base, CPP, complemento de Bachillerato y complemento temporal por cargo, si los hubiere), que se hacen efectivas antes del 1 de julio y del 22 de diciembre, y la tercera dentro del año natural, con posibilidad de prorrateo por acuerdo (artículo 68), y su proporcionalidad al tiempo de servicio en el artículo 70 del convenio",
+    "REF_JORNADA_ANUAL": "para el personal docente, 1.089 horas lectivas, 237 no lectivas y 50 de formación (o 1.069, 257 y 50 en centros sin cursos de verano), con 27 horas lectivas semanales (artículos 28 y 33 del convenio); 1.396 horas para el personal titulado de servicios complementarios y 1.724 horas para el resto del personal no docente, con jornada semanal de 33 y 40 horas respectivamente (artículos 29 y 33), y con el límite de jornada ordinaria del artículo 34 del Estatuto de los Trabajadores",
+    "REF_MOD_JORNADA": "los artículos 28, 29, 30, 31, 33 y 39 del convenio (distribución de las horas no lectivas, trasvase de horas lectivas a no lectivas, jornada adicional por cargo, calendario laboral interno acordado con la representación de los trabajadores) y el anexo V (cuadro horario determinado al inicio de cada curso previa consulta a la representación legal), así como los artículos 34 y 41 del Estatuto de los Trabajadores y, para la inaplicación de condiciones del convenio, el artículo 75 del convenio y el artículo 82.3 del Estatuto de los Trabajadores",
+    "REF_HORAS_EXTRA": "el artículo 32 del convenio (son extraordinarias las que exceden de la jornada del convenio; la iniciativa corresponde al centro y la aceptación es libre para la persona trabajadora; pueden compensarse por descanso equivalente), los artículos 21 y 34 (exclusión de las horas extraordinarias en el tiempo parcial, salvo siniestros, y de las horas de mera presencia) y el artículo 28 (hasta 90 horas anuales adicionales por acuerdo, que no son extraordinarias), y el artículo 35 del Estatuto de los Trabajadores (máximo de ochenta horas al año, voluntarias salvo pacto); el convenio no fija un recargo propio",
+    "REF_VACACIONES": "los artículos 40 a 42 del convenio (un mes retribuido por año completo de servicio, preferentemente en verano, más cinco jornadas laborables del calendario oficial; para el personal no docente, seis días naturales en Semana Santa, ocho en Navidad y tres días laborables; para el personal docente, las vacaciones de alumnos en Semana Santa y Navidad y turnos rotativos de dos semanas adicionales en verano) y, en cuanto al procedimiento, el calendario laboral del artículo 39 del convenio y el artículo 38 del Estatuto de los Trabajadores (calendario conocido con al menos dos meses de antelación)",
+    "REF_PRUEBA": "el artículo 25 del convenio (máximo de tres meses para el grupo I, dos para el grupo II, un mes para el grupo III y quince días para el grupo IV; once meses para el personal docente con contrato indefinido) y el artículo 14 del Estatuto de los Trabajadores",
+    "REF_FORMACION": "los artículos 48 y 49 del convenio (gastos de los cursos organizados por el centro a cargo de este, formación continua conforme al Acuerdo Nacional de Formación para el Empleo del sector, permisos retribuidos para exámenes y adaptación de jornada para cursos), las 50 horas anuales de formación del personal docente de los artículos 28 y 33, el complemento de formación del artículo 66, y los artículos 4.2.b) y 23 del Estatuto de los Trabajadores",
+    "REF_EXTINCION": "el artículo 27 del convenio (preaviso de la persona trabajadora que cesa voluntariamente: un mes para el personal docente y quince días naturales para el resto, y abono de la liquidación al terminar la relación), el artículo 56 (jubilación obligatoria a los 68 años con las políticas de empleo allí previstas), el régimen disciplinario de los artículos 85 a 92 y los artículos 49 a 56 del Estatuto de los Trabajadores, conforme a los cuales la empresa comunicará el cese por escrito respetando los plazos y formalidades que correspondan en cada caso",
+    "REF_MODIFICACION": "los artículos 28, 30, 33 y 39 del convenio en materia de jornada y calendario, los artículos 59 y 60 en materia de movilidad funcional y el artículo 75 sobre inaplicación de las condiciones del convenio, junto con los artículos 39, 41 y 82.3 del Estatuto de los Trabajadores",
+    "MEJORAS_VOLUNTARIAS": "complemento de incapacidad temporal del artículo 43 del convenio (hasta el 100 % de la base reguladora durante los tres primeros meses y, en caso de accidente de trabajo, un mes más por cada tres años de antigüedad); enseñanza gratuita para los hijos del personal del artículo 82; condiciones de comedor y transporte de los artículos 35 y 83; y seguro de responsabilidad civil de la disposición final tercera"
+   },
+   "modelos": []
+  },
+  {
    "nombre": "Industrias Extractivas, del Vidrio, Cerámicas y Comercio Exclusivista (ámbito estatal)",
    "carpeta": "Industrias Extractivas",
    "categorias": [
@@ -253,7 +437,9 @@
     "REF_MODIFICACION": "los artículos 46 y 47 del convenio",
     "MEJORAS_VOLUNTARIAS": "complemento de incapacidad temporal del artículo 45 del convenio: hasta el 100 % del salario líquido desde el primer día en accidente de trabajo, y hasta el 100 % del salario neto a partir del séptimo día en enfermedad común o accidente no laboral"
    },
-   "modelos": []
+   "modelos": [
+    "_base.docx"
+   ]
   },
   {
    "nombre": "Sin convenio colectivo (Estatuto de los Trabajadores)",
