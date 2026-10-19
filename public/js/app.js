@@ -323,7 +323,13 @@ function crearKV(cont, objeto) {
 }
 
 const CLAVE_VALIDA = /^[A-Z0-9_]{1,40}$/;
+// El nombre del convenio sirve para derivar el nombre de la carpeta (y, sin acentos, de archivos),
+// así que va restringido a caracteres seguros en una ruta.
 const NOMBRE_VALIDO = /^[\p{L}\p{N}][\p{L}\p{N}_ .,()\-ºª]{0,80}$/u;
+// El nombre de categoría solo se usa como clave dentro de _categorias.json (nunca como ruta de archivo
+// desde este panel), así que admite además la barra: es habitual en categorías reales de convenio,
+// p. ej. «Profesor/a» o «Ayudante / Mozo especializado».
+const CATEGORIA_VALIDA = /^[\p{L}\p{N}][\p{L}\p{N}_ .,()\-ºª/]{0,80}$/u;
 function limpiarClaves(o) {
   const out = {};
   for (const [k, v] of Object.entries(o)) {
@@ -473,9 +479,16 @@ $("btnDescargarCategorias").addEventListener("click", () => {
     for (const c of adm.cats) {
       const n = c.nombre.trim();
       if (!n) continue;
-      if (!NOMBRE_VALIDO.test(n) || n.includes("..") || n.endsWith(".")) throw new Error(`Nombre de categoría no válido: «${n}».`);
+      if (!CATEGORIA_VALIDA.test(n) || n.includes("..") || n.endsWith(".")) throw new Error(`Nombre de categoría no válido: «${n}».`);
       if (categorias[n]) throw new Error(`La categoría «${n}» está repetida.`);
       categorias[n] = limpiarClaves(Object.fromEntries(adm.cols.map((col) => [col, c.datos[col] || ""])));
+    }
+    // sin categorías el documento no tendrá filas para elegir: es casi seguro un olvido (p. ej. la
+    // respuesta de Claude se quedó corta y no trajo «categorias»), así que se pide confirmación expresa
+    // en vez de descargar en silencio un _categorias.json vacío que luego pasa desapercibido en GitHub.
+    if (!Object.keys(categorias).length) {
+      const seguir = confirm("No hay ninguna categoría cargada: se descargará un _categorias.json vacío ({}) y el convenio no tendrá categorías para elegir.\n\n¿Seguro que quieres continuar sin categorías?");
+      if (!seguir) { dest.replaceChildren(mensaje("aviso", "Descarga cancelada. Añade categorías con «+ Categoría» o pide a Claude que complete «categorias» en su respuesta.")); return; }
     }
     descargarJson(categorias, "_categorias.json");
     descargarJson(limpiarClaves(adm.kv.leer()), "_valores.json");
@@ -504,15 +517,16 @@ async function textoPrompt() {
   const ejemplo = F.convenios().find((c) => c.valores && c.valores.HAY_CONVENIO === "Sí");
   return [
     "Te adjunto el texto oficial de un convenio colectivo. Necesito los datos para el documento informativo del art. 8.5 ET y del Real Decreto 723/2026 (art. 3.2 y remisiones del art. 3.3).",
-    "Devuelve SOLO un JSON con esta forma: {\"nombre\": \"nombre corto del convenio\", \"valores\": {...}, \"categorias\": {...}}.",
+    "Devuelve SOLO un JSON con esta forma y EN ESTE ORDEN DE CLAVES: {\"nombre\": \"nombre corto del convenio\", \"categorias\": {...}, \"valores\": {...}}.",
+    "Importante: escribe \"categorias\" antes que \"valores\" y complétalo entero, sin dejarlo para el final. Si la respuesta se queda corta de espacio, acorta las descripciones de \"valores\" antes que omitir o recortar \"categorias\"; nunca lo dejes vacío ni a medias. Si el convenio tiene muchas categorías, inclúyelas todas igualmente, aunque tengas que resumir mucho FUNCIONES.",
+    "",
+    "En \"categorias\", una entrada por cada grupo o categoría profesional del convenio (no te dejes ninguna): {\"Nombre\": {\"GRUPO\": \"número o nombre del grupo\", \"FUNCIONES\": \"descripción resumida de funciones según el convenio\"}}. Si el convenio trae tabla salarial, añade también \"SALARIO_BASE\" por categoría.",
     "",
     "En \"valores\", pon \"HAY_CONVENIO\": \"Sí\" y estas claves (texto en español jurídico, citando artículos concretos del convenio y, cuando proceda, del Estatuto de los Trabajadores):",
     ...claves.map((c) => `- ${c.clave}: ${c.etiqueta}`),
     "",
     "Reglas de redacción: cada REF_ se inserta en mitad de una frase, así que no empieces con mayúscula ni termines en punto, y no empieces por «el artículo» (usa «lo dispuesto en el artículo…» o «los artículos…»). CONV_PUBLICACION empieza por «el Boletín…» o «el Diario…» con la fecha. CONV_VIGENCIA incluye el período y la prórroga o ultraactividad.",
     "Si un dato no figura en el convenio, remite al artículo del Estatuto de los Trabajadores aplicable y dilo. No inventes artículos ni cuantías.",
-    "",
-    "En \"categorias\", una entrada por grupo o categoría profesional del convenio: {\"Nombre\": {\"GRUPO\": \"número o nombre del grupo\", \"FUNCIONES\": \"descripción resumida de funciones según el convenio\"}}.",
     "",
     ...(ejemplo ? ["Ejemplo de valores ya preparados para otro convenio:", JSON.stringify(ejemplo.valores, null, 1)] : []),
   ].join("\n");
@@ -546,7 +560,7 @@ $("btnCargarRespuesta").addEventListener("click", async () => {
       if (/^REF_/.test(k) && /\.$/.test(v.trim())) avisos.push(`${k} termina en punto: quítalo, va en mitad de una frase.`);
     }
     if (!valores.HAY_CONVENIO) valores.HAY_CONVENIO = "Sí";
-    if (!Object.keys(categorias).length) avisos.push("No trae categorías.");
+    if (!Object.keys(categorias).length) avisos.push("No trae ninguna categoría: es habitual que la respuesta se corte antes de llegar a «categorias». Pide a Claude que te dé solo ese bloque, o añádelas a mano con «+ Categoría» antes de descargar.");
     // cargar en el editor
     adm.cols = [];
     adm.cats = Object.entries(categorias).map(([nombre, datos]) => {
