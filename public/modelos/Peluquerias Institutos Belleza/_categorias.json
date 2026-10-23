@@ -1,0 +1,27 @@
+{
+ "Grupo profesional 0 (Personal directivo)": {
+  "GRUPO": "Grupo profesional 0",
+  "FUNCIONES": "Planean, organizan, dirigen y coordinan las diversas actividades propias del desenvolvimiento de la empresa: elaboración de la política de recursos humanos, orientación y control de las actividades conforme al programa establecido, y desarrollo de la política empresarial, financiera o comercial; desempeñan altos puestos de dirección o ejecución asimilables a la dirección técnico-artística del salón (artículo 18.5)",
+  "SALARIO_BASE": "retribución pactada individualmente; el convenio no fija tabla salarial propia para este grupo (anexo I: «S.C.», sin cuantía)"
+ },
+ "Grupo profesional I": {
+  "GRUPO": "Grupo profesional I",
+  "FUNCIONES": "Tareas ejecutadas según instrucciones concretas y claramente establecidas, con alto grado de dependencia, que requieren preferentemente esfuerzo físico y/o atención y, ocasionalmente, un período de adaptación: tareas manuales y operaciones elementales (lavado de cabeza, aplicación de cremas, mascarillas, manicura básica, depilación con cera de entrecejo y labio superior) bajo supervisión de un profesional de grupo superior, recepción y distribución de productos, recados, limpieza del puesto, higiene de útiles, atención complementaria al cliente y telefonista/recepcionista (artículo 18.1)",
+  "SALARIO_BASE": "1.250,00 euros mensuales / 17.500,00 euros anuales (tabla 2026, anexo I)"
+ },
+ "Grupo profesional II": {
+  "GRUPO": "Grupo profesional II",
+  "FUNCIONES": "Trabajos cuya planificación depende de un grupo superior pero que se realizan de forma autónoma con iniciativa y razonamiento, bajo supervisión y pudiendo ser ayudados por otros trabajadores; requiere Ciclo Formativo de Grado Básico u homologado y 5.250 horas de experiencia o seis/ocho meses según el período: realización de moldeados, cambios de color, recepción de clientes, limpieza del puesto, prevención de accidentes en baños y saunas, operación de equipos de comunicación, despacho y distribución de pedidos con registro, manejo de ordenador, correspondencia comercial y cálculo de precios, y colaboración en la contabilidad (artículo 18.2)",
+  "SALARIO_BASE": "1.325,00 euros mensuales / 18.550,00 euros anuales (tabla 2026, anexo I)"
+ },
+ "Grupo profesional III": {
+  "GRUPO": "Grupo profesional III",
+  "FUNCIONES": "Trabajos de ejecución de las especialidades de la empresa que requieren formación previa, conocimiento de técnicas, productos y aparatos, pudiendo ser ayudados por trabajadores de grupos inferiores; requiere Ciclo Formativo de Grado Medio u homologado y experiencia equivalente: venta de productos cosméticos y utensilios, corte de cabello, afeitado y rasurado, cambio de forma del cabello, tratamientos de manos y pies, tratamientos cosmetológicos y capilares, electroestética complementaria, depilación mecánica, higiene facial y corporal, maquillaje decorativo, social y para medios audiovisuales, y colocación de prótesis capilares sin intervenir en el diagnóstico (artículo 18.3)",
+  "SALARIO_BASE": "1.350,00 euros mensuales / 18.900,00 euros anuales (tabla 2026, anexo I)"
+ },
+ "Grupo profesional IV": {
+  "GRUPO": "Grupo profesional IV",
+  "FUNCIONES": "Funciones de responsabilidad completa en la gestión de una o varias áreas funcionales de la empresa, con tareas técnicas de alta complejidad y alto grado de autonomía; requiere Ciclo Formativo de Grado Superior u homologado y experiencia equivalente: venta y prestación de servicios con aparatología, diagnóstico de alteraciones capilares y diseño de prótesis, micropigmentación y microblading, depilación láser y fotodepilación, tratamientos faciales y corporales específicos, electroestética avanzada, masajes con fines estéticos, mando directo de un conjunto de operarios, traducción y atención de comunicaciones profesionales, tareas de contabilidad, análisis de aplicaciones informáticas, gestión de compras y de la red de ventas, y asesoría de imagen (artículo 18.4)",
+  "SALARIO_BASE": "1.375,00 euros mensuales / 19.250,00 euros anuales (tabla 2026, anexo I)"
+ }
+}
