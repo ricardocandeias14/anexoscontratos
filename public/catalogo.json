@@ -514,6 +514,161 @@
    "modelos": []
   },
   {
+   "nombre": "Ingeniería, Oficinas de Estudios Técnicos, Inspección y Control de Calidad (estatal)",
+   "carpeta": "Ingenieria Oficinas Estudios Tecnicos",
+   "categorias": [
+    "Titulado o Titulada Superior",
+    "Analista",
+    "Titulado o Titulada Medio/a o Graduado/a Universitario/a",
+    "Técnico o Técnica de Cálculo o Diseño",
+    "Programador/a Informático/a",
+    "Jefe o Jefa de 1.ª Administrativo/a",
+    "Delineante Proyectista",
+    "Jefe o Jefa de 2.ª Administrativo/a",
+    "Delineante",
+    "Técnico o Técnica de 1.ª",
+    "Técnico o Técnica Modelador/a BIM",
+    "Técnico o Técnica Informático/a",
+    "Oficial de 1.ª Administrativo/a",
+    "Traductor/a e Intérprete no jurado/a",
+    "Técnico o Técnica de 2.ª",
+    "Oficial de 2.ª Administrativo/a",
+    "Vigilante/Supervisor/Inspector de Obra",
+    "Auxiliar Técnico/a",
+    "Telefonista-Recepcionista",
+    "Auxiliar Administrativo/a",
+    "Ayudante"
+   ],
+   "categorias_datos": {
+    "Titulado o Titulada Superior": {
+     "GRUPO": "Grupo I, nivel salarial 1",
+     "FUNCIONES": "Título universitario oficial de Ingeniería, Arquitectura, Licenciatura, Doctorado, titulaciones de 2.º y 3er ciclo universitario, o Grado más Máster universitario oficial habilitante; desempeña las funciones específicas para las que el título le habilita (artículo 17)",
+     "SALARIO_BASE": "1.869,33 euros mensuales (x14 pagas) / 26.170,62 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Analista": {
+     "GRUPO": "Grupo I, nivel salarial 1",
+     "FUNCIONES": "Verifica análisis orgánicos de aplicaciones complejas: cadenas de operaciones, diseño de documentos y ficheros a tratar, puesta a punto de aplicaciones, creación de juegos de ensayo, enumeración de anomalías y colaboración en las pruebas de «lógica» de cada programa (artículo 17)",
+     "SALARIO_BASE": "1.869,33 euros mensuales (x14 pagas) / 26.170,62 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Titulado o Titulada Medio/a o Graduado/a Universitario/a": {
+     "GRUPO": "Grupo I, nivel salarial 2",
+     "FUNCIONES": "Título universitario oficial de Ingeniería Técnica, Arquitectura Técnica, Aparejador/a, Diplomatura universitaria, titulación de 1er ciclo universitario o Grado universitario (artículo 17)",
+     "SALARIO_BASE": "1.409,34 euros mensuales (x14 pagas) / 19.730,76 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Técnico o Técnica de Cálculo o Diseño": {
+     "GRUPO": "Grupo II, nivel salarial 3",
+     "FUNCIONES": "Sin precisar titulación universitaria, coadyuva con responsabilidad limitada al desarrollo de funciones específicas de los técnicos titulados dentro de las especialidades propias de la sección o departamento en que trabaja (artículo 17)",
+     "SALARIO_BASE": "1.358,99 euros mensuales (x14 pagas) / 19.025,86 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Programador/a Informático/a": {
+     "GRUPO": "Grupo II, nivel salarial 3",
+     "FUNCIONES": "Conocimiento profundo de las técnicas y lenguajes de programación; estudia los procesos complejos definidos por los analistas, confecciona organigramas detallados de tratamiento, redacta programas, confecciona juegos de ensayo y completa los expedientes técnicos (artículo 17)",
+     "SALARIO_BASE": "1.358,99 euros mensuales (x14 pagas) / 19.025,86 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Jefe o Jefa de 1.ª Administrativo/a": {
+     "GRUPO": "Grupo II, nivel salarial 3",
+     "FUNCIONES": "Con autonomía, iniciativa y objetivos globalmente definidos, actúa a las órdenes inmediatas de un jefe superior, si lo hubiere, con responsabilidad directa de uno o más servicios; incluye a quienes organizan o llevan la contabilidad de la empresa (artículo 17)",
+     "SALARIO_BASE": "1.358,99 euros mensuales (x14 pagas) / 19.025,86 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Delineante Proyectista": {
+     "GRUPO": "Grupo II, nivel salarial 4",
+     "FUNCIONES": "Dentro de las especialidades propias de la sección en que trabaje, proyecta o detalla los trabajos del Técnico Superior a cuyas órdenes actúa, o realiza personalmente lo que concibe según los datos y condiciones técnicas exigidas por la clientela o la empresa (artículo 17)",
+     "SALARIO_BASE": "1.245,94 euros mensuales (x14 pagas) / 17.443,16 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Jefe o Jefa de 2.ª Administrativo/a": {
+     "GRUPO": "Grupo II, nivel salarial 4",
+     "FUNCIONES": "A las órdenes inmediatas de un jefe superior, si lo hubiere, se encarga de orientar, dirigir y dar unidad a una sección, distribuyendo los trabajos entre Oficiales, Auxiliares y demás personal que dependa de ella (artículo 17)",
+     "SALARIO_BASE": "1.245,94 euros mensuales (x14 pagas) / 17.443,16 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Delineante": {
+     "GRUPO": "Grupo III, nivel salarial 5",
+     "FUNCIONES": "Capacidad para el desarrollo de proyectos sencillos, levantamiento e interpretación de planos y trabajos análogos (artículo 17)",
+     "SALARIO_BASE": "1.113,26 euros mensuales (x14 pagas) / 15.585,64 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Técnico o Técnica de 1.ª": {
+     "GRUPO": "Grupo III, nivel salarial 5",
+     "FUNCIONES": "Actúa a las órdenes de un cargo superior y, bajo su propia responsabilidad, realiza trabajos técnicos que requieren iniciativa, propios del departamento de la empresa al que esté adscrito (artículo 17)",
+     "SALARIO_BASE": "1.113,26 euros mensuales (x14 pagas) / 15.585,64 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Técnico o Técnica Modelador/a BIM": {
+     "GRUPO": "Grupo III, nivel salarial 5",
+     "FUNCIONES": "Realiza trabajos técnicos de modelación BIM que requieren iniciativa, propios del departamento de la empresa al que esté adscrito, bajo su propia responsabilidad y a las órdenes de un cargo superior (artículo 17)",
+     "SALARIO_BASE": "1.113,26 euros mensuales (x14 pagas) / 15.585,64 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Técnico o Técnica Informático/a": {
+     "GRUPO": "Grupo III, nivel salarial 5",
+     "FUNCIONES": "Realiza trabajos técnicos en entornos TIC o informáticos que requieren iniciativa, propios del departamento de la empresa al que esté adscrito, bajo su propia responsabilidad y a las órdenes de un cargo superior (artículo 17)",
+     "SALARIO_BASE": "1.113,26 euros mensuales (x14 pagas) / 15.585,64 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Oficial de 1.ª Administrativo/a": {
+     "GRUPO": "Grupo III, nivel salarial 5",
+     "FUNCIONES": "Con iniciativa y responsabilidad amplia, actúa a las órdenes de un superior, si lo hubiere, y bajo su propia responsabilidad realiza con la máxima perfección labores de carácter administrativo (artículo 17)",
+     "SALARIO_BASE": "1.113,26 euros mensuales (x14 pagas) / 15.585,64 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Traductor/a e Intérprete no jurado/a": {
+     "GRUPO": "Grupo III, nivel salarial 5",
+     "FUNCIONES": "Actúa bajo las órdenes de un superior, si lo hubiere, y bajo su propia responsabilidad realiza traducciones, escritas u orales, de uno o más idiomas; no incluye la traducción puntual o para el desarrollo de la función propia (artículo 17)",
+     "SALARIO_BASE": "1.113,26 euros mensuales (x14 pagas) / 15.585,64 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Técnico o Técnica de 2.ª": {
+     "GRUPO": "Grupo III, nivel salarial 6",
+     "FUNCIONES": "Con iniciativa y responsabilidad restringidas y subordinada, realiza trabajos técnicos secundarios propios del departamento de la empresa al que esté adscrito (artículo 17)",
+     "SALARIO_BASE": "959,14 euros mensuales (x14 pagas) / 13.427,96 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Oficial de 2.ª Administrativo/a": {
+     "GRUPO": "Grupo III, nivel salarial 6",
+     "FUNCIONES": "Con iniciativa y responsabilidad restringida, subordinado a un jefe u oficial de primera, si los hubiere, realiza trabajos de carácter secundario que solo exigen conocimientos generales de la técnica administrativa (artículo 17)",
+     "SALARIO_BASE": "959,14 euros mensuales (x14 pagas) / 13.427,96 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Vigilante/Supervisor/Inspector de Obra": {
+     "GRUPO": "Grupo IV, nivel salarial 7",
+     "FUNCIONES": "Actúa a las órdenes de un cargo superior, Jefe de Unidad o de Producción, y realiza trabajos técnicos de vigilancia, supervisión, inspección y medición de obras o suministros, que requieren una mínima iniciativa propia de la unidad a la que esté adscrito (artículo 17)",
+     "SALARIO_BASE": "926,96 euros mensuales (x14 pagas) / 12.977,44 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Auxiliar Técnico/a": {
+     "GRUPO": "Grupo IV, nivel salarial 7",
+     "FUNCIONES": "Se dedica a operaciones técnicas sencillas y auxiliares, con iniciativa más restringida, propias del departamento de la empresa en que se desarrollen sus funciones, y a las órdenes de un cargo superior (artículo 17)",
+     "SALARIO_BASE": "926,96 euros mensuales (x14 pagas) / 12.977,44 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Telefonista-Recepcionista": {
+     "GRUPO": "Grupo IV, nivel salarial 7",
+     "FUNCIONES": "Actúa a las órdenes de un cargo superior y realiza las funciones propias de recepción de llamadas y atención al público, compaginadas con labores administrativas y logísticas esenciales para el correcto desarrollo del servicio (artículo 17)",
+     "SALARIO_BASE": "926,96 euros mensuales (x14 pagas) / 12.977,44 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Auxiliar Administrativo/a": {
+     "GRUPO": "Grupo IV, nivel salarial 7",
+     "FUNCIONES": "Se dedica a operaciones elementales administrativas y, en general, a las puramente mecánicas inherentes al trabajo de la oficina o despacho (artículo 17)",
+     "SALARIO_BASE": "926,96 euros mensuales (x14 pagas) / 12.977,44 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    },
+    "Ayudante": {
+     "GRUPO": "Grupo IV, nivel salarial 8",
+     "FUNCIONES": "Bajo la inmediata dependencia de un técnico, colabora en funciones elementales de mínima iniciativa propias de este, bajo su responsabilidad (artículo 17)",
+     "SALARIO_BASE": "926,21 euros mensuales (x14 pagas) / 12.966,94 euros anuales de tabla (tabla 2024, última publicada; el convenio está en ultraactividad desde 2025 sin tabla posterior; conviene comprobar si existe revisión), más el plus de convenio de 2.493,50 euros/año del artículo 38"
+    }
+   },
+   "valores": {
+    "HAY_CONVENIO": "Sí",
+    "CONV_NOMBRE": "XX Convenio Colectivo Nacional de Empresas de Ingeniería; Oficinas de Estudios Técnicos; Inspección, Supervisión y Control Técnico y de Calidad",
+    "CONV_CODIGO": "99002755011981",
+    "CONV_PUBLICACION": "el Boletín Oficial del Estado núm. 59, de 10 de marzo de 2023 (Resolución de 27 de febrero de 2023, de la Dirección General de Trabajo); la tabla salarial de 2024 se publicó mediante Resolución de 12 de marzo de 2024 (BOE núm. 71, de 23 de marzo de 2024)",
+    "CONV_VIGENCIA": "cuatro años: la vigencia salarial y el plus de convenio se retrotraen al 1 de enero de 2021, y el resto de materias rige desde la publicación en el BOE hasta el 31 de diciembre de 2024 (artículo 4); desde esa fecha se encuentra en ultraactividad/prórroga tácita anual en sus propios términos (artículo 4.2), al no haberse publicado todavía, a la fecha de este documento, un convenio posterior, pese a estar abierta la negociación del XXI convenio; conviene comprobar si existe ya una tabla salarial más reciente que la de 2024 antes de usar los importes",
+    "REF_CLASIFICACION": "la clasificación en Grupos profesionales (I a IV) y Niveles salariales (1 a 8) del artículo 17 del convenio y del esquema de agrupamiento de puestos de trabajo que lo acompaña, según los factores de conocimientos, iniciativa, complejidad, responsabilidad, mando, titulación y experiencia",
+    "REF_SALARIO": "la tabla de niveles salariales del artículo 33 y el anexo II del convenio; la última tabla con importes publicados es la de 2024 (Resolución de 12 de marzo de 2024, BOE núm. 71 de 23 de marzo de 2024), resultante de aplicar a la tabla de 2023 el incremento correspondiente según el IPC interanual a 31 de diciembre de 2023; el convenio está en ultraactividad desde el 1 de enero de 2025 sin tabla posterior publicada todavía, por lo que conviene comprobar si existe una revisión más reciente",
+    "REF_COMPLEMENTOS": "el premio de vinculación por antigüedad del artículo 28 (cinco trienios del 5 %, tres trienios siguientes del 10 % y un último trienio del 5 %, sobre el salario base de la categoría); el plus de convenio anual del artículo 38 (2.493,50 euros para 2024, igual para todos los niveles); y el plus de trabajo a distancia del artículo 39 (1,02 euros por día de trabajo a distancia efectivo, a falta de cuantificación distinta en el acuerdo individual)",
+    "REF_PAGAS_EXTRA": "los importes anuales de las tablas salariales se distribuyen en doce mensualidades más dos pagas extraordinarias, una en julio y otra en Navidad, pagaderas entre los días 15 y 20 de cada uno de esos meses en proporción al tiempo trabajado en el semestre correspondiente; pueden prorratearse entre las doce mensualidades por acuerdo con la representación de los trabajadores (artículo 34)",
+    "REF_JORNADA_ANUAL": "mil setecientas noventa y dos (1.792) horas efectivas de trabajo en cómputo anual desde el 1 de enero de 2023, sin que puedan realizarse más de nueve horas ordinarias diarias de trabajo efectivo; los días 24 y 31 de diciembre no son laborables ni recuperables (artículo 22)",
+    "REF_MOD_JORNADA": "la distribución irregular de hasta 150 horas al año del artículo 22 bis (respetando el preaviso del artículo 34.2 del Estatuto de los Trabajadores, sin superar 10 horas diarias ni 46 semanales) y el artículo 41 del Estatuto de los Trabajadores para las modificaciones sustanciales de condiciones de trabajo",
+    "REF_HORAS_EXTRA": "el artículo 36 del convenio: se acuerda reducir al mínimo las horas extraordinarias, suprimiendo las habituales y admitiendo solo las necesarias por reparación de siniestros u otros daños urgentes o por períodos punta de producción; se compensan, salvo pacto individual en contrario, con tiempo de descanso incrementado en al menos un 75 %, a disfrutar dentro de los seis meses siguientes o, como máximo, en la primera semana de enero del año siguiente",
+    "REF_VACACIONES": "veintitrés días laborables de vacaciones anuales retribuidas (artículo 23), pudiendo fraccionarse por acuerdo entre empresa y persona trabajadora con un período mínimo de al menos ocho días continuados, si así lo solicita la persona trabajadora con la antelación del artículo 38.3 del Estatuto de los Trabajadores",
+    "REF_PRUEBA": "el período de prueba del artículo 10 del convenio: hasta seis meses para los niveles salariales 1 y 2, tres meses para los niveles 3 a 7, y quince días laborables para el nivel 8; en los contratos temporales de duración determinada del artículo 15 del Estatuto de los Trabajadores, estos períodos se reducen a la mitad",
+    "REF_FORMACION": "el artículo 15 del convenio sobre formación: permisos para exámenes, adaptación de jornada para cursos de formación profesional, formación necesaria para la adaptación a modificaciones del puesto a cargo de la empresa, y permiso retribuido de veinte horas anuales de formación profesional para el empleo tras un año de antigüedad, acumulable hasta cinco años, conforme al Real Decreto 694/2017 y a la Ley 30/2015",
+    "REF_EXTINCION": "los artículos 49 a 56 del Estatuto de los Trabajadores; el artículo 41 del convenio regula además la dimisión de la persona trabajadora (preaviso mínimo de quince días naturales, con descuento del salario diario por cada día de incumplimiento) y el artículo 43 la extinción del contrato por cumplimiento de la edad de jubilación (a partir de los 68 años, cumpliendo los requisitos para el 100 % de la pensión ordinaria de jubilación, con obligación de la empresa de contratar a otra persona trabajadora por tiempo indefinido en los seis meses siguientes)",
+    "REF_MODIFICACION": "el artículo 20 del convenio sobre movilidad funcional (solo procede por razones técnicas u organizativas, con comunicación a la representación legal, y da derecho a reclamar el ascenso si la encomienda de funciones de grupo superior se prolonga más de seis meses en un año o de ocho en dos) y el artículo 41 del Estatuto de los Trabajadores para las modificaciones sustanciales de condiciones de trabajo",
+    "MEJORAS_VOLUNTARIAS": "complemento de incapacidad temporal del artículo 29: desde el quinto día de baja por enfermedad o accidente de trabajo de más de 30 días de duración, la empresa complementa la prestación de la Seguridad Social hasta el 100 % del salario durante un máximo de doce meses, prorrogable hasta seis meses más en situación de prórroga de la IT; seguro complementario de accidentes del artículo 30, con un capital asegurado no inferior a 22.000 euros para muerte, incapacidad permanente absoluta y gran invalidez derivadas de accidente de trabajo; y dietas de desplazamiento del artículo 37 (51 euros/día, o 30 euros/día durante los primeros 20 días de un mismo destino, y 0,28 euros/km por uso del vehículo propio)"
+   },
+   "modelos": []
+  },
+  {
    "nombre": "Peluquerías, Institutos de Belleza y Gimnasios (estatal)",
    "carpeta": "Peluquerias Institutos Belleza",
    "categorias": [
