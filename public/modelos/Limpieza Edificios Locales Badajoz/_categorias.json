@@ -1,0 +1,177 @@
+{
+  "Director/a": {
+    "GRUPO": "Grupo I. Personal Directivo y Técnico Titulado - Subgrupo 1 (Personal Directivo)",
+    "FUNCIONES": "Con título adecuado o amplia preparación teórico-práctica, asume la dirección y responsabilidad de la Empresa, programando, planificando y controlando el trabajo en todas sus fases (Anexo 1.I.1.a).",
+    "SALARIO_BASE": "1.341,28 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Director/a Comercial": {
+    "GRUPO": "Grupo I. Personal Directivo y Técnico Titulado - Subgrupo 1 (Personal Directivo)",
+    "FUNCIONES": "Con título adecuado o amplia preparación teórico-práctica, asume la dirección y responsabilidad de las funciones mercantiles en su más amplio sentido, planificando, programando y controlando la política comercial de la Empresa (Anexo 1.I.1.b).",
+    "SALARIO_BASE": "1.255,97 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Director/a Administrativo/a": {
+    "GRUPO": "Grupo I. Personal Directivo y Técnico Titulado - Subgrupo 1 (Personal Directivo)",
+    "FUNCIONES": "Con título adecuado o amplia preparación teórico-práctica, asume la dirección y responsabilidad de las funciones administrativas en su más amplio sentido, planificando, programando y controlando la administración de la Empresa (Anexo 1.I.1.c).",
+    "SALARIO_BASE": "1.255,97 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Jefe/a de Personal": {
+    "GRUPO": "Grupo I. Personal Directivo y Técnico Titulado - Subgrupo 1 (Personal Directivo)",
+    "FUNCIONES": "A las órdenes inmediatas de la dirección de la Empresa, tiene a su cargo y responsabilidad el reclutamiento, selección y admisión de las personas trabajadoras y la planificación, programación y control de la política de personal (Anexo 1.I.1.d).",
+    "SALARIO_BASE": "1.255,97 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Jefe/a de Compras": {
+    "GRUPO": "Grupo I. Personal Directivo y Técnico Titulado - Subgrupo 1 (Personal Directivo)",
+    "FUNCIONES": "A las órdenes inmediatas de la dirección de la Empresa, con título adecuado o amplios conocimientos y capacidad, es responsable de las compras de material y aprovisionamiento de la Empresa (Anexo 1.I.1.e).",
+    "SALARIO_BASE": "1.255,97 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Jefe/a de Servicios": {
+    "GRUPO": "Grupo I. Personal Directivo y Técnico Titulado - Subgrupo 1 (Personal Directivo)",
+    "FUNCIONES": "A las órdenes inmediatas de la dirección de la Empresa, con título adecuado o amplios conocimientos, planifica, programa, controla, orienta y dirige, dando unidad a la Empresa, siendo responsable de la buena marcha y coordinación del trabajo en las zonas y equipos productivos (Anexo 1.I.1.f).",
+    "SALARIO_BASE": "1.255,97 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Titulado Superior": {
+    "GRUPO": "Grupo I. Personal Directivo y Técnico Titulado - Subgrupo 2 (Personal Técnico Titulado, grado superior)",
+    "FUNCIONES": "Aplica sus conocimientos a investigación, análisis, estudio y preparación de los planes de trabajo, asesorando o ejecutando las actividades propias de su profesión, autorizado/a por título de Doctor/a o Licenciado/a (Anexo 1.I.2.a).",
+    "SALARIO_BASE": "1.117,71 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Titulado Grado Medio": {
+    "GRUPO": "Grupo I. Personal Directivo y Técnico Titulado - Subgrupo 2 (Personal Técnico Titulado, grado medio)",
+    "FUNCIONES": "Presta servicios al igual que el titulado de grado superior, autorizado/a por título de Peritaje, Graduado/a Social o análogo (Anexo 1.I.2.b).",
+    "SALARIO_BASE": "1.025,01 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Titulado Grado Laboral": {
+    "GRUPO": "Grupo I. Personal Directivo y Técnico Titulado - Subgrupo 2 (Titulados de Enseñanza Media Laboral o Profesional)",
+    "FUNCIONES": "Presta servicios al igual que los anteriores, autorizado/a por el oportuno título expedido por la autoridad competente (Anexo 1.I.2.c).",
+    "SALARIO_BASE": "915,43 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Jefe Administrativo 1ª": {
+    "GRUPO": "Grupo II. Personal Administrativo",
+    "FUNCIONES": "Empleado/a con la responsabilidad directa de la oficina de la Empresa, provisto/a o no de poder, de quien dependen las diversas secciones administrativas (Anexo 1.II.a).",
+    "SALARIO_BASE": "1.005,99 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Jefe Administrativo 2ª": {
+    "GRUPO": "Grupo II. Personal Administrativo",
+    "FUNCIONES": "Encargado/a de una sección o departamento, con poder limitado, que sugiere y da unidad al trabajo encomendado y responde del mismo ante sus jefes/as, distribuyendo el trabajo a sus subordinados/as (Anexo 1.II.b).",
+    "SALARIO_BASE": "985,96 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Cajero/a": {
+    "GRUPO": "Grupo II. Personal Administrativo",
+    "FUNCIONES": "Realiza bajo su responsabilidad, con o sin empleados/as a sus órdenes, los cobros y pagos generales de la Empresa (Anexo 1.II.c).",
+    "SALARIO_BASE": "961,25 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Oficial 1ª Admón.": {
+    "GRUPO": "Grupo II. Personal Administrativo",
+    "FUNCIONES": "Empleado/a mayor de veinte años que, a las órdenes de un/a jefe/a, tiene a su cargo un trabajo determinado que requiere cálculo, estudio, preparación y condiciones adecuadas (Anexo 1.II.d).",
+    "SALARIO_BASE": "938,97 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Oficial 2ª Admón.": {
+    "GRUPO": "Grupo II. Personal Administrativo",
+    "FUNCIONES": "Con iniciativa y responsabilidad restringida, subordinado/a a un/a jefe/a, realiza trabajo de carácter auxiliar secundario que requiere conocimientos generales de técnica administrativa (Anexo 1.II.e).",
+    "SALARIO_BASE": "894,24 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Auxiliar Admón.": {
+    "GRUPO": "Grupo II. Personal Administrativo",
+    "FUNCIONES": "Empleado/a mayor de dieciocho años que dedica su actividad a operaciones elementales administrativas y, en general, a las puramente mecánicas inherentes al trabajo de oficina (Anexo 1.II.f).",
+    "SALARIO_BASE": "869,84 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Telefonista": {
+    "GRUPO": "Grupo II. Personal Administrativo",
+    "FUNCIONES": "Tiene por única y exclusiva misión estar al cuidado y servicio de la centralita telefónica (Anexo 1.II.g).",
+    "SALARIO_BASE": "869,84 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Cobrador/a": {
+    "GRUPO": "Grupo II. Personal Administrativo",
+    "FUNCIONES": "Dependiendo de la Caja, realiza todo género de cobros y pagos por delegación (Anexo 1.II.i).",
+    "SALARIO_BASE": "869,84 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Encargado/a General": {
+    "GRUPO": "Grupo III. Personal de Mandos Intermedios",
+    "FUNCIONES": "Procedente del grupo obrero, con responsabilidad consiguiente ante la Empresa y a las inmediatas órdenes de la dirección o gerencia, coordina el trabajo de los/as supervisores/as de zona y sector, tramitando las órdenes oportunas e informando de los rendimientos de personal y productividad (Anexo 1.III.a).",
+    "SALARIO_BASE": "993,50 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Encargado/a de Zona": {
+    "GRUPO": "Grupo III. Personal de Mandos Intermedios",
+    "FUNCIONES": "A las órdenes inmediatas del Encargado/a General, tiene como misión la inspección de los centros de trabajo cuya vigilancia esté encomendada a dos o más Encargados/as de sector, de quienes recoge la información oportuna (Anexo 1.III.b).",
+    "SALARIO_BASE": "948,37 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Encargado/a de Sector": {
+    "GRUPO": "Grupo III. Personal de Mandos Intermedios",
+    "FUNCIONES": "Tiene a su cargo el control de dos o más encargados/as de grupo o edificio, organizando a las personas trabajadoras, emitiendo informes sobre anomalías y rendimientos, y reflejando en los partes diarios la producción y las incidencias (Anexo 1.III.c).",
+    "SALARIO_BASE": "925,68 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Encargado/a de Edificio": {
+    "GRUPO": "Grupo III. Personal de Mandos Intermedios",
+    "FUNCIONES": "Tiene a su cargo el control de diez o más personas trabajadoras, organizando el trabajo y los rendimientos, administrando el material y útiles de limpieza, y reflejando en los partes diarios la producción, calidad e incidencias (Anexo 1.III.d).",
+    "SALARIO_BASE": "903,16 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Responsable de Equipo": {
+    "GRUPO": "Grupo III. Personal de Mandos Intermedios",
+    "FUNCIONES": "Realizando las funciones específicas de su categoría profesional, tiene además la responsabilidad de un equipo de tres a nueve personas trabajadoras, ejerciendo durante parte de la jornada funciones de control y supervisión y, en el resto, las funciones de limpiador/a (Anexo 1.III.e).",
+    "SALARIO_BASE": "892,46 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Ordenanza": {
+    "GRUPO": "Grupo IV. Personal Subalterno",
+    "FUNCIONES": "Su misión consiste en hacer recados dentro o fuera de la oficina, copiar documentos, recoger y entregar correspondencia y orientar al público en la oficina (Anexo 1.IV.a).",
+    "SALARIO_BASE": "878,54 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Almacenero/a": {
+    "GRUPO": "Grupo IV. Personal Subalterno",
+    "FUNCIONES": "Encargado/a de facilitar los pedidos que se precisen por las personas trabajadoras, así como de registrar toda clase de mercancías (Anexo 1.IV.b).",
+    "SALARIO_BASE": "878,54 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Listero/a": {
+    "GRUPO": "Grupo IV. Personal Subalterno",
+    "FUNCIONES": "Encargado/a de pasar lista al personal, anotando ausencias, faltas, incidencias y horas extraordinarias, repartiendo las nóminas, notificando altas y bajas y distribuyendo las hojas de trabajo al personal (Anexo 1.IV.c).",
+    "SALARIO_BASE": "878,54 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Vigilante": {
+    "GRUPO": "Grupo IV. Personal Subalterno",
+    "FUNCIONES": "Su cometido consiste en vigilar y garantizar el orden de los útiles y enseres que las personas trabajadoras vayan dejando en el recinto destinado, controlando que sean los que les han sido entregados (Anexo 1.IV.d).",
+    "SALARIO_BASE": "878,54 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Especialista": {
+    "GRUPO": "Grupo V. Personal Obrero",
+    "FUNCIONES": "Mayor de dieciocho años que, con plenitud de conocimientos teórico-prácticos, domina el manejo y funcionamiento de útiles y máquinas industriales propios de la limpieza en general, aplicando racionalmente los tratamientos adecuados para cada caso (Anexo 1.V.a).",
+    "SALARIO_BASE": "894,24 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de 883,28 € (tabla salarial 2026, Anexo 2)"
+  },
+  "Peón Especializado": {
+    "GRUPO": "Grupo V. Personal Obrero",
+    "FUNCIONES": "Mayor de dieciocho años que realiza funciones concretas y determinadas propias de las Empresas de limpieza que, sin haber alcanzado la plenitud de conocimientos de especialista, exigen cierta práctica y especialización, así como atención en trabajos que impliquen peligrosidad o riesgo (Anexo 1.V.b).",
+    "SALARIO_BASE": "882,93 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Limpiador/a": {
+    "GRUPO": "Grupo V. Personal Obrero",
+    "FUNCIONES": "Ejecuta las tareas de fregado, desempolvado, barrido y pulido, manualmente o con útiles tradicionales o elementos electromecánicos de fácil manejo, de suelos, techos, paredes, mobiliarios, cristalerías, puertas y ventanas, con aportación de esfuerzo físico esencialmente (Anexo 1.V.c).",
+    "SALARIO_BASE": "869,84 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Conductor/a Limpiador/a": {
+    "GRUPO": "Grupo V. Personal Obrero",
+    "FUNCIONES": "En posesión del carnet de conducir correspondiente, realiza indistintamente las tareas propias de limpieza y las de conductor/a, utilizando el vehículo de la Empresa para desplazarse a los centros de trabajo y para reparto y distribución de personas trabajadoras o materiales (Anexo 1.V.d).",
+    "SALARIO_BASE": "894,25 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Oficial de Oficios Varios": {
+    "GRUPO": "Grupo VI. Personal de Oficios Varios",
+    "FUNCIONES": "Operario/a que, habiendo realizado el aprendizaje de un oficio determinado, ejecuta con iniciativa y responsabilidad todas o algunas de las labores propias del mismo con rendimiento correcto (Anexo 1.VI.a).",
+    "SALARIO_BASE": "894,25 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Ayudante": {
+    "GRUPO": "Grupo VI. Personal de Oficios Varios",
+    "FUNCIONES": "Mayor de dieciocho años que realiza funciones concretas que no constituyen labor cualificada de oficio, colaborando bajo la inmediata dependencia de un/a oficial en funciones propias de este/a y bajo su responsabilidad (Anexo 1.VI.b).",
+    "SALARIO_BASE": "885,12 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Peón": {
+    "GRUPO": "Grupo VI. Personal de Oficios Varios",
+    "FUNCIONES": "Mayor de dieciocho años, encargado de realizar tareas para cuya ejecución únicamente se requiere la aportación de esfuerzo y atención, sin exigencia de práctica operatoria alguna (Anexo 1.VI.c).",
+    "SALARIO_BASE": "869,84 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Trabajador/a de 16 a 18 años": {
+    "GRUPO": "Personal con contrato en razón de la edad",
+    "FUNCIONES": "Persona trabajadora de entre dieciséis y dieciocho años que, con arreglo a su edad, percibe el salario correspondiente conforme a la Tabla Salarial Anexa, al margen del régimen general establecido en el art. 11 para el personal contratado en aprendizaje o formación de tipo administrativo.",
+    "SALARIO_BASE": "869,84 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  },
+  "Aprendiz Admón.": {
+    "GRUPO": "Grupo II. Personal Administrativo (contrato de aprendizaje)",
+    "FUNCIONES": "Ligado/a a la Empresa por un contrato especial de aprendizaje administrativo, por cuya virtud la empresa, a la vez que utiliza su trabajo, se obliga a enseñarle prácticamente la técnica administrativa (Anexo 1.II, por analogía con la figura de Aspirante).",
+    "SALARIO_BASE": "869,84 €/mes (tabla salarial 2026, Anexo 2), más pagas extraordinarias de igual cuantía"
+  }
+}
